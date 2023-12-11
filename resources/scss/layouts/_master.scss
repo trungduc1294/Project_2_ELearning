@@ -1,0 +1,16 @@
+@use '../partials/header';
+@use '../partials/footer';
+
+.background_pattern {
+    background-image: url("https://www.design.svgbackgrounds.com/wp-content/uploads/2021/05/subtle-prism-triangle-pattern.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @apply w-full;
+    //@apply h-screen w-screen;
+
+    .background_cover {
+        background-color: rgba(21,31,50, 0.9);
+        @apply relative;
+    }
+}

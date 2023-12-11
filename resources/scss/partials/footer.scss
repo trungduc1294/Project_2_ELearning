@@ -1,0 +1,60 @@
+.footer_background_cover {
+    @apply bg-gradient-to-br from-[rgb(51,77,121)] to-[rgb(21,33,52)];
+    @apply w-full;
+    @apply px-8 py-10;
+    @apply relative;
+
+    .top_info {
+        @apply flex justify-between;
+        @apply py-10;
+
+        .logo {
+            @apply text-white;
+            @apply font-bold text-6xl;
+        }
+
+        .quick_nav {
+            @apply flex justify-end gap-20 items-center;
+            @apply w-1/2;
+
+            .nav_col {
+
+                h1 {
+                    @apply text-white;
+                    @apply font-bold text-xl;
+                    @apply mb-5;
+                }
+
+                ul {
+                    @apply text-[#2196F3];
+                    @apply font-medium text-base;
+                    @apply mb-5;
+
+                    li {
+                        @apply mb-2;
+
+                        &:hover {
+                            @apply text-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom_info {
+        @apply flex flex-col justify-between items-center;
+        @apply border-t text-[#2196F3];
+        @apply pt-4;
+
+        p {
+            @apply text-[#2196F3];
+        }
+    }
+
+    .footer_pattern {
+        @apply w-1/4;
+        @apply absolute top-0 left-0;
+        @apply z-0;
+    }
+}

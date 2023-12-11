@@ -1,0 +1,64 @@
+.header {
+    @apply w-full;
+    @apply py-4 px-4;
+    @apply flex justify-between items-center;
+    @apply z-10;
+
+    .header__logo {
+
+        h1 {
+            @apply text-3xl font-bold text-white;
+        }
+    }
+
+    .header__auth {
+        @apply flex items-center gap-4;
+
+        .search {
+            @apply bg-[#13253D];
+            @apply px-3 py-2 rounded-xl;
+            @apply flex-none self-center;
+            @apply duration-300;
+
+            &:hover {
+                @apply bg-[#192848];
+                @apply duration-300;
+            }
+
+            &:hover i {
+                @apply text-[#328AF1];
+                @apply duration-300;
+            }
+
+            i {
+                @apply text-white;
+                @apply duration-300;
+            }
+        }
+
+        .signin {
+            @apply text-white font-medium;
+            @apply duration-300;
+
+            &:hover {
+                @apply underline;
+                @apply duration-300;
+            }
+        }
+
+        .registration {
+            @apply px-3 py-0.5 rounded-xl;
+            @apply bg-gradient-to-r from-cyan-500 to-blue-500;
+            @apply transition duration-500 ease-in-out;
+
+            &:hover {
+                @apply bg-gradient-to-r from-blue-500 to-cyan-500;
+                @apply transition duration-500 ease-in-out;
+            }
+
+            a {
+                @apply text-white font-medium;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.landing-page__content {
+    @apply flex justify-between items-center;
+    @apply py-20 px-20;
+    @apply relative;
+    @apply z-10;
+
+    .title {
+        @apply w-3/5;
+
+        h1 {
+            @apply text-white text-7xl font-extrabold;
+        }
+
+        h2 {
+            @apply font-extrabold text-transparent text-7xl;
+            @apply bg-clip-text bg-gradient-to-r from-[#617efe] to-blue-400;
+        }
+    }
+
+    .navigation_tab {
+        @apply px-3 py-6;
+        @apply font-bold text-white;
+        @apply bg-black;
+        @apply rounded-xl;
+
+        .nav_group {
+            @apply flex flex-col;
+            @apply mx-4;
+
+
+            .title {
+                @apply text-primary-red;
+            }
+
+            .nav_item {
+                @apply pr-10 pl-4 mb-3;
+                @apply w-full;
+                @apply relative;
+                &:before {
+                    @apply content-[''];
+                    @apply block absolute;
+                    @apply top-0 left-0 mr-1;
+                    @apply w-1 h-full;
+                    @apply bg-gray-600;
+                    @apply rounded;
+                }
+                &:hover a, &:hover &:before {
+                    @apply bg-blue-600;
+                }
+                &:hover .nav_name {
+                    @apply text-white;
+                }
+
+                a {
+                    @apply block pl-2 pr-4 w-full;
+                    @apply rounded border-none;
+
+                    .comment {
+                        @apply font-medium text-gray-600
+                    }
+
+                    .links {
+                        @apply flex justify-between items-center;
+
+                        span {
+                            @apply font-bold;
+                        }
+
+                        p {
+                            @apply font-bold text-primary-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.landing-page__illustration{
+    @apply w-2/5;
+    @apply absolute top-20 right-80;
+    @apply opacity-70;
+    @apply z-0;
+}

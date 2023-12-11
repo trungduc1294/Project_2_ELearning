@@ -1,0 +1,36 @@
+.quiz-start {
+  @apply flex flex-col items-center justify-center;
+  @apply h-screen;
+
+  .course-icon {
+    
+  }
+
+  .course-info {
+    @apply flex flex-col items-center justify-center;
+
+    h1 {
+      @apply text-3xl font-bold text-center text-white;
+      @apply my-6;
+    }
+
+    p {
+      @apply text-center;
+      @apply text-white;
+    }
+  }
+
+  .quiz-start-btn {
+    @apply flex items-center justify-center;
+    @apply px-4 py-2;
+    @apply font-medium text-sm;
+    @apply rounded-full;
+    @apply bg-light-grey;
+    @apply shadow-lg;
+    @apply my-6;
+    
+    a { 
+
+    }
+  }
+}

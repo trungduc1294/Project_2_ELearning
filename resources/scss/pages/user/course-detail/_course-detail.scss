@@ -1,0 +1,119 @@
+.course_detail {
+    @apply flex gap-16;
+    @apply px-20 py-16;
+
+    .teacher_detail {
+        @apply w-1/4;
+
+        .teacher_detail_container {
+            @apply flex flex-col;
+
+            .avatar {
+                @apply w-full;
+                @apply drop-shadow-2xl;
+
+                img {
+                    @apply w-full;
+                    @apply rounded-2xl;
+                }
+            }
+
+            .teacher_info {
+                @apply w-full;
+                @apply py-6;
+
+                .name {
+                    @apply text-center;
+
+                    h3 {
+                        @apply text-2xl font-medium text-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .course_content {
+        @apply flex-1;
+
+        .summary_course {
+
+            .course_name {
+                @apply text-4xl font-medium text-white;
+            }
+
+            .course_category {
+                @apply text-white;
+                @apply inline-block;
+                @apply px-4 py-1 my-4;
+                @apply rounded-full;
+                @apply bg-blue-pastel-20;
+            }
+
+            .course_description {
+                @apply text-white;
+            }
+        }
+
+        .lessons_list {
+            @apply mt-10;
+
+            .course_nav {
+                @apply flex gap-4;
+
+                .play_course {
+                    @apply px-8 py-2;
+                    @apply rounded-xl;
+                    @apply bg-primary-white;
+                    @apply text-gray-900 font-medium text-center text-sm;
+                }
+
+                .take_quiz {
+                    @apply px-8 py-2;
+                    @apply rounded-xl;
+                    @apply bg-blue-pastel-20;
+                    @apply text-white font-medium text-center text-sm;
+                }
+            }
+
+            .lessons {
+                @apply mt-4;
+
+                .lesson {
+                    @apply flex gap-4;
+                    @apply items-center;
+                    @apply bg-[rgb(24,39,63)];
+                    @apply rounded-xl;
+                    @apply px-8 py-4 my-3;
+
+                    .progress_check {
+
+                        .check {
+                            @apply w-20 h-20;
+                            @apply flex flex-col justify-center items-center;
+                            @apply rounded-full;
+                            @apply bg-[rgb(236,69,79)];
+                            @apply text-white font-medium text-center text-2xl;
+                        }
+                    }
+
+                    .lesson_info {
+
+                        .lesson_name {
+                            @apply text-white font-medium text-xl;
+                        }
+
+                        .lesson_decs {
+                            @apply text-sm font-medium text-white;
+                            @apply py-4;
+                        }
+
+                        .lesson_duration {
+                            @apply text-sm font-medium text-[#6D85A3];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

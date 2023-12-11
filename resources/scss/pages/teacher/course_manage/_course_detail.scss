@@ -1,0 +1,15 @@
+.add_lesson {
+  @apply flex gap-4;
+  @apply bg-[rgb(24,39,63)];
+  @apply rounded-xl;
+  @apply p-4 my-3;
+  @apply text-white font-medium text-2xl;
+  @apply justify-center;
+
+  .add_lesson_button {
+    @apply w-16 h-16;
+    @apply flex flex-col justify-center items-center;
+    @apply rounded-full;
+    @apply bg-red-pastel;
+  }
+}

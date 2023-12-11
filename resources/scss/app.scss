@@ -1,0 +1,16 @@
+@use 'layouts/master';
+
+@use "pages/page-entrypoint";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    
+}
+
+* {
+    @apply font-sans;
+    @apply box-border m-0 p-0;
+}
