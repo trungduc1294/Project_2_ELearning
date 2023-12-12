@@ -17,6 +17,18 @@ Route::get('/', function () {
     return view('pages.landing-page.index');
 });
 
+// Route::get('/login', [App\Http\Controllers\LoginController::class, 'showLoginForm'])->name('login');
+
+Route::get('/signup', function() {
+    return view('auth.signup-page');
+});
+
+Route::get('/login', function() {
+    return view('auth.login-page');
+});
+
+
+// View Router 
 Route::get('/test-layout', function () {
     return view('pages.landing-page.after_login_layout');
 });

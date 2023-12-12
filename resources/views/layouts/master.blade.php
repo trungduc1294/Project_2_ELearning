@@ -26,23 +26,26 @@
     @yield('style-libraries')
     {{--Styles custom--}}
     @yield('styles')
+
+    @livewireStyles
 </head>
 <body>
+    <div class="background_pattern">
+        <div class="background_cover">
+            @include('partials.header')
+            {{-- @include('partials.account_header') --}}
 
-<div class="background_pattern">
-    <div class="background_cover">
-        @include('partials.header')
-        {{-- @include('partials.account_header') --}}
-
-        @yield('content')
+            @yield('content')
+        </div>
     </div>
-</div>
 
-@include('partials.footer')
+    @include('partials.footer')
 
-{{--Scripts js common--}}
-<script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-{{--Scripts link to file or js custom--}}
-@yield('scripts')
+    {{--Scripts js common--}}
+    <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+    {{--Scripts link to file or js custom--}}
+    @yield('scripts')
+
+    @livewireScripts
 </body>
 </html>

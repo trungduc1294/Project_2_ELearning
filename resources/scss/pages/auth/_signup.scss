@@ -1,29 +1,84 @@
-.signup-container {
-  @apply bg-dark-blue;
+.login {
+  @apply flex items-center justify-center;
+  @apply h-screen;
 
-  h1 {
+  .login-container {
+    @apply bg-bg-primary;
+    @apply w-2/5;
+    @apply rounded-2xl;
+    @apply shadow-lg;
+    @apply p-24;
+  
+    .title {
+      @apply text-4xl font-medium text-center text-white;
+      @apply mb-4;
+    }
+  
+    form {
+      .input-container {
+        @apply mb-4;
+        @apply relative;
 
-  }
+        label {
+          @apply text-primary-gray text-sm font-medium;
+          @apply block;
+          @apply mb-1;
+        }
+        
+        input {
+          @apply bg-transparent;
+          @apply w-full;
+          @apply text-sm text-primary-gray font-light;
+          @apply border-b border-[#19304E];
+          @apply pb-1 pl-1;
 
-  form {
+          &:focus {
+            @apply outline-none;
+            @apply text-white;
+          }
+        }
 
-    .form-group {
+        .show-password {
+          @apply absolute;
+          @apply text-primary-gray;
+          @apply right-6;
+          @apply top-4;
+          @apply mt-2;
+          @apply mr-2;
+          @apply cursor-pointer;
+        }
+  
+        .check-icon {
+          @apply text-primary-gray;
+          @apply absolute;
+          @apply right-0;
+          @apply top-4;
+          @apply mt-2;
+          @apply mr-2;
+        }
 
-      label {
-
-      }
-      
-      input {
-
+        button {
+          @apply bg-btn-primary-blue;
+          @apply text-white;
+          @apply text-sm;
+          @apply font-medium;
+          @apply rounded-2xl;
+          @apply py-2 px-4;
+          @apply mt-4;
+          @apply w-full;
+        }
       }
     }
-
-    button {
-
+  
+    .forgot-password {
+      @apply text-light-blue text-sm font-medium;
+      @apply text-center;
+      @apply mb-4;
     }
-    
-    a {
-
+  
+    .signup {
+      @apply text-light-blue text-sm font-medium;
+      @apply text-center;
     }
   }
 }
