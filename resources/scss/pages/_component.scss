@@ -12,3 +12,11 @@
   @apply text-white font-medium text-center text-sm;
   @apply cursor-pointer;
 }
+
+.tab-button-active {
+  @apply px-8 py-2;
+  @apply rounded-xl;
+  @apply bg-blue-pastel-20;
+  @apply text-primary-blue font-medium text-center text-sm;
+  @apply cursor-pointer;
+}

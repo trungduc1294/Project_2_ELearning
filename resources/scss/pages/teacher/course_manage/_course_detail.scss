@@ -6,17 +6,23 @@
   @apply rounded-xl;
   @apply p-4 my-3;
   @apply text-white font-medium text-2xl;
-  @apply transition-all duration-300;
 
   .add_lesson_button {
     @apply w-16 h-16;
     @apply rounded-full;
     @apply bg-red-pastel;
+
+    // add rotate animation
+    @apply transform transition-all duration-1000;
+    @apply focus:rotate-180;
+    @apply hover:cursor-pointer;
   }
 
   .create_lesson_form {
     @apply w-full;
     @apply py-4 px-36;
+    @apply transform transition-all duration-1000;
+
 
     h1 {
       @apply text-white font-medium text-2xl;

@@ -31,22 +31,22 @@
 
         <div class="lessons_list">
             <div class="course_nav">
-              <div class="play_course" wire:click='changeStep("lesson-list")'>
+              <div class="play_course tab-button " wire:click='changeStep("lesson-list")'>
                   <a href="#">
                       <i class="fas fa-play"></i>
                       <span>Lesson List</span>
                   </a>
               </div>
-              <div class="take_quiz tab-button" wire:click='changeStep("quiz")'>
+              <div class="take_quiz tab-button" wire:click='changeStep("quiz")' onclick="toggleTab">
                   <span>Quiz</span>
               </div>
-              <div class="students_manage secondary_button tab-button">
+              <div class="students_manage tab-button" wire:click='changeStep("students")'>
                 <span>Students</span>
               </div>
-              <div class="meeting_manage secondary_button tab-button">
+              <div class="meeting_manage tab-button" wire:click='changeStep("meeting")'>
                 <span>Meeting</span>
               </div>
-              <div class="example_manage secondary_button tab-button">
+              <div class="example_manage tab-button" wire:click='changeStep("exams")'>
                 <span>Exams</span>
               </div>
             </div>
@@ -94,22 +94,27 @@
                 </div>
 
                 <div x-data="{ open: false }" class="add_lesson">
-                    <button x-on:click="open=!open" href="" class="add_lesson_button">
-                    <i class="fa-solid fa-plus"></i>
+                    <button x-on:click="open = !open" href="" class="add_lesson_button">
+                        <template x-if="open" class="minus-btn">
+                            <i class="fa-solid fa-minus"></i>
+                        </template>
+                        <template x-if="!open" class="plus-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </template>
                     </button>
                     <div class="create_lesson_form" x-show="open" @click.outside="open = false">
-                    <h1>Create new lesson</h1>
-                    <form>
-                        <div class="input-container">
-                            <label for="course_title">Course Title</label>
-                            <input type="text" id="course_title" name="course_title" placeholder="Enter Course Title">    
-                        </div>
-                        <div class="input-container">
-                            <label for="course_description">Course Description</label>
-                            <input id="course_description" name="course_description" placeholder="Enter Course Description">  
-                        </div>
-                        <button class="" type="submit">Add a lesson</button>
-                    </form>
+                        <h1>Create new lesson</h1>
+                        <form>
+                            <div class="input-container">
+                                <label for="course_title">Course Title</label>
+                                <input type="text" id="course_title" name="course_title" placeholder="Enter Course Title">    
+                            </div>
+                            <div class="input-container">
+                                <label for="course_description">Course Description</label>
+                                <input id="course_description" name="course_description" placeholder="Enter Course Description">  
+                            </div>
+                            <button class="" type="submit">Add a lesson</button>
+                        </form>
                     </div>
                 </div>
             @endif
@@ -122,9 +127,23 @@
             @endif
 
             {{-- Students --}}
+            @if ($step == "students")
+                <livewire:students-tab>
+            @endif
+
+            {{-- Meeting --}}
+            @if ($step == "meeting")
+                <livewire:meeting-tab>
+            @endif
+
+            {{-- Exams --}}
+            @if ($step == "exams")
+                <livewire:exams-tab>
+            @endif
         </div>
     </div>
+</div>
 
-    
+<script>
 
-  </div>
+</script>
