@@ -64,14 +64,14 @@
                 .play_course {
                     @apply px-8 py-2;
                     @apply rounded-xl;
-                    @apply bg-primary-white;
+                    @apply bg-blue-pastel-20;
                     @apply text-gray-900 font-medium text-center text-sm;
                 }
 
                 .take_quiz {
                     @apply px-8 py-2;
                     @apply rounded-xl;
-                    @apply bg-blue-pastel-20;
+                    @apply bg-primary-blue;
                     @apply text-white font-medium text-center text-sm;
                 }
             }

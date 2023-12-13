@@ -1,15 +1,65 @@
 .add_lesson {
-  @apply flex gap-4;
+  @apply flex gap-4 flex-col;
+  @apply justify-center items-center;
+  @apply w-full;
   @apply bg-[rgb(24,39,63)];
   @apply rounded-xl;
   @apply p-4 my-3;
   @apply text-white font-medium text-2xl;
-  @apply justify-center;
+  @apply transition-all duration-300;
 
   .add_lesson_button {
     @apply w-16 h-16;
-    @apply flex flex-col justify-center items-center;
     @apply rounded-full;
     @apply bg-red-pastel;
+  }
+
+  .create_lesson_form {
+    @apply w-full;
+    @apply py-4 px-36;
+
+    h1 {
+      @apply text-white font-medium text-2xl;
+      @apply mb-4;
+      @apply text-center;
+    }
+
+    form {
+      @apply w-full;
+      @apply flex flex-col gap-4;
+
+      .input-container {
+        @apply w-full;
+        @apply flex flex-col gap-2;
+
+        label {
+          @apply text-white font-medium text-base;
+        }
+
+        input {
+          @apply w-full;
+          @apply rounded-lg;
+          @apply bg-[rgb(24,39,63)];
+          @apply border-2 border-[rgb(24,39,63)];
+          @apply p-1;
+          @apply text-white font-medium text-base;
+          @apply transition-all duration-300;
+          @apply border-b-2 border-primary-gray;
+
+          &:focus {
+            @apply border-2 border-red-pastel;
+          }
+        }
+      }
+
+      button {
+        @apply bg-btn-primary-blue;
+        @apply text-white font-medium text-base;
+        @apply mt-2;
+        @apply py-1 px-4;
+        @apply rounded-lg;
+        @apply text-base;
+      }
+    }
   }
 }
