@@ -1,8 +1,8 @@
-.signup-page {
+.login {
   @apply flex items-center justify-center;
   @apply h-screen;
-  
-  .signup-container {
+
+  .login-container {
     @apply bg-bg-primary;
     @apply w-2/5;
     @apply rounded-2xl;
@@ -76,7 +76,7 @@
       @apply mb-4;
     }
   
-    .signin {
+    .signup {
       @apply text-light-blue text-sm font-medium;
       @apply text-center;
     }
