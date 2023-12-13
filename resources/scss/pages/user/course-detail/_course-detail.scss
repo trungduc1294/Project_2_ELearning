@@ -30,6 +30,12 @@
                     }
                 }
             }
+
+            .course-info {
+                @apply text-white text-base text-light-grey font-bold;
+                @apply underline;
+                @apply text-center;
+            }
         }
     }
 
