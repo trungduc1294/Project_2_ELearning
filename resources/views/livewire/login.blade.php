@@ -3,17 +3,18 @@
         <div class="title">
             <h1>Log In</h1>
         </div>
-        <form action="">
+
+        <form wire:submit.prevent='submit'>
             <div class="input-container">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter Email">
+                <input type="email" name="email" id="email" placeholder="Enter Email" wire:model='email'>
                 <div class="check-icon">
                     <i class="fa-solid fa-check"></i>
                 </div>
             </div>
             <div class="input-container">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password">
+                <input type="password" name="password" id="password" placeholder="Enter Password" wire:model='password'>
                 <div class="icons show-password" onclick="togglePasswordVisibility()">
                     <i class="fa-solid fa-eye" id="password-icon"></i>
                 </div>
@@ -25,11 +26,12 @@
                 <button type="submit">Login</button>
             </div>
         </form>
+        
         <div class="forgot-password">
             <a href="">Forgot Your Password?</a>
         </div>
         <div class="signup">
-            <a href="">Sign up</a>
+            <a href="/signup">Sign up</a>
         </div>
     </div>
 </div>

@@ -3,10 +3,10 @@
         <div class="title">
             <h1>Sign Up</h1>
         </div>
-        <form wire:submit.prevent='showEmail'>
+        <form wire:submit.prevent='submit'>
             <div class="input-container">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Enter Username">
+                <input type="text" name="username" id="username" placeholder="Enter Username" wire:model='username'>
                 <div class="check-icon">
                     <i class="fa-solid fa-check"></i>
                 </div>
@@ -20,7 +20,7 @@
             </div>
             <div class="input-container">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter Password">
+                <input type="password" name="password" id="password" placeholder="Enter Password" wire:model='password'>
                 <div class="icons show-password" onclick="togglePasswordVisibility()">
                     <i class="fa-solid fa-eye" id="password-icon"></i>
                 </div>
@@ -33,7 +33,7 @@
             </div>
         </form>
         <div class="signin">
-            <a href="">Already have an account?</a>
+            <a href='/login'>Already have an account?</a>
         </div>
     </div>
 </div>

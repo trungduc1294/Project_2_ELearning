@@ -7,10 +7,10 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div class="signin">
-            <a href="#">Sign in</a>
+            <a href="/login">Sign in</a>
         </div>
         <div class="registration">
-            <a href="#">Get started for free</a>
+            <a href="/signup">Get started for free</a>
         </div>
     </div>
 </div>
