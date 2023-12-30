@@ -1,7 +1,7 @@
 .secondary_button {
   @apply px-8 py-2;
   @apply rounded-xl;
-  @apply bg-blue-pastel-20;
+  @apply bg-pastel-blue;
   @apply text-white font-medium text-center text-sm;
 }
 
@@ -19,4 +19,19 @@
   @apply bg-blue-pastel-20;
   @apply text-primary-blue font-medium text-center text-sm;
   @apply cursor-pointer;
+}
+
+.road_path {
+  @apply flex;
+  @apply mb-6;
+
+  .road_path_item {
+    @apply text-gray-400 text-sm font-bold;
+    @apply mr-2;
+  }
+
+  .road_path_item:last-child {
+    @apply text-white text-sm font-bold;
+    @apply mr-2;
+  }
 }

@@ -1,3 +1,111 @@
 .quiz-manage {
+  @apply mx-12 mt-6;
 
+  .course_content {
+
+    .summary_course {
+      @apply mb-4;
+
+      .course_name {
+        @apply text-2xl font-bold text-white;
+      }
+      .course_category {
+        @apply text-white;
+        @apply px-2 my-2;
+        @apply rounded-full;
+        @apply bg-blue-500;
+        @apply inline-block;
+      }
+  
+      .course_description {
+        @apply text-white;
+        @apply mt-2;
+      }
+    }
+  }
+
+  .quiz-container {
+    @apply my-2 px-20;
+    @apply pt-10;
+    @apply border-t border-gray-300;
+
+    .quiz-nav {
+      @apply mb-4;
+      .item {
+        @apply inline-block;
+        @apply rounded-full;
+        @apply bg-primary-blue;
+        @apply text-white;
+        @apply cursor-pointer;
+        @apply mr-4 pr-4;
+
+        i {
+          @apply p-3;
+          @apply rounded-full;
+        }
+
+        i, span {
+          @apply transform transition-all duration-300;
+        }
+
+        &:hover i {
+          @apply bg-blue-500;
+        }
+
+        &:hover span {
+          @apply font-bold;
+        }
+
+      }
+    }
+    
+
+    .quiz {
+      @apply bg-primary-blue;
+      @apply rounded-lg;
+      @apply px-10 py-4;
+      @apply cursor-pointer;
+      @apply mb-4;
+
+      .quiz-question {
+        
+        span, p {
+          @apply text-white font-bold text-white;
+          @apply inline-block;
+        }
+      }
+
+      .quiz-answer-block {
+        @apply mt-4;
+        @apply flex flex-wrap gap-4;
+        @apply justify-between;
+        
+        .quiz-answer {
+          @apply w-2/5;
+          @apply flex;
+          @apply items-center;
+          
+          span, p {
+            @apply text-white text-white;
+            @apply inline-block;
+          }
+
+          span {
+            @apply flex items-center justify-center;
+            @apply w-24 h-12;
+            @apply mr-6;
+            @apply rounded-full;
+            @apply font-bold;
+            @apply bg-pastel-blue;
+          }
+        }
+
+        .quiz-answer-correct {
+          span {
+            @apply bg-green-500;
+          }
+        }
+      }
+    }
+  }
 }

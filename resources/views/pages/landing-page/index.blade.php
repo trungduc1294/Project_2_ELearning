@@ -23,10 +23,22 @@
                 </div>
 
                 <div class="nav_item">
+                    <a href="/teacher/courses-detail">
+                        <span class="comment">
+                            //course-detail
+                        </span>
+                        <div class="links">
+                            <span>"course" => </span>
+                            <p class="nav_name">"Detail"</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="nav_item">
                     <a href="#">
-                <span class="comment">
-                    //deepdive
-                </span>
+                    <span class="comment">
+                        //deepdive
+                    </span>
                         <div class="links">
                             <span>"browse" => </span>
                             <p class="nav_name">"Series"</p>
@@ -36,21 +48,9 @@
 
                 <div class="nav_item">
                     <a href="#">
-                <span class="comment">
-                    //deepdive
-                </span>
-                        <div class="links">
-                            <span>"browse" => </span>
-                            <p class="nav_name">"Series"</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="nav_item">
-                    <a href="#">
-                <span class="comment">
-                    //deepdive
-                </span>
+                        <span class="comment">
+                            //deepdive
+                        </span>
                         <div class="links">
                             <span>"browse" => </span>
                             <p class="nav_name">"Series"</p>
