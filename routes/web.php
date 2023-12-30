@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,10 @@ Route::get('/signup', function() {
 
 Route::get('/login', function() {
     return view('auth.login-page');
-});
+})->name('login');
 
+
+Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 // View Router 
 Route::get('/test-layout', function () {

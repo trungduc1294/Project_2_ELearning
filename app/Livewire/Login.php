@@ -27,7 +27,10 @@ class Login extends Component
         // find user in database
         $user = User::where('email', $this->email)->first();
         if ($user && $user->password == $this->password) {
-            redirect('/course-detail');
+            session()->put('userId', $user->id);
+            session()->put('username', $user->username);
+
+            redirect('/');
         } else {
             dd('user not found');
         }
