@@ -3,6 +3,8 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TeacherQuiz;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,8 @@ Route::get('/', function () {
     return view('pages.landing-page.index');
 });
 
+// ===================== Route for Auth =====================
+
 // Route::get('/login', [App\Http\Controllers\LoginController::class, 'showLoginForm'])->name('login');
 
 Route::get('/signup', function() {
@@ -30,6 +34,12 @@ Route::get('/login', function() {
 
 
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+
+// ===================== Route for Teacher =====================
+
+Route::any('/teacher/quiz-manage', [TeacherQuiz::class, 'index'])->name('quiz-manage');
+
+// ===================== Route for Student =====================
 
 // View Router 
 Route::get('/test-layout', function () {
