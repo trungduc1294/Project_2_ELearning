@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\StudentManage;
+use App\Http\Controllers\AuthController\LoginController;
+use App\Http\Controllers\TeacherController\StudentManage;
+use App\Http\Controllers\TeacherController\TeacherQuiz;
+
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\TeacherQuiz;
 
 /*
 |--------------------------------------------------------------------------
