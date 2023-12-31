@@ -51,11 +51,6 @@
         &:hover i {
           @apply bg-blue-500;
         }
-
-        &:hover span {
-          @apply font-bold;
-        }
-
       }
     }
     
@@ -104,6 +99,104 @@
           span {
             @apply bg-green-500;
           }
+        }
+      }
+    }
+  }
+
+  // create quiz panel
+  .create-quiz-container, .update-quiz-container {
+    @apply w-full h-full;
+    @apply bg-[#00000090];
+    @apply absolute top-0 left-0;
+    @apply flex items-center justify-center;
+    
+    .create-quiz-panel, .update-quiz-panel {
+      @apply w-1/2;
+      @apply p-10;
+      @apply rounded-lg;
+      @apply bg-primary-gray;
+
+      h1 {
+        @apply text-3xl font-bold text-white;
+        @apply mb-10;
+      }
+
+      .question {
+        @apply flex align-middle justify-center gap-2;
+        
+        label {
+          @apply text-white font-bold;
+        }
+
+        input {
+          @apply w-full;
+          @apply bg-inherit;
+          @apply text-primary-blue;
+          @apply border-b border-gray-300 outline-none;
+        }
+      }
+
+      .answer-block {
+        @apply mt-4;
+        @apply flex flex-wrap gap-4;
+        @apply justify-between;
+        
+        .answer {
+          @apply w-5/12;
+          @apply flex;
+          @apply items-center;
+
+          label {
+            @apply text-white font-bold;
+            @apply mr-2;
+          }
+          
+          input {
+            @apply w-full;
+            @apply px-2 py-1;
+            @apply bg-inherit;
+            @apply text-primary-blue;
+            @apply rounded-md;
+            @apply border border-gray-300 outline-none;
+          
+          }
+        }
+      }
+
+      .correct-answer {
+        @apply mt-4;
+        
+        label {
+          @apply text-white font-bold;
+          @apply mr-2;
+        }
+
+        select {
+          @apply px-2 py-1;
+          @apply bg-inherit;
+          @apply text-white;
+          @apply rounded-md;
+          @apply border border-gray-300 outline-none;
+
+          option {
+            @apply bg-primary-gray;
+            @apply text-white;
+          }
+        }
+      }
+
+      .submit {
+        @apply mt-4;
+        @apply flex justify-center;
+        
+        button {
+          @apply px-4 py-2;
+          @apply bg-primary-blue;
+          @apply text-white;
+          @apply rounded-md;
+          @apply font-bold;
+          @apply cursor-pointer;
         }
       }
     }

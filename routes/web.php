@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StudentManage;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TeacherQuiz;
@@ -38,6 +39,8 @@ Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 // ===================== Route for Teacher =====================
 
 Route::any('/teacher/quiz-manage', [TeacherQuiz::class, 'index'])->name('quiz-manage');
+
+Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
 
 // ===================== Route for Student =====================
 
