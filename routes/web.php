@@ -35,6 +35,7 @@ Route::get('/login', function() {
 })->name('login');
 
 
+
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 // ===================== Route for Teacher =====================
