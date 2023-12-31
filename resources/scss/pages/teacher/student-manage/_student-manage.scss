@@ -1,0 +1,152 @@
+.student-manage {
+  @apply mx-12 mt-6;
+
+  .course_content {
+
+    .summary_course {
+      @apply mb-4;
+
+      .course_name {
+        @apply text-2xl font-bold text-white;
+      }
+      .course_category {
+        @apply text-white;
+        @apply px-2 my-2;
+        @apply rounded-full;
+        @apply bg-blue-500;
+        @apply inline-block;
+      }
+  
+      .course_description {
+        @apply text-white;
+        @apply mt-2;
+      }
+    }
+  }
+
+  .student-container {
+    @apply my-2 px-20;
+    @apply pt-10;
+    @apply border-t border-gray-300;
+
+    .student-nav {
+      @apply mb-4;
+      .item {
+        @apply inline-block;
+        @apply rounded-full;
+        @apply bg-primary-blue;
+        @apply text-white;
+        @apply cursor-pointer;
+        @apply mr-4 pr-4;
+
+        i {
+          @apply p-3;
+          @apply rounded-full;
+        }
+
+        i, span {
+          @apply transform transition-all duration-300;
+        }
+
+        &:hover i {
+          @apply bg-blue-500;
+        }
+      }
+    }
+    
+    // std table
+    .student-table {
+      @apply bg-primary-blue;
+      @apply rounded-lg;
+      @apply px-10 py-4;
+      @apply cursor-pointer;
+      @apply mb-4;
+
+      table {
+        @apply w-full;
+        @apply text-white;
+
+        thead, tbody {
+          @apply w-full;
+          @apply text-left;
+
+          th, td {
+            @apply py-2;
+          }
+
+          .std-manage-action{
+            // @apply text-center;
+            @apply flex gap-4 justify-center items-center;
+
+            .delete-std, .ban-std {
+              &:hover {
+                @apply text-red-500;
+              }
+            }
+          }
+        }
+
+        thead {
+          @apply border-b border-gray-300;
+        }
+      }
+    }
+  }
+
+  // add std panel
+  .add-student-container {
+    @apply w-full h-full;
+    @apply bg-[#00000090];
+    @apply absolute top-0 left-0;
+    @apply flex items-center justify-center;
+    
+    .add-student-panel  {
+      @apply w-1/2;
+      @apply p-10;
+      @apply rounded-lg;
+      @apply bg-primary-gray;
+
+      h1 {
+        @apply text-3xl font-bold text-white;
+        @apply mb-10;
+      }
+
+      form {
+        .search-std {
+          @apply mb-4;
+          @apply flex justify-center items-center;
+          
+          label {
+            @apply text-white font-bold;
+            @apply inline-block;
+            @apply mb-2;
+          }
+
+          input {
+            @apply w-full;
+            @apply px-2 py-1;
+            @apply rounded-md;
+            @apply bg-white;
+            @apply border border-gray-300;
+            @apply focus:outline-none;
+            @apply focus:border-primary-blue;
+          }
+        }
+      }
+
+      .submit {
+        @apply mt-4;
+        @apply flex justify-center;
+        
+        button {
+          @apply px-4 py-2;
+          @apply bg-primary-blue;
+          @apply text-white;
+          @apply rounded-md;
+          @apply font-bold;
+          @apply cursor-pointer;
+        }
+      }
+    }
+  }
+}
