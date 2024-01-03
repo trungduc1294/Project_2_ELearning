@@ -13,30 +13,34 @@
             </div>
         </div>
         <div class="courses">
-            <div class="course-card">
-                <div class="card-illustration">
-                    <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
-                </div>
-                <div class="course-content">
-                    <div class="course-info">
-                        <h1 class="course-name">
-                            Learn Vue 3: Step by Step
-                        </h1>
-                        <p>I've been teaching Vue for years now. In fact, way back in 2015, as part of the first ever Vue series at Laracasts, I boldly predicted that Vue was about to skyrocket in</p>
+            @if ($listCourse)
+                @foreach ($listCourse as $course)
+                <div class="course-card">
+                    <div class="card-illustration">
+                        <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                     </div>
-                    <div class="course-statistical">
-                        <div class="number-of-lession">
-                            <span>51 Lessons</span>
+                    <div class="course-content">
+                        <div class="course-info">
+                            <h1 class="course-name">
+                                {{ $course['name'] }}
+                            </h1>
+                            <p>{{ $course['description'] }}</p>
                         </div>
-                        <div class="number-of-student">
-                            <span>1.2k Students</span>
-                        </div>
-                        <div class="total-time">
-                            <span>2h 30m</span>
+                        <div class="course-statistical">
+                            <div class="number-of-lession">
+                                <span> Lessons</span>
+                            </div>
+                            <div class="number-of-student">
+                                <span>1.2k Students</span>
+                            </div>
+                            <div class="total-time">
+                                <span>2h 30m</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
 
@@ -53,7 +57,10 @@
     <div class="panel-container create-course-panel" x-show="openCreateCoursePanel">
         <div class="panel" @click.outside="openCreateCoursePanel = false">
             <h1>Add new Course</h1>
-            <form wire:submit.prevent='addNewCourse()'>
+            <form wire:submit.prevent='
+                addNewCourse();
+                openCreateCoursePanel = false;
+            '>
                 <div class="form-group">
                     <label for="name">Course name:</label>
                     <input type="text" name="name" id="name" wire:model='course_name'>

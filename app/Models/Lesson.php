@@ -18,12 +18,4 @@ class Lesson extends Model
         "created_at",
         "updated_at",
     ];
-
-    public function course() {
-        return $this->belongsTo(Course::class);
-    }
-
-    public function quiz() {
-        return $this->hasMany(Quiz::class);
-    }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quiz_answers', function (Blueprint $table) {
-            $table->id('quiz_answer_id');
+            $table->id();
             $table->integer('quiz_id'); // quiz question id
             $table->string('answer_content'); 
             $table->boolean('is_correct')->default(false);

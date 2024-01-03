@@ -14,7 +14,7 @@ class Course extends Model
     protected $fillable = [
         'name',
         'description',
-        'number_of_lessions',
+        'number_of_lessons',
         'number_of_students',
         'duration',
         'teacher_id',
@@ -22,8 +22,4 @@ class Course extends Model
         "created_at",
         "updated_at",
     ];
-
-    public function lesson() {
-        return $this->hasMany(Lesson::class);
-    }
 }

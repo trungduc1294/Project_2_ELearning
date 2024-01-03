@@ -16,8 +16,4 @@ class QuizAnswer extends Model
         'created_at',
         'updated_at'
     ];
-
-    public function quiz() {
-        return $this->belongsTo(Quiz::class);
-    }
 }

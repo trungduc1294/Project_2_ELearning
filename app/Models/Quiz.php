@@ -17,12 +17,4 @@ class Quiz extends Model
         'created_at',
         'updated_at'
     ];
-
-    public function answer() {
-        return $this->hasMany(QuizAnswer::class);
-    }
-
-    public function lesson() {
-        return $this->belongsTo(Lesson::class);
-    }
 }
