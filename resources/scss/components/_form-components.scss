@@ -1,0 +1,46 @@
+.panel-container {
+  @apply w-full h-full;
+  @apply bg-[#00000090];
+  @apply absolute top-0 left-0;
+  @apply flex items-center justify-center;
+  
+  .panel{
+    @apply w-1/2;
+    @apply p-10;
+    @apply rounded-lg;
+    @apply bg-primary-gray;
+
+    h1 {
+      @apply text-3xl font-bold text-white;
+      @apply mb-10;
+    }
+
+    .form-group {
+      @apply flex align-middle justify-center gap-2;
+      
+      label {
+        @apply text-white font-bold;
+      }
+
+      input {
+        @apply w-full;
+        @apply bg-inherit;
+        @apply text-primary-blue;
+        @apply border-b border-gray-300 outline-none;
+      }
+    }
+
+    .submit {
+      @apply mt-4;
+      @apply flex justify-center;
+      button {
+        @apply px-4 py-2;
+        @apply bg-primary-blue;
+        @apply text-white;
+        @apply rounded-md;
+        @apply font-bold;
+        @apply cursor-pointer;
+      }
+    }
+  }
+}

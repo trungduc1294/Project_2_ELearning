@@ -1,0 +1,166 @@
+.lesson-detail-container {
+  @apply flex;
+  @apply bg-[#0A0F19];
+  @apply relative;
+
+  .side {
+    @apply h-[100vh] overflow-y-scroll;
+    @apply w-1/4;
+    @apply bg-[#0D131D];
+    @apply py-6 px-4;
+
+    .side-nav {
+      @apply mb-6;
+      .back {
+        @apply text-white font-medium text-sm;
+        @apply flex gap-2 items-center;
+      }
+    }
+
+    .course-info-container {
+      @apply mb-6;
+
+      .course-title {
+        @apply text-white font-bold text-base;
+        @apply mb-2;
+      }
+      .course-info {
+        @apply flex gap-4 items-center;
+        .item {
+          @apply text-primary-gray font-bold text-xs;
+          @apply flex gap-2 items-center;
+        }
+      }
+    }
+
+    .lesson-list {
+      @apply flex flex-col gap-2;
+
+      .lesson {
+        @apply cursor-pointer;
+        @apply flex gap-4 items-center;
+        @apply p-1 rounded-lg;
+        @apply hover:bg-[#111F33];
+        @apply transition-all duration-200;
+
+        .number {
+          @apply w-12 h-12 rounded-full;
+          @apply bg-[#111F33];
+          @apply flex items-center justify-center;
+          @apply text-white font-bold text-sm;
+        }
+
+        .content {
+          .lesson-title {
+            @apply text-white font-bold text-sm;
+            @apply flex gap-2 items-center;
+            @apply mb-1;
+          }
+          .lesson-info {
+            @apply flex gap-4 items-center;
+            .item {
+              @apply text-primary-gray font-bold text-xs;
+              @apply flex gap-2 items-center;
+            }
+          }
+        }
+      }
+
+      .lesson-active {
+        @apply bg-[#111F33];
+      }
+    }
+  }
+
+  // main content ========================================
+  .lesson-content {
+    @apply h-[100vh] overflow-y-scroll;
+
+    .video-container {
+      @apply w-full;
+
+      img {
+        @apply w-full h-[500px];
+        
+      }
+    }
+
+    .update-video-btn {
+      @apply bg-[#0D1828];
+      @apply rounded-xl;
+      @apply inline-block;
+      @apply px-4 py-2 mx-20 mt-4;
+      
+      @apply text-white font-bold text-sm;
+      @apply cursor-pointer;
+      @apply transition-all duration-200;
+
+      &:hover {
+        @apply bg-primary-gray;
+      }
+    }
+
+    .lesson-description {
+      @apply mx-20 my-6 px-6 py-4;
+      @apply bg-[#0D1828];
+      @apply rounded-xl;
+      @apply flex gap-4 items-center;
+
+      .update {
+        @apply text-white font-bold text-xl;
+        @apply cursor-pointer;
+        @apply transition-all duration-200;
+
+        &:hover {
+          @apply text-green-500;
+        }
+      }
+
+      .content {
+        h1 {
+          @apply text-xl font-bold text-white;
+          @apply mb-2;
+        }
+        p {
+          @apply text-white font-medium text-sm;
+        }
+      }
+    }
+
+    .discussion{
+      @apply mx-20;
+
+      .add-reply {
+
+      }
+      .reply-list {
+        .reply {
+          @apply bg-[#0D1828];
+          @apply rounded-xl;
+          @apply flex items-center gap-4;
+          @apply p-6 mb-4;
+          @apply transition-all duration-200;
+
+          .user-avatar {
+            img {
+              @apply w-20 h-20 rounded-xl;
+            }
+          }
+          .content {
+            .username {
+              @apply text-white font-bold text-xl;
+              @apply mb-2;
+            }
+            .reply-content {
+              @apply text-white font-medium text-sm;
+            }
+          }
+
+          &:hover {
+            @apply bg-[#111F33];
+          }
+        }
+      }
+    }
+  }
+}
