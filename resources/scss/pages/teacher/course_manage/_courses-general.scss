@@ -63,6 +63,7 @@
                 @apply bg-red-pastel rounded-lg;
                 @apply p-4;
                 @apply h-full;
+                @apply cursor-pointer;
 
                 .card-illustration {
                     @apply flex-1;

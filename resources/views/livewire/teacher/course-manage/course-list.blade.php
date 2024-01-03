@@ -15,7 +15,9 @@
         <div class="courses">
             @if ($listCourse)
                 @foreach ($listCourse as $course)
-                <div class="course-card">
+                <div class="course-card"
+                    onclick="window.location.href = '{{ route('teacher.course.detail', ['id' => $course['id']]) }}'"
+                >
                     <div class="card-illustration">
                         <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                     </div>
@@ -28,7 +30,7 @@
                         </div>
                         <div class="course-statistical">
                             <div class="number-of-lession">
-                                <span> Lessons</span>
+                                <span> Lessons </span>
                             </div>
                             <div class="number-of-student">
                                 <span>1.2k Students</span>

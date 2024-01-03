@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController\LoginController;
+use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\StudentManage;
@@ -50,6 +51,12 @@ Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'ind
 
 Route::get('/teacher/courses-list', [CourseListManage::class,'index']);
 
+Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
+
+// Route::get('/teacher/courses-detail/{id}', function () {
+//     return view('pages.teacher.courses-manage.course-detail');
+// })->name('teacher.course.detail');
+
 // ===================== Route for Student =====================
 
 // View Router 
@@ -76,9 +83,7 @@ Route::get('/sign-up', function () {
 // Teacher router
 
 
-Route::get('/teacher/courses-detail', function () {
-    return view('pages.teacher.courses-manage.course-detail');
-});
+
 
 
 

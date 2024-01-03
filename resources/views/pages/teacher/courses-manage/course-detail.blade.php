@@ -11,7 +11,9 @@
 @stop
 
 @section('content')
-  <livewire:teacher-course-detail>
+  @livewire('teacher-course-detail', [
+    'courseId' => $courseId,
+  ])
 @stop
 
 @section('scripts')
