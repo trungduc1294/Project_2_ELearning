@@ -28,20 +28,20 @@
                             //course-detail
                         </span>
                         <div class="links">
-                            <span>"course" => </span>
+                            <span>"Course" => </span>
                             <p class="nav_name">"Detail"</p>
                         </div>
                     </a>
                 </div>
 
                 <div class="nav_item">
-                    <a href="#">
+                    <a href="/teacher/courses-list">
                     <span class="comment">
-                        //deepdive
+                        //teacher
                     </span>
                         <div class="links">
-                            <span>"browse" => </span>
-                            <p class="nav_name">"Series"</p>
+                            <span>"Course" => </span>
+                            <p class="nav_name">"Lists"</p>
                         </div>
                     </a>
                 </div>

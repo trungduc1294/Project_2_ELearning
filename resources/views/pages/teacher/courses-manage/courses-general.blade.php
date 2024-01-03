@@ -17,6 +17,11 @@
                 <div class="title">
                     <h3>My courses manage</h3>
                 </div>
+                <div class="nav">
+                    <div class="add-course nav-item">
+                        <button>Add new Course</button>
+                    </div>
+                </div>
             </div>
             <div class="courses">
                 <div class="course-card">

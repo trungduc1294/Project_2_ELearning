@@ -38,6 +38,23 @@
           }
         }
 
+        select {
+          @apply bg-transparent;
+          @apply w-full;
+          @apply text-sm text-primary-gray font-light;
+          @apply border-b border-[#19304E];
+          @apply pb-1 pl-1;
+
+          &:focus {
+            @apply outline-none;
+            @apply text-primary-gray;
+          }
+
+          option {
+            @apply text-sm text-primary-gray font-light;
+          }
+        }
+
         .show-password {
           @apply absolute;
           @apply text-primary-gray;

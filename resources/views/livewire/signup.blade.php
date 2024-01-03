@@ -29,6 +29,16 @@
                 </div>
             </div>
             <div class="input-container">
+                <label for="role">Role</label>
+                <select name="role" id="role" wire:model='role'>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+                <div class="check-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+            <div class="input-container">
                 <button type="submit">Sign Up</button>
             </div>
         </form>
