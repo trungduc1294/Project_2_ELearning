@@ -22,4 +22,8 @@ class Course extends Model
         "created_at",
         "updated_at",
     ];
+
+    public function lesson() {
+        return $this->hasMany(Lesson::class);
+    }
 }

@@ -15,4 +15,12 @@ class CourseStudent extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function course () {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
 }
