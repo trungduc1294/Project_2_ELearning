@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController\LoginController;
+use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\StudentManage;
 use App\Http\Controllers\TeacherController\TeacherQuiz;
@@ -47,6 +48,8 @@ Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('st
 
 Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage');
 
+Route::get('/teacher/courses-list', [CourseListManage::class,'index']);
+
 // ===================== Route for Student =====================
 
 // View Router 
@@ -71,9 +74,7 @@ Route::get('/sign-up', function () {
 });
 
 // Teacher router
-Route::get('/teacher/courses-list', function () {
-    return view('pages.teacher.courses-manage.courses-general');
-});
+
 
 Route::get('/teacher/courses-detail', function () {
     return view('pages.teacher.courses-manage.course-detail');
