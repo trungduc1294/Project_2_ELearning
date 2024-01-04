@@ -2,7 +2,12 @@
     <div class="lessons">
         @if ($lessonList)
             @foreach ($lessonList as $lesson)
-                <div class="lesson">
+                <div class="lesson"
+                    onclick="window.location.href = '{{ route('teacher.lesson.detail', [
+                        'id' => $course['id'],
+                        'lesson_id' => $lesson->id,
+                    ]) }}'"
+                >
                     <div class="progress_check">
                         <div class="check">
                             <i class="fas fa-check"></i>

@@ -22,4 +22,5 @@ class Course extends Model
         "created_at",
         "updated_at",
     ];
+
 }

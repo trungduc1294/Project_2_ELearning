@@ -74,7 +74,7 @@
 
   // main content ========================================
   .lesson-content {
-    @apply h-[100vh] overflow-y-scroll;
+    @apply h-[100vh] w-full overflow-y-scroll;
 
     .video-container {
       @apply w-full;
@@ -104,7 +104,8 @@
       @apply mx-20 my-6 px-6 py-4;
       @apply bg-[#0D1828];
       @apply rounded-xl;
-      @apply flex gap-4 items-center;
+      @apply flex gap-4 items-center justify-between;
+
 
       .update {
         @apply text-white font-bold text-xl;
@@ -131,28 +132,61 @@
       @apply mx-20;
 
       .add-reply {
+        @apply bg-[#0D1828];
+        @apply rounded-xl;
+        @apply flex items-center gap-4;
+        @apply p-6 mb-4;
+        @apply transition-all duration-200;
 
+        .avatar {
+          @apply w-20 h-20 rounded-xl;
+          @apply bg-[#111F33];
+          @apply flex items-center justify-center;
+          @apply text-white font-bold text-sm;
+        }
+
+        .reply-form {
+          @apply w-full;
+          @apply flex gap-4;
+          input {
+            @apply w-full;
+            @apply bg-transparent;
+            @apply text-white font-medium text-base outline-none;
+          }
+          button {
+            @apply bg-primary-blue;
+            @apply rounded-lg;
+            @apply px-4 py-2;
+            @apply text-white font-bold text-sm;
+            @apply cursor-pointer;
+            @apply transition-all duration-200;
+
+            &:hover {
+              @apply bg-primary-gray;
+            }
+          }
+        }
       }
       .reply-list {
         .reply {
           @apply bg-[#0D1828];
           @apply rounded-xl;
           @apply flex items-center gap-4;
-          @apply p-6 mb-4;
+          @apply p-6 mb-2;
           @apply transition-all duration-200;
 
           .user-avatar {
             img {
-              @apply w-20 h-20 rounded-xl;
+              @apply w-16 h-16 rounded-xl;
             }
           }
           .content {
             .username {
-              @apply text-white font-bold text-xl;
+              @apply text-white font-bold text-sm;
               @apply mb-2;
             }
             .reply-content {
-              @apply text-white font-medium text-sm;
+              @apply text-white font-medium text-base;
             }
           }
 

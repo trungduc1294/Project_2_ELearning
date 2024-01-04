@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Course;
 use App\Models\Lesson;
 use Livewire\Component;
 
@@ -9,6 +10,9 @@ class TeacherLessonList extends Component
 {
     // add new lesson: wire:model data
     public $courseId;
+    public $course;
+
+
     public $newLessonName;
     public $newLessonDescription;
 
@@ -22,6 +26,7 @@ class TeacherLessonList extends Component
 
     public function fetchData () {
         $this->lessonList = Lesson::where('course_id', $this->courseId)->get();
+        $this->course = Course::find($this->courseId);
     }
 
     public function mount () {

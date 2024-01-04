@@ -11,7 +11,10 @@
 @stop
 
 @section('content')
-  @livewire('lesson-detail-manage', ['title' => $title])
+  @livewire('lesson-detail-manage', [
+    'course_id' => $course_id,
+    'lesson_id' => $lesson_id,
+  ])
 @stop
 
 @section('scripts')

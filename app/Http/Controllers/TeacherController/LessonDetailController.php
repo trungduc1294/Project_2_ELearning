@@ -13,4 +13,11 @@ class LessonDetailController extends Controller
             'title' => 'Lesson Detail Manage'
         ]);
     }
+
+    public function getLessonDetailPage(Request $request) {
+        return view('pages.teacher.lesson-detail-manage.page-lesson-detail', [
+            'course_id' => $request->id,
+            'lesson_id' => $request->lesson_id
+        ]);
+    }
 }

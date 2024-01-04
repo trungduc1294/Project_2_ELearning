@@ -53,9 +53,8 @@ Route::get('/teacher/courses-list', [CourseListManage::class,'index']);
 
 Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
 
-// Route::get('/teacher/courses-detail/{id}', function () {
-//     return view('pages.teacher.courses-manage.course-detail');
-// })->name('teacher.course.detail');
+Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
+
 
 // ===================== Route for Student =====================
 
