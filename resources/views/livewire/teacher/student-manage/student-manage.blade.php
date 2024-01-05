@@ -1,12 +1,12 @@
-<div class="student-manage">
+<div class="student-manage" x-cloak>
 
     {{-- road path --}}
     <div class="road_path">
         <div class="road_path_item">
-            <a href="/teacher/courses-detail">Course Manage //</a>
+            <a href="{{route('teacher.course.detail', ['id'=>$course_id])}}">Courses Detail //</a>
         </div>
         <div class="road_path_item">
-            <a href="/teacher/student-manage">Student Manage</a>
+            <a href="">Student Manage</a>
         </div>
     </div>
 
@@ -14,13 +14,13 @@
     <div class="course_content">
         <div class="summary_course">
             <div class="course_name">
-                <h1>Laravel 8 From Scratch</h1>
+                <h1>{{$course->name}}</h1>
             </div>
             <div class="course_category">
                 <span>Web Development</span>
             </div>
             <div class="course_description">
-                <p>We don't learn tools for the sake of learning tools. Instead, we learn them because they help us accomplish a particular goal. With that in mind, in this series, we'll use the common desire for a blog - with categories, tags, comments, email notifications, and more - as our goal. Laravel will be the tool that helps us get there. Each lesson, geared toward newcomers to Laravel, will provide instructions and techniques that will get you to the finish line.</p>
+                <p>{{$course->description}}</p>
             </div>
         </div>
     </div>
@@ -52,30 +52,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Nguyen Van A</td>
-                        <td>nva@gmail.com</td>
-                        <td>Student</td>
-                        <td class="std-manage-action">
-                            <i class="delete-std fa-solid fa-trash"></i>
-                            <i class="ban-std fa-solid fa-ban"></i>
-                        </td>
-                    </tr>
+                    @if ($listStudent)
+                        @foreach ($listStudent as $student)
+                            <tr>
+                                <td>{{$student->username}}</td>
+                                <td>{{$student->email}}</td>
+                                <td>{{$student->role}}</td>
+                                <td class="std-manage-action">
+                                    <i class="delete-std fa-solid fa-trash" wire:click='deleteStudent({{$student->id}})'></i>
+                                    <i class="ban-std fa-solid fa-ban"></i>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
         </div>
 
-        {{--  panel --}}
+        {{--  panel add student --}}
         <div class="add-student-container" x-show="addStudentPanel">
             <div class="add-student-panel" @click.outside="addStudentPanel = false">
                 <h1>Add new student</h1>
-                <form>
+                <form wire:submit.prevent='addStudent'>
                     <div class="search-std">
                         <label for="std-email">Student email:</label>
-                        <input type="text" name="std-email" id="std-email">
+                        <input type="text" name="std-email" id="std-email" wire:model='newStudentEmail'>
                     </div>
                     
-                    <div class="submit">
+                    <div class="submit" x-on:click="addStudentPanel = false">
                         <button type="submit">Add Student</button>
                     </div>
                 </form>
@@ -83,6 +87,4 @@
         </div>
     </div>
 
-
-    {{ $title }}
 </div>

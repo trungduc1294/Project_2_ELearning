@@ -1,4 +1,4 @@
-<div class="lesson-detail-container" x-data="{
+<div class="lesson-detail-container" x-cloak x-data="{
     openDescriptionPanel: false,
     openVideoPanel: false,
 }">
@@ -86,8 +86,8 @@
         </div>
     </div>
 
-    {{-- Main content --}}
 
+    {{-- Main content --}}
     <div class="lesson-content" >
 
         <div class="video-container">
@@ -95,11 +95,22 @@
             <img src="{{asset("images/quiz-logo.jpg")}}" alt="">
         </div>
 
-        <div class="update-video-btn" x-on:click="openVideoPanel = !openVideoPanel;">
-            <i class="fa-solid fa-video mr-2"></i>
-            <span class="btn btn-primary">Update Video</span>
+        {{-- direction --}}
+        <div class="direction">
+            <div class="update-video-btn" x-on:click="openVideoPanel = !openVideoPanel;">
+                <i class="fa-solid fa-video mr-2"></i>
+                <span class="btn btn-primary">Update Video</span>
+            </div>
+            <div class="quiz-manage direction-btn">
+                <i class="fa-solid fa-circle-question"></i>
+                <a href="{{route('teacher.quiz.manage', [
+                    'course_id' => $course_id,
+                    'lesson_id' => $lesson_id,
+                ])}}">Quiz manage</a>
+            </div>
         </div>
 
+        {{-- lesson description --}}
         <div class="lesson-description">
             <div class="content">
                 <h1 class="title">{{$lesson->name}}</h1>
@@ -110,6 +121,7 @@
             </div>
         </div>
 
+        {{-- comment section --}}
         <div class="discussion">
             <div class="add-reply">
                 <img class="avatar" src="{{asset("images/default-avatar.webp")}}" alt="defaulf-avt">
@@ -136,46 +148,45 @@
                 @endif
             </div>
         </div>
-
-        {{-- update description panel --}}
-        <div class="panel-container update-description-panel" x-show="openDescriptionPanel">
-            <div class="panel" @click.outside="openDescriptionPanel = false">
-                <h1>Update Lesson Info</h1>
-                <form wire:submit.prevent='updateLessonInfo'>
-                    <div class="form-group">
-                        <label for="name">Leson name:</label>
-                        <input type="text" name="name" id="name" wire:model='lessonName'>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <input type="text" name="description" id="description" wire:model='lessonDescription'>
-                    </div>
-                    <div class="submit">
-                        <button type="submit" x-on:click="openDescriptionPanel = false">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        {{-- update VIDEO panel --}}
-        <div class="panel-container update-video-panel" x-show="openVideoPanel">
-            <div class="panel" @click.outside="openVideoPanel = false">
-                <h1>Update video</h1>
-                <form>
-                    <div class="form-group">
-                        <label for="description">Video:</label>
-                        <input type="file" name="description" id="description">
-                    </div>
-                    
-                    <div class="submit">
-                        <button type="submit">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        
     </div>
 
+
+    {{-- update description panel --}}
+    <div class="panel-container update-description-panel" x-show="openDescriptionPanel">
+        <div class="panel" @click.outside="openDescriptionPanel = false">
+            <h1>Update Lesson Info</h1>
+            <form wire:submit.prevent='updateLessonInfo'>
+                <div class="form-group">
+                    <label for="name">Leson name:</label>
+                    <input type="text" name="name" id="name" wire:model='lessonName'>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" id="description" wire:model='lessonDescription'>
+                </div>
+                <div class="submit">
+                    <button type="submit" x-on:click="openDescriptionPanel = false">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- update VIDEO panel --}}
+    <div class="panel-container update-video-panel" x-show="openVideoPanel">
+        <div class="panel" @click.outside="openVideoPanel = false">
+            <h1>Update video</h1>
+            <form>
+                <div class="form-group">
+                    <label for="description">Video:</label>
+                    <input type="file" name="description" id="description">
+                </div>
+                
+                <div class="submit">
+                    <button type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
     
 </div>
 

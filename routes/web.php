@@ -42,18 +42,19 @@ Route::get('/login', function() {
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 // ===================== Route for Teacher =====================
-
-Route::any('/teacher/quiz-manage', [TeacherQuiz::class, 'index'])->name('quiz-manage');
-
-Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
-
-Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage');
-
-Route::get('/teacher/courses-list', [CourseListManage::class,'index']);
+Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
 
 Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
 
+Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage'); // ???
+
+Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
+
+Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class, 'getStudentManagePage'])->name('teacher.student.manage');
+
 Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
+
+Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
 
 // ===================== Route for Student =====================

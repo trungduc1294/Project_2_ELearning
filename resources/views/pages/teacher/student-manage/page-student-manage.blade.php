@@ -11,7 +11,9 @@
 @stop
 
 @section('content')
-  @livewire('student-manage', ['title' => $title])
+  @livewire('student-manage', [
+    'course_id' => $course_id,
+  ])
 @stop
 
 @section('scripts')

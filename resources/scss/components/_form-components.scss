@@ -32,6 +32,21 @@
       }
     }
 
+    .gen-code {
+      @apply flex gap-6 items-center;
+      .code {
+        @apply flex gap-2;
+        @apply text-white font-medium;
+      }
+      .gen-code-btn {
+        @apply bg-primary-blue;
+        @apply text-white font-bold;
+        @apply px-2 py-1;
+        @apply rounded-md;
+        @apply cursor-pointer;
+      }
+    }
+
     .submit {
       @apply mt-4;
       @apply flex justify-center;

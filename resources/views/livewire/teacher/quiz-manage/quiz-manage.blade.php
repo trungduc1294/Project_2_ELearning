@@ -1,12 +1,12 @@
-<div class="quiz-manage">
+<div class="quiz-manage" x-cloak>
 
     {{-- road path --}}
     <div class="road_path">
         <div class="road_path_item">
-            <a href="/teacher/courses-detail">Course Manage //</a>
+            <a href="{{route('teacher.course.detail', ['id' => $course_id])}}">Course Detail //</a>
         </div>
         <div class="road_path_item">
-            <a href="/teacher/quiz-manage">Quiz Manage</a>
+            <a href="">Quiz Manage</a>
         </div>
     </div>
 
@@ -14,13 +14,13 @@
     <div class="course_content">
         <div class="summary_course">
             <div class="course_name">
-                <h1>Laravel 8 From Scratch</h1>
+                <h1>{{$course->name}}</h1>
             </div>
             <div class="course_category">
                 <span>Web Development</span>
             </div>
             <div class="course_description">
-                <p>We don't learn tools for the sake of learning tools. Instead, we learn them because they help us accomplish a particular goal. With that in mind, in this series, we'll use the common desire for a blog - with categories, tags, comments, email notifications, and more - as our goal. Laravel will be the tool that helps us get there. Each lesson, geared toward newcomers to Laravel, will provide instructions and techniques that will get you to the finish line.</p>
+                <p>{{$course->description}}</p>
             </div>
         </div>
     </div>
@@ -42,29 +42,44 @@
             </div>
         </div>
 
-        <div class="quiz" x-on:click="openUpdateQuiz = !openUpdateQuiz">
-            <div class="quiz-question">
-                <span>Question 1:</span>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit?</p>
-            </div>
-            <div class="quiz-answer-block">
-                <div class="quiz-answer">
-                    <span>A </span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id tempore incidunt quisquam </p>
-                </div>
-                <div class="quiz-answer">
-                    <span>B </span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id tempore incidunt quisquam </p>
-                </div>
-                <div class="quiz-answer quiz-answer-correct">
-                    <span>C </span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id tempore incidunt quisquam </p>
-                </div>
-                <div class="quiz-answer">
-                    <span>D </span>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id tempore incidunt quisquam </p>
-                </div>
-            </div>
+        <div class="quiz-list">
+            @if ($quizList)
+                @foreach ($quizList as $quiz)
+                    <div class="quiz" x-on:click="openUpdateQuiz = !openUpdateQuiz">
+                        <div class="quiz-question">
+                            <span>Question {{$loop->index + 1}}:</span>
+                            <p>{{$quiz->question}}</p>
+                            <i class="fa-solid fa-delete-left z-100" wire:click='deleteQuestion({{$quiz->id}})'></i>
+                        </div>
+                        <div class="quiz-answer-block">
+                            <div class="{{
+                                $quiz->correct_answer == 'A' ? 'quiz-answer quiz-answer-correct' : 'quiz-answer'
+                            }}">
+                                <span>A </span>
+                                <p>{{$quiz->answer_a}}</p>
+                            </div>
+                            <div class="{{
+                                $quiz->correct_answer == 'B' ? 'quiz-answer quiz-answer-correct' : 'quiz-answer'
+                            }}">
+                                <span>B </span>
+                                <p>{{$quiz->answer_b}} </p>
+                            </div>
+                            <div class="{{
+                                $quiz->correct_answer == 'C' ? 'quiz-answer quiz-answer-correct' : 'quiz-answer'
+                            }}">
+                                <span>C </span>
+                                <p>{{$quiz->answer_c}} </p>
+                            </div>
+                            <div class="{{
+                                $quiz->correct_answer == 'D' ? 'quiz-answer quiz-answer-correct' : 'quiz-answer'
+                            }}">
+                                <span>D </span>
+                                <p>{{$quiz->answer_d}} </p>
+                            </div>
+                        </div>
+                    </div>   
+                @endforeach
+            @endif
         </div>
 
         {{-- create quiz panel --}}
@@ -74,36 +89,36 @@
                 <form>
                     <div class="question">
                         <label for="question">Question:</label>
-                        <input type="text" name="question" id="question">
+                        <input type="text" name="question" id="question" wire:model='newQuestion'>
                     </div>
                     <div class="answer-block">
                         <div class="answer">
                             <label for="answer">A:</label>
-                            <input type="text" name="answer_a" id="answer_a">
+                            <input type="text" name="answer_a" id="answer_a" wire:model='newAnswerA'>
                         </div>
                         <div class="answer">
                             <label for="answer">B:</label>
-                            <input type="text" name="answer_b" id="answer_b">
+                            <input type="text" name="answer_b" id="answer_b" wire:model='newAnswerB'>
                         </div>
                         <div class="answer">
                             <label for="answer">C:</label>
-                            <input type="text" name="answer_c" id="answer_c">
+                            <input type="text" name="answer_c" id="answer_c" wire:model='newAnswerC'>
                         </div>
                         <div class="answer">
                             <label for="answer">D:</label>
-                            <input type="text" name="answer_d" id="answer_d">
+                            <input type="text" name="answer_d" id="answer_d" wire:model='newAnswerD'>
                         </div>
                     </div>
                     <div class="correct-answer">
                         <label for="correct-answer">Correct answer:</label>
-                        <select name="correct-answer" id="correct-answer">
+                        <select name="correct-answer" id="correct-answer" wire:model='newCorrectAnswer'>
                             <option value="A">A</option>
                             <option value="B">B</option>
-                            <option value="C" selected>C</option>
+                            <option value="C">C</option>
                             <option value="D">D</option>
                         </select>
                     </div>
-                    <div class="submit">
+                    <div class="submit" x-on:click="openCreateQuiz = false" wire:click.prevent='addQuestion'>
                         <button type="submit">Create</button>
                     </div>
                 </form>
@@ -114,7 +129,7 @@
         {{-- update quiz panel --}}
         <div class="update-quiz-container" x-show="openUpdateQuiz">
             <div class="update-quiz-panel" @click.outside="openUpdateQuiz = false">
-                <h1>Create new quiz</h1>
+                <h1>Update quiz</h1>
                 <form>
                     <div class="question">
                         <label for="question">Question:</label>
@@ -155,6 +170,4 @@
         </div>
     </div>
 
-
-    {{ $title }}
 </div>

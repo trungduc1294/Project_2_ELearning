@@ -13,4 +13,13 @@ class TeacherQuiz extends Controller
             'title' => 'Quiz Manage'
         ]);
     }
+
+    public function getQuizDetailPage($course_id, $lesson_id)
+    {
+        return view('pages.teacher.quiz.page-teacher-quiz', [
+            'title' => 'Quiz Detail',
+            'course_id' => $course_id,
+            'lesson_id' => $lesson_id
+        ]);
+    }
 }

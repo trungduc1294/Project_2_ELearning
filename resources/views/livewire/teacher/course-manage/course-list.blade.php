@@ -1,4 +1,4 @@
-<div class="my-library" x-data="{
+<div class="my-library" x-cloak x-data="{
     openCreateCoursePanel: false,
 }">
     <div class="courses-list in-progress-courses">

@@ -1,6 +1,19 @@
-<div class="course_detail">
+<div class="course_detail relative"
+    x-data="{ openCourseInfoPanel: false }"
+    x-cloak
+>
 
-    
+    {{-- road path --}}
+    <div class="road_path absolute top-5 left-20">
+        <div class="road_path_item">
+            <a href="/teacher/courses-list">Courses List //</a>
+        </div>
+        <div class="road_path_item">
+            <a href="">Course Detail</a>
+        </div>
+    </div>
+
+    {{-- main content --}}
     <div class="teacher_detail">
         <div class="teacher_detail_container">
             <div class="avatar">
@@ -11,8 +24,8 @@
                     <h3>Teacher Id: {{$course->teacher_id}}</h3>
                 </div>
             </div>
-            <div class="course-info">
-                <a href="">Course Info</a>
+            <div class="course-info" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
+                <span>Course Info</span>
             </div>
         </div>
     </div>
@@ -32,13 +45,8 @@
         <div class="lessons_list">
             <div class="course_nav">
               <div class="play_course tab-button" wire:click='changeStep("lesson-list")'>
-                  <a href="">
-                      <i class="fas fa-play"></i>
-                      <span>Lesson List</span>
-                  </a>
-              </div>
-              <div class="take_quiz tab-button" wire:click='changeStep("quiz")'>
-                  <span>Quiz</span>
+                    <i class="fas fa-play"></i>
+                    <span>Lesson List</span>
               </div>
               <div class="students_manage tab-button" wire:click='changeStep("students")'>
                 <span>Students</span>
@@ -58,12 +66,14 @@
 
             {{-- Quiz --}}
             @if ($step == "quiz")
-                <livewire:teacher-quiz-tab>
+                @livewire('teacher-quiz-tab', ['course_id' => $courseId])
             @endif
 
             {{-- Students --}}
             @if ($step == "students")
-                <livewire:students-tab>
+                <div class="quiz-manage">
+                    <a href="{{route('teacher.student.manage', ['id' => $courseId])}}">Go to your Student Manage Page</a>
+                </div>
             @endif
 
             {{-- Meeting --}}
@@ -77,6 +87,42 @@
             @endif
         </div>
     </div>
+
+    {{-- course Info panel --}}
+    <div class="panel-container" x-show="openCourseInfoPanel">
+        <div class="panel course-info-panel" @click.outside="openCourseInfoPanel = false">
+            <div class="header">
+                <div class="title-panel">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <h1>Lesson Info</h1>
+                </div>
+                <i class="fa-solid fa-trash delete" wire:click='deleteCourse'></i>
+            </div>
+            <form wire:submit.prevent='updateCourseInfo'>
+                <div class="form-group">
+                    <label for="name">Course name:</label>
+                    <input type="text" name="name" id="name" value="{{$course->name}}" wire:model='updateCourseName'>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" value="{{$course->description}}" id="description" wire:model='updateCourseDescription'>
+                </div>
+                <div class="gen-code">
+                    <div class="code">
+                        <span>Course code: </span>
+                        <span>{{$course->reference_code ?? "null"}}</span>
+                    </div>
+                    <div class="gen-code-btn" wire:click='generateCourseCode'>
+                        <button type="button">Generate new code</button>
+                    </div>
+                </div>
+                <div class="submit">
+                    <button type="submit" x-on:click="openCourseInfoPanel = false">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
 
 <script>

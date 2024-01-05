@@ -85,18 +85,20 @@
       }
     }
 
-    .update-video-btn {
-      @apply bg-[#0D1828];
-      @apply rounded-xl;
-      @apply inline-block;
-      @apply px-4 py-2 mx-20 mt-4;
-      
-      @apply text-white font-bold text-sm;
-      @apply cursor-pointer;
-      @apply transition-all duration-200;
-
-      &:hover {
-        @apply bg-primary-gray;
+    .direction {
+      .update-video-btn, .direction-btn {
+        @apply bg-[#0D1828];
+        @apply rounded-xl;
+        @apply inline-block;
+        @apply px-4 py-2 ml-20 mt-4;
+        
+        @apply text-white font-bold text-sm;
+        @apply cursor-pointer;
+        @apply transition-all duration-200;
+  
+        &:hover {
+          @apply bg-primary-gray;
+        }
       }
     }
 
