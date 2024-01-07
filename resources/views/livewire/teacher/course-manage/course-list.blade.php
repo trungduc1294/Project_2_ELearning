@@ -71,7 +71,14 @@
                     <label for="description">Description:</label>
                     <input type="text" name="description" id="description" wire:model='course_description'>
                 </div>
-                
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select name="category" id="category" wire:model='course_category_id'>
+                        @foreach ($listCategory as $category)
+                            <option value="{{ $category['id'] }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="submit">
                     <button type="submit">Add</button>
                 </div>

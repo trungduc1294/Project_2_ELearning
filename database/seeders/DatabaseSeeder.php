@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        DB::table('categories')->insert([
+            ['name' => "Math"],
+            ['name' => "Science"],
+            ['name' => "History"],
+            ['name' => "English"],
+            ['name' => "Art"],
+            ['name' => "Music"],
+            ['name' => "Computer"],
+            ['name' => "Other"],
+        ]);
     }
 }
