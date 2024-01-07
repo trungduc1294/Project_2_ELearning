@@ -1,0 +1,87 @@
+.discovery {
+  @apply px-4;
+
+  .nav {
+    @apply flex justify-center items-center gap-10;
+
+    .nav_item {
+      @apply cursor-pointer;
+      span {
+        @apply text-base font-semibold text-primary-gray;
+        @apply transition-all duration-200 ease-in-out;
+      }
+      .bb {
+        @apply w-full h-1 mt-2 bg-transparent rounded-full;
+        @apply transition-all duration-200 ease-in-out;
+      }
+
+      &:hover {
+        span {
+          @apply text-white;
+        }
+        .bb {
+          @apply bg-blue-500;
+        }
+      }
+    }
+    .active {
+      span {
+        @apply text-white;
+      }
+      .bb {
+        @apply bg-blue-500;
+      }
+    }
+  }
+
+  .topics, .series {
+    .title_block {
+      @apply flex flex-col justify-center items-center gap-4 mt-10;
+      h3 {
+        @apply text-4xl font-semibold text-white;
+      }
+      p {
+        @apply text-base font-light text-primary-gray w-1/2 text-center;
+      }
+
+    }
+    .courses_block {
+
+      .topics_nav {
+        @apply flex justify-center items-center gap-10 mt-10;
+
+        .topics_nav_item {
+          @apply cursor-pointer;
+          span {
+            @apply text-lg font-semibold text-primary-gray;
+            @apply transition-all duration-200 ease-in-out;
+          }
+          .bb {
+            @apply w-full h-1 mt-2 bg-transparent rounded-full;
+            @apply transition-all duration-200 ease-in-out;
+          }
+          &:hover {
+            span {
+              @apply text-white;
+            }
+            .bb {
+              @apply bg-blue-500;
+            }
+          }
+        }
+
+        .active {
+          span {
+            @apply text-white;
+          }
+          .bb {
+            @apply bg-blue-500;
+          }
+        }
+      }
+      .courses {
+        @apply px-20 my-10;
+      }
+    }
+  }
+}

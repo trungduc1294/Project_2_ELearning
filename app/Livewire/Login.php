@@ -29,6 +29,7 @@ class Login extends Component
         if ($user && $user->password == $this->password) {
             session()->put('userId', $user->id);
             session()->put('username', $user->username);
+            session()->put('role', $user->role);
 
             redirect('/');
         } else {

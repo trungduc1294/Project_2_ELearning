@@ -47,13 +47,13 @@
                 </div>
 
                 <div class="nav_item">
-                    <a href="#">
+                    <a href="{{route('student.course', [(session('userId'))])}}">
                         <span class="comment">
-                            //deepdive
+                            //student
                         </span>
                         <div class="links">
-                            <span>"browse" => </span>
-                            <p class="nav_name">"Series"</p>
+                            <span>"Course" => </span>
+                            <p class="nav_name">"List"</p>
                         </div>
                     </a>
                 </div>

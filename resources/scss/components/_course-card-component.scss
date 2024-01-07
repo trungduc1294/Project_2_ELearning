@@ -1,0 +1,68 @@
+.courses {
+  @apply grid grid-cols-3 gap-6;
+
+
+  .course-card {
+      @apply flex justify-between;
+      @apply bg-red-pastel rounded-lg;
+      @apply p-4;
+      @apply h-full;
+      @apply cursor-pointer;
+
+      .card-illustration {
+          @apply flex-1;
+          @apply relative;
+
+          img {
+              @apply w-full;
+              @apply absolute top-[20%] left-[30%];
+              @apply scale-[150%];
+              @apply z-0;
+              @apply opacity-40;
+          }
+      }
+
+      .course-content {
+          @apply w-2/3;
+          @apply px-4;
+          @apply z-10;
+
+          .course-info {
+              @apply text-white;
+
+              .course-name {
+                  @apply text-2xl font-bold;
+              }
+
+              p {
+                  @apply  text-sm;
+                  @apply py-6;
+                  @apply block;
+
+                  overflow: hidden;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  -webkit-box-orient: vertical;
+              }
+          }
+
+          .course-statistical {
+              @apply flex justify-between items-center;
+              @apply text-xs text-white font-bold;
+              @apply mt-16;
+
+              .number-of-lession {
+
+              }
+
+              .number-of-student {
+
+              }
+
+              .total-time {
+
+              }
+          }
+      }
+  }
+}

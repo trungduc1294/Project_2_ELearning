@@ -2,12 +2,13 @@
 
 use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
+use App\Http\Controllers\StudentController\CourseList;
+use App\Http\Controllers\StudentController\DiscoveryController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\StudentManage;
 use App\Http\Controllers\TeacherController\TeacherQuiz;
-
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,15 +31,9 @@ Route::get('/', function () {
 
 // Route::get('/login', [App\Http\Controllers\LoginController::class, 'showLoginForm'])->name('login');
 
-Route::get('/signup', function() {
-    return view('auth.signup-page');
-});
+Route::get('/signup', function() { return view('auth.signup-page'); })->name('signup');
 
-Route::get('/login', function() {
-    return view('auth.login-page');
-})->name('login');
-
-
+Route::get('/login', function() { return view('auth.login-page'); })->name('login');
 
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
@@ -60,24 +55,26 @@ Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDeta
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-
 // ===================== Route for Student =====================
 
-// View Router 
+Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
+
+Route::any('/student/course-list/{id}', [CourseList::class, 'index'])->name('student.course');
+
 Route::get('/test-layout', function () {
     return view('pages.landing-page.after_login_layout');
 });
 
-Route::get('/my-library', function () {
-    return view('pages.user.my-library.mylibrary');
+Route::get('/user/my-library', function () {
+    return view('pages.student.my-library.mylibrary');
 });
 
 Route::get('/course-detail', function () {
-    return view('pages.user.course-detail.course-detail');
+    return view('pages.student.course-detail.course-detail');
 });
 
 Route::get('/quiz-start', function () {
-    return view('pages.user.quiz.quiz-start-page');
+    return view('pages.student.quiz.quiz-start-page');
 });
 
 Route::get('/sign-up', function () {

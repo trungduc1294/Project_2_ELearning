@@ -1,7 +1,10 @@
 @use 'layouts/master';
 
 @use "pages/page-entrypoint";
+
+// component
 @use "components/form-components";
+@use "components/course-card-component";
 
 @tailwind base;
 @tailwind components;
