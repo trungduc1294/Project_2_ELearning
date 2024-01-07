@@ -20,9 +20,9 @@ class Signup extends Component
 
     public function submit() {
         $this->validate([
-            'username' => 'required|min:6',
+            'username' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required'
         ]);
 
         $user = new User();
