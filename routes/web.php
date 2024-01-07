@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.landing-page.index');
-});
+})->name('home');
 
 // ===================== Route for Auth =====================
 
@@ -41,7 +42,10 @@ Route::get('/login', function() {
 
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
+Route::any('/account/{id}', [Account::class, 'index'])->name('account');
+
 // ===================== Route for Teacher =====================
+
 Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
 
 Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');

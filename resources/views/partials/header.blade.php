@@ -1,10 +1,20 @@
 <div class="header">
     <div class="header__logo">
-        <h1>LearningCast</h1>
+        <a href="{{route('home')}}">
+            <h1>LearningCast</h1>
+        </a>
     </div>
 
     @if(session()->has('userId'))
-        <a class="secondary_button" href="/logout">Logout</a>
+        <div class="header-authed">
+            <a class="secondary_button" href="/logout">Logout</a>
+
+            <a href="{{ route('account', [session('userId')])}}">
+                <div class="header__user">
+                    <img src="{{ asset('images/default-avatar.webp') }}" alt="">
+                </div>
+            </a>
+        </div>
     @else
         <div class="header__auth">
             <div class="search">

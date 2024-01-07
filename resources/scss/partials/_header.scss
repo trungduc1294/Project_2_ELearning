@@ -61,4 +61,14 @@
             }
         }
     }
+
+    .header-authed {
+        @apply flex items-center gap-4;
+
+        .header__user {
+            img {
+                @apply w-10 h-10 rounded-xl;
+            }
+        }
+    }
 }

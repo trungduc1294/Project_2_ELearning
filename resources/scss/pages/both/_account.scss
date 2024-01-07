@@ -1,0 +1,123 @@
+.account_container {
+  @apply w-4/5;
+  @apply mx-auto mt-10;
+  
+  .account_header {
+    @apply mb-10;
+
+    .title {
+      @apply text-white;
+      @apply flex flex-col justify-between items-center gap-2;
+
+      h1 {
+        @apply text-4xl font-bold;
+      }
+
+      span {
+        @apply text-lg font-medium text-light-blue;
+      }
+    }
+  }
+
+  .account_content {
+    @apply bg-[#162339];
+    @apply flex justify-between;
+    @apply py-12 px-20;
+    @apply rounded-2xl;
+
+
+    .side {
+      @apply w-1/4;
+      @apply relative;
+      
+      .avatar {
+        @apply absolute -top-28 left-0;
+        img {
+          @apply w-full h-full rounded-lg;
+        }
+      }
+
+      .side_nav {
+        @apply w-full mt-24;
+
+        .side_nav__item {
+          @apply rounded-lg;
+          @apply flex gap-2 items-center;
+          @apply my-2 px-4 py-2;
+          @apply cursor-pointer;
+          @apply transform transition-all duration-100;
+
+          .before_line {
+            @apply w-2 h-4;
+            @apply bg-[#192D4C];
+            @apply rounded-lg;
+          }
+
+          span {
+            @apply text-white text-sm font-semibold;
+          }
+
+          &:hover {
+            @apply bg-[#18273F];
+          }
+        }
+
+        .active {
+          @apply bg-[#18273F];
+
+          .before_line {
+            @apply h-6;
+            @apply bg-[#328AF1];
+          }
+        }
+      }
+    }
+
+    .main_content {
+      @apply w-full pl-10;
+
+      .step_account {
+        @apply w-full;
+        .title {
+          h1 {
+            @apply text-2xl font-semibold text-white;
+          }
+        }
+
+        .form_container {
+          @apply w-full;
+          @apply mt-10;
+          @apply flex flex-col gap-6;          
+        
+          .form_group {
+            @apply w-full;
+            @apply flex flex-col gap-2;
+
+            label {
+              @apply text-light-blue text-xs font-semibold;
+            }
+
+            input {
+              @apply w-full text-white text-base;
+              @apply bg-transparent;
+              @apply border-b border-[#19304E] outline-none;
+            }
+          }
+
+          button {
+            @apply w-1/4;
+            @apply px-4 py-2 rounded-lg;
+            @apply bg-[#328AF1];
+            @apply text-white text-sm font-semibold;
+            @apply transform transition-all duration-200;
+
+            &:hover {
+              @apply bg-[#1F6ED4];
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
