@@ -101,7 +101,10 @@
                     'course_id' => $course_id,
                     'lesson_id' => $lesson_id,
                 ])}}">Quiz manage</a> --}}
-                <a href="">Quiz</a>
+                <a href="{{route('student.quiz.manage', [
+                    'course_id' => $course_id,
+                    'lesson_id' => $lesson_id,
+                ])}}">Quiz</a>
             </div>
         </div>
 
