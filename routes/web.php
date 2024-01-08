@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController\LoginController;
 use App\Http\Controllers\StudentController\CourseDetailController;
 use App\Http\Controllers\StudentController\CourseList;
 use App\Http\Controllers\StudentController\DiscoveryController;
+use App\Http\Controllers\StudentController\LessonDetailController as StudentLessonDetailController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\LessonDetailController;
@@ -63,6 +64,8 @@ Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery
 Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
 
 Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
+
+Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
 
 // Route::get('/user/my-library', function () {
 //     return view('pages.student.my-library.mylibrary');
