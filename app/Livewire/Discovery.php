@@ -8,10 +8,12 @@ use Livewire\Component;
 
 class Discovery extends Component
 {
+    public $user_id;
     public $categoryList;
     public $page = "topic";
     public $topic = 1;
 
+    // ============================= SUPPORT FUNCTION =============================
     public function changePage($page)
     {
         $this->page = $page;
@@ -34,11 +36,12 @@ class Discovery extends Component
         $this->courseListTopic = Course::where('category_id', $category_id)->get();
     }
 
-    // system fucntion
+    // ============================= SYSTEM FUNCTION =============================
     public function fetchData() {
         $this->categoryList = Category::all();
         $this->getNewestCourseList();
         $this->getCourseByTopic($this->topic);
+        $this->user_id = session('userId');
 
         $this->topic = $this->categoryList[0]['name'];
     }
@@ -51,4 +54,6 @@ class Discovery extends Component
     {
         return view('livewire.student.discovery.discovery');
     }
+
+    // ============================= CUSTOM FUNCTION =============================
 }

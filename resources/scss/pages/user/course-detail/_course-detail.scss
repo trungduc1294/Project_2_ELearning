@@ -46,6 +46,23 @@
 
             .course_name {
                 @apply text-4xl font-medium text-white;
+                @apply flex justify-between items-center;
+
+                .join_course {
+                    @apply text-sm font-medium text-white;
+                    @apply bg-[rgb(236,69,79)] opacity-80;
+                    @apply px-4 py-2;
+                    @apply rounded-full;
+                    @apply transition-all duration-300 ease-in-out;
+
+                    &:hover {
+                        @apply bg-[rgb(236,69,79)] opacity-100;
+                    }
+                }
+
+                .joined {
+                    @apply bg-green-500;
+                }
             }
 
             .course_category {
