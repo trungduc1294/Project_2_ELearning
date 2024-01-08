@@ -46,15 +46,6 @@
         </div>
     </div>
 
-    <div class="completed-courses">
-      <div class="direction_bar">
-
-      </div>
-      <div class="course">
-
-      </div>
-    </div>
-
     {{-- create course panel --}}
     <div class="panel-container create-course-panel" x-show="openCreateCoursePanel">
         <div class="panel" @click.outside="openCreateCoursePanel = false">

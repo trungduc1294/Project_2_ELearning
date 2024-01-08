@@ -59,15 +59,11 @@ Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz',
 
 Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
 
-Route::any('/student/course-list/{id}', [CourseList::class, 'index'])->name('student.course');
+Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
 
-Route::get('/test-layout', function () {
-    return view('pages.landing-page.after_login_layout');
-});
-
-Route::get('/user/my-library', function () {
-    return view('pages.student.my-library.mylibrary');
-});
+// Route::get('/user/my-library', function () {
+//     return view('pages.student.my-library.mylibrary');
+// });
 
 Route::get('/course-detail', function () {
     return view('pages.student.course-detail.course-detail');
@@ -76,16 +72,6 @@ Route::get('/course-detail', function () {
 Route::get('/quiz-start', function () {
     return view('pages.student.quiz.quiz-start-page');
 });
-
-Route::get('/sign-up', function () {
-    return view('pages.auth.signup');
-});
-
-// Teacher router
-
-
-
-
 
 
 // ===================== Route for Test =====================

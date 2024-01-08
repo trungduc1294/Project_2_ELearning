@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-    @livewire('std-course-list', ['course_id' => $course_id]);
+    @livewire('std-course-list', ['user_id' => $user_id]);
 @stop
 
 @section('scripts')

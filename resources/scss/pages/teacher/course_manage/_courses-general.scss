@@ -14,44 +14,19 @@
                 }
             }
 
-            .direction_items {
-                @apply flex items-center gap-4;
+            select {
+                @apply bg-primary-blue rounded-lg;
+                @apply px-4 py-2;
+                @apply text-base text-white;
+                @apply outline-none;
+                @apply border-none;
 
-                .direction-item {
-                    @apply text-[#2196F3] text-base font-bold;
-                    @apply py-2;
-
-                    &:hover {
-                        @apply text-dark-red;
-                    }
-
-                    p {
-
-                    }
-                }
-
-                .active {
-                    @apply text-white;
+                option {
+                    @apply text-sm;
+                    @apply py-1;
                 }
             }
 
-            .nav {
-                @apply flex items-center gap-4;
-
-                .nav-item {
-                    @apply px-4 py-1;
-                    @apply text-white text-base font-bold;
-                    @apply rounded-lg;
-                    @apply bg-primary-gray;
-                    @apply cursor-pointer;
-                    @apply transition-all duration-300;
-                    @apply hover:bg-white hover:text-dark-blue;
-                }
-
-                .active {
-                    @apply text-white;
-                }
-            }
         }
 
         .courses {

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CourseList extends Controller
 {
     public function index(Request $request) {
-        $course_id = $request->id;
-        return view('pages.student.my-library.page-mylibrary', ['course_id' => $course_id]);
+        $user_id = $request->id;
+        return view('pages.student.my-library.page-mylibrary', ['user_id' => $user_id]);
     }
 }

@@ -37,6 +37,7 @@
     {{-- Step Topics --}}
     @if ($page == "topic")
         <div class="topics">
+            
             <div class="title_block">
                 <h3>Explore By Topic</h3>
                 <p>All course are categorized into various //topics. This should provide you with an alternate way to decide what to lean next.</p>
@@ -45,7 +46,7 @@
             <div class="courses_block">
                 <div class="topics_nav">
                     @foreach ($categoryList as $category)
-                        <div class="{{ $topic == $category->name ? 'topics_nav_item active' : 'topics_nav_item' }}"
+                        <div class="{{ $topic == $category->id ? 'topics_nav_item active' : 'topics_nav_item' }}"
                             wire:click='changeTopic({{$category->id}})'
                         >
                             <span>{{$category->name}}</span>
