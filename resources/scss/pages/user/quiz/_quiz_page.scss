@@ -1,3 +1,65 @@
 .quiz-page {
-  
+  @apply px-4;
+
+  .back {
+    @apply text-white text-sm font-semibold;
+    @apply flex items-center gap-2;
+    @apply ml-40 mt-4;
+  }
+
+  .quiz-container {
+    @apply bg-primary-blue rounded-lg;
+    @apply p-20 mx-40 mt-4;
+
+    .swiper {
+
+      .swiper-wrapper {
+
+        .swiper-slide {
+          
+          .quiz-block {
+            @apply px-20 pb-20;
+
+            .question {
+              @apply flex gap-4;
+              .question-title {
+                @apply text-white text-xl font-semibold;
+              }
+              .question-content {
+                @apply text-white text-xl font-medium;
+              }
+            }
+
+            .answers {
+              @apply flex justify-between flex-wrap mt-10;
+
+              .answer {
+                @apply flex w-2/5 items-center mb-6 gap-4;
+                @apply cursor-pointer;
+                @apply px-4 py-4 rounded-lg;
+                @apply transition-all duration-300;
+
+                .answer-title {
+                  h3 {
+                    @apply inline-block h-12 w-12;
+                    @apply text-white text-xl font-semibold;
+                    @apply bg-primary-gray rounded-full;
+                    @apply flex items-center justify-center;
+                  }
+                }
+
+                .answer-content {
+                  @apply text-white text-base font-medium;
+                }
+
+                &:hover {
+                  @apply bg-primary-gray;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
