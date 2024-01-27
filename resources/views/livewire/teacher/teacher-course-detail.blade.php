@@ -64,21 +64,19 @@
                 @livewire('teacher-lesson-list', ['courseId' => $courseId])
             @endif
 
-            {{-- Quiz --}}
-            @if ($step == "quiz")
-                @livewire('teacher-quiz-tab', ['course_id' => $courseId])
-            @endif
 
             {{-- Students --}}
             @if ($step == "students")
-                <div class="quiz-manage">
+                <div class="student-tab">
                     <a href="{{route('teacher.student.manage', ['id' => $courseId])}}">Go to your Student Manage Page</a>
                 </div>
             @endif
 
             {{-- Meeting --}}
             @if ($step == "meeting")
-                <livewire:meeting-tab>
+                <div class="meeting-tab">
+                    <a href="{{route('teacher.create.meeting', ['course_id' => $courseId])}}">Create new Meeting Room</a>
+                </div>
             @endif
 
             {{-- Exams --}}

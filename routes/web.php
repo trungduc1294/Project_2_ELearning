@@ -10,6 +10,7 @@ use App\Http\Controllers\StudentController\QuizController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\LessonDetailController;
+use App\Http\Controllers\TeacherController\MeetingController;
 use App\Http\Controllers\TeacherController\StudentManage;
 use App\Http\Controllers\TeacherController\TeacherQuiz;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,8 @@ Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class,
 Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
+
+Route::any('/teacher/courses-detail/{course_id}/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
 
 // ===================== Route for Student =====================
 

@@ -3,3 +3,9 @@
 @use "student-manage/student-manage";
 @use "lesson-detail-manage/lesson-detail";
 @use "course_manage/courses-general";
+
+
+// Meeting Teacher
+@use "meeting/lobby";
+@use "meeting/main";
+@use "meeting/room";

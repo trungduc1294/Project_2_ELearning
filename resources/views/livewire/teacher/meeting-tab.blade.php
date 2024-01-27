@@ -1,3 +1,0 @@
-<div>
-    Meeting Tab
-</div>
