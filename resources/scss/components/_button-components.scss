@@ -1,0 +1,13 @@
+.primary-button {
+  @apply bg-primary-blue;
+  @apply text-white;
+  @apply text-sm;
+  @apply font-medium;
+  @apply rounded-full;
+  @apply py-2 px-4;
+  @apply flex items-center justify-center;
+  @apply cursor-pointer;
+
+  @apply transition-all duration-300 ease-in-out;
+  @apply hover:bg-btn-primary-blue;
+}

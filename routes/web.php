@@ -41,53 +41,50 @@ Route::get('/login', function() { return view('auth.login-page'); })->name('logi
 
 Route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
-Route::any('/account/{id}', [Account::class, 'index'])->name('account')->middleware('auth');
+Route::any('/account/{id}', [Account::class, 'index'])->name('account');
 
 // ===================== Route for Teacher =====================
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
+Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
 
-    Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
+Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
 
-    Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage'); // ???
+Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage'); // ???
 
-    Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
+Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
 
-    Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class, 'getStudentManagePage'])->name('teacher.student.manage');
+Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class, 'getStudentManagePage'])->name('teacher.student.manage');
 
-    Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
+Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
 
-    Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
+Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-    Route::any('/teacher/courses-detail/{course_id}/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
+Route::any('/teacher/courses-detail/{course_id}/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
 
-    Route::any('/teacher/courses-detail/{course_id}/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
-});
-
-
-
+Route::any('/teacher/courses-detail/{course_id}/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
 
 // ===================== Route for Student =====================
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
+Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
 
-    Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
+Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
 
-    Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
+Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
 
-    Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
+Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
 
-    Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
+Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
 
-    Route::get('/course-detail', function () { 
-        return view('pages.student.course-detail.course-detail');
-    });
+// Route::get('/user/my-library', function () {
+//     return view('pages.student.my-library.mylibrary');
+// });
 
-    Route::get('/quiz-start', function () {
-        return view('pages.student.quiz.quiz-start-page');
-    });
+Route::get('/course-detail', function () {
+    return view('pages.student.course-detail.course-detail');
+});
+
+Route::get('/quiz-start', function () {
+    return view('pages.student.quiz.quiz-start-page');
 });
 
 
