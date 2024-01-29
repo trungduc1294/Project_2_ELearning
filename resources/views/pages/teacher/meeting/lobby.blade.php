@@ -9,15 +9,13 @@
 @stop
 
 @section('content')
-  {{-- @livewire('quiz-manage', [
+
+  @livewire('teacher-create-meeting-livewire', [
     'course_id' => $course_id,
-    'lesson_id' => $lesson_id,
-  ]) --}}
-  This is lobby Page
-  {{$course_id}}
+  ])
+
 @stop
 
 @section('scripts')
-    <script>
-    </script>
+  <script src="{{ asset('js/meeting/lobby.js') }}"></script>
 @stop

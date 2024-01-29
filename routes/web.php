@@ -61,6 +61,8 @@ Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz',
 
 Route::any('/teacher/courses-detail/{course_id}/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
 
+Route::any('/teacher/courses-detail/{course_id}/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
+
 // ===================== Route for Student =====================
 
 Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');

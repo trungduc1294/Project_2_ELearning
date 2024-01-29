@@ -12,4 +12,10 @@ class MeetingController extends Controller
             'course_id' => $request->course_id,
         ]);
     }
+
+    public function getJoinRoomPage(Request $request) {
+        return view('pages.teacher.meeting.join-room', [
+            'course_id' => $request->course_id,
+        ]);
+    }
 }
