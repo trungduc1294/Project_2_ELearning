@@ -17,71 +17,11 @@
             <h2>Start Here...</h2>
         </div>
         <div class="navigation_tab">
-            <div class="nav_group">
-                <div class="title">
-                    <span>"menu"</span>
-                </div>
-
-                <div class="nav_item">
-                    <a href="/teacher/courses-detail">
-                        <span class="comment">
-                            //course-detail
-                        </span>
-                        <div class="links">
-                            <span>"Course" => </span>
-                            <p class="nav_name">"Detail"</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="nav_item">
-                    <a href="/teacher/courses-list">
-                    <span class="comment">
-                        //teacher
-                    </span>
-                        <div class="links">
-                            <span>"Course" => </span>
-                            <p class="nav_name">"Lists"</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="nav_item">
-                    <a href="{{ session('userId') ? route('student.course', [(session('userId'))]) : '' }}">
-                        <span class="comment">
-                            //student
-                        </span>
-                        <div class="links">
-                            <span>"Course" => </span>
-                            <p class="nav_name">"List"</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="nav_item">
-                    <a href="{{route('discovery')}}">
-                <span class="comment">
-                    //student
-                </span>
-                        <div class="links">
-                            <span>"Discovery" => </span>
-                            <p class="nav_name">"Course"</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="nav_item">
-                    <a href="#">
-                <span class="comment">
-                    //deepdive
-                </span>
-                        <div class="links">
-                            <span>"browse" => </span>
-                            <p class="nav_name">"Series"</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @if (session('role') == 'teacher')
+                @include('pages.landing-page.teacher-menu')
+            @else
+                @include('pages.landing-page.student-menu')
+            @endif
         </div>
     </div>
 
