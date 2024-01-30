@@ -17,7 +17,7 @@
                 <h1>{{$course->name}}</h1>
             </div>
             <div class="course_category">
-                <span>Web Development</span>
+                <span>{{$category_name}}</span>
             </div>
             <div class="course_description">
                 <p>{{$course->description}}</p>

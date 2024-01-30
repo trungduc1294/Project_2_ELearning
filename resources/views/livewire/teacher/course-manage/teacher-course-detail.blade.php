@@ -102,11 +102,11 @@
             <form wire:submit.prevent='updateCourseInfo'>
                 <div class="form-group">
                     <label for="name">Course name:</label>
-                    <input type="text" name="name" id="name" value="{{$course->name}}" wire:model='updateCourseName'>
+                    <input type="text" name="name" id="name" wire:model='updateCourseName'>
                 </div>
                 <div class="form-group">
                     <label for="description">Description:</label>
-                    <input type="text" name="description" value="{{$course->description}}" id="description" wire:model='updateCourseDescription'>
+                    <input type="text" name="description" id="description" wire:model='updateCourseDescription'>
                 </div>
                 <div class="gen-code">
                     <div class="code">

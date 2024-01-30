@@ -42,7 +42,7 @@ class TeacherCourseDetail extends Component
 
     public function render()
     {
-        return view('livewire.teacher.teacher-course-detail');
+        return view('livewire.teacher.course-manage.teacher-course-detail');
     }
 
     // ==================== HELPER FUNCTION ====================

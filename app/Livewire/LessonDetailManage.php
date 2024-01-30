@@ -29,6 +29,8 @@ class LessonDetailManage extends Component
     // Livewire variables
     public $listComment;
 
+    // ==================== SYSTEM FUNCTION ====================
+
     public function fetchData() {
         $this->course = Course::find($this->course_id);
         $this->lessonList = Lesson::where('course_id', $this->course_id)->get();
@@ -39,6 +41,9 @@ class LessonDetailManage extends Component
 
     public function mount() {
         $this->fetchData();
+
+        $this->lessonName = $this->lesson->name;
+        $this->lessonDescription = $this->lesson->description;
     }
 
     public function render()
@@ -46,6 +51,9 @@ class LessonDetailManage extends Component
         return view('livewire.teacher.lesson-detail-manage.lesson-detail-manage');
     }
 
+    // ==================== HELPER FUNCTION ====================
+
+    // ==================== MAIN FUNCTION ====================
     public function storeAddComment() {
         if ($this->addComment != "") {
             $comment = new Comment();

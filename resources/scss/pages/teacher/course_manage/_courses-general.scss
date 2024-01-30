@@ -98,4 +98,20 @@
             }
         }
     }
+
+
+    .create-course-panel {
+        select {
+            @apply bg-primary-blue rounded-lg;
+            @apply px-4 py-1;
+            @apply text-base text-white;
+            @apply outline-none;
+            @apply border-none;
+
+            option {
+                @apply text-sm;
+                @apply py-1;
+            }
+        }
+    }
 }
