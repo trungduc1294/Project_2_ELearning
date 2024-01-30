@@ -45,11 +45,13 @@
       }
 
     }
+    
+  }
+
+  .topics {
     .courses_block {
-      
       .topics_nav {
         @apply flex justify-center items-center gap-10 mt-10;
-
         .topics_nav_item {
           @apply cursor-pointer;
           span {
@@ -61,15 +63,10 @@
             @apply transition-all duration-200 ease-in-out;
           }
           &:hover {
-            span {
-              @apply text-white;
-            }
-            .bb {
-              @apply bg-blue-500;
-            }
+            span {@apply text-white;}
+            .bb {@apply bg-blue-500;}
           }
         }
-
         .active {
           span {
             @apply text-white;
@@ -81,6 +78,51 @@
       }
       .courses {
         @apply px-20 my-10;
+      }
+    }
+  }
+
+  .series {
+    .course_block {
+      .courses {
+      }
+    }
+  }
+
+  .join_with_code {
+    @apply flex flex-col justify-center items-center gap-10 h-[80vh];
+
+    .title_block {
+      @apply flex flex-col justify-center items-center gap-4 mt-10;
+      h3 {
+        @apply text-4xl font-semibold text-white;
+      }
+      p {
+        @apply text-base font-light text-primary-gray w-full text-center;
+      }
+    }
+
+    form {
+      .input {
+        @apply flex justify-center items-center gap-4;
+        input {
+          @apply w-96 h-12 px-4 rounded-full bg-primary-gray text-white text-base font-semibold;
+          @apply transition-all duration-200 ease-in-out;
+          &::placeholder {
+            @apply text-white;
+          }
+          &:focus {
+            @apply outline-none;
+            @apply bg-white text-primary-gray;
+          }
+        }
+        button {
+          @apply w-24 h-12 rounded-full bg-blue-500 text-white text-base font-semibold;
+          @apply transition-all duration-200 ease-in-out;
+          &:hover {
+            @apply bg-blue-600;
+          }
+        }
       }
     }
   }

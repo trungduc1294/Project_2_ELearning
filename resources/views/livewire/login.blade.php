@@ -58,6 +58,10 @@
                 </div>
             </form>
         </div>
+
+        <div class="loading" wire:loading>
+            <span class="loader"></span>
+        </div>
     </div>
 
 </div>

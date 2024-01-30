@@ -18,8 +18,8 @@
             <span>SERIES</span>
             <div class="bb"></div>
         </div>
-        <div class="{{ $page == 'code' ? 'nav_item active' : 'nav_item' }}"
-            wire:click='changePage("code")'
+        <div class="{{ $page == 'joinWithCode' ? 'nav_item active' : 'nav_item' }}"
+            wire:click='changePage("joinWithCode")'
         >
             <span>JOIN WITH CODE</span>
             <div class="bb"></div>
@@ -105,14 +105,13 @@
 
             <div class="courses_block">
                 @if ($newestCourseList)
-                    @foreach ($newestCourseList as $course)
-                    <div class="courses"
-                    onclick="window.location.href = '{{ route('student.course.detail', [
-                        'student_id' => $user_id,
-                        'course_id' => $course->id
-                    ]) }}'"
-                    >
-                        <div class="course-card">
+                    <div class="courses">
+                        @foreach ($newestCourseList as $course)
+                        <div class="course-card"
+                        onclick="window.location.href = '{{ route('student.course.detail', [
+                            'student_id' => $user_id,
+                            'course_id' => $course->id
+                        ]) }}'">
                             <div class="card-illustration">
                                 <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                             </div>
@@ -136,11 +135,34 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>   
-                    @endforeach
                 @endif
                 
             </div>
+        </div>
+    @endif
+
+    {{-- Step joinWithCode --}}
+    @if ($page == 'joinWithCode')
+        <div class="join_with_code">
+            <div class="title_block">
+                <h3>Join With Code</h3>
+                <p>Enter the code provided by your instructor to join their course.</p>
+            </div>
+
+            <form wire:submit.prevent='joinWithCode'>
+                <div class="input">
+                    <input type="text" placeholder="Enter your code" wire:model='code'>
+                    <button wire:click='joinWithCode'>Join</button>
+                </div>
+                {{-- show error from session flash --}}
+                @if (session()->has('error'))
+                    <div class="error text-red-500">
+                        <span>{{ session('error') }}</span>
+                    </div>
+                @endif
+            </form>
         </div>
     @endif
 

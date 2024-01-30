@@ -24,3 +24,11 @@ public function index()
 # Thêm vào model Leson trường lesson_order thể hiện thứ tự của lesson trong 1 course, tự động điền khi add lesson
 
 # Đưa quiz vào trong lesson, cho tạo quiz cho từng lesson, thêm trường quiz_order để thể hiện thứ tự quiz trong 1 lesson
+
+
+
+@if (session()->has('error'))
+                    <div class="error">
+                        <span>{{ session('error') }}</span>
+                    </div>
+                @endif

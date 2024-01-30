@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\CourseStudent;
 use Livewire\Component;
 
 class Discovery extends Component
@@ -12,6 +13,9 @@ class Discovery extends Component
     public $categoryList;
     public $page = "topic";
     public $topic = 1;
+
+    // joinwithcode
+    public $code;
 
     // ============================= SUPPORT FUNCTION =============================
     public function changePage($page)
@@ -56,4 +60,19 @@ class Discovery extends Component
     }
 
     // ============================= CUSTOM FUNCTION =============================
+    public function joinWithCode() {
+        $course = Course::where('reference_code', $this->code)->first();
+        if ($course) {
+            $courseStudent = new CourseStudent();
+            $courseStudent->course_id = $course->id;
+            $courseStudent->student_id = $this->user_id;
+            $courseStudent->status = "requesting";
+            $courseStudent->save();
+
+            $course->number_of_student += 1;
+            $course->save();
+        } else {
+            session()->flash('error', 'Mã khóa học không tồn tại');
+        }
+    }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('course_id');
             $table->integer('student_id');
-            $table->string('status')->nullable(); // "joined", "baned", "request"
+            $table->string('status')->nullable(); // "joined", "baned", "requesting"
             $table->timestamps();
         });
     }
