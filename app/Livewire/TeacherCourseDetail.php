@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Category;
 use App\Models\Course;
+use App\Models\User;
 use Livewire\Component;
 
 use function Laravel\Prompts\alert;
@@ -11,13 +13,15 @@ class TeacherCourseDetail extends Component
 {
     public $courseId;
     public $course;
+    public $course_category_name;
     public $step = "lesson-list";
+    public $teacher;
 
     // livewire model binding
     public $updateCourseName;
     public $updateCourseDescription;
 
-
+    // ==================== SYSTEM FUNCTION ====================
     public function changeStep($step)
     {
         $this->step = $step;
@@ -25,6 +29,8 @@ class TeacherCourseDetail extends Component
 
     public function fetchData() {
         $this->course = Course::find($this->courseId);
+        $this->course_category_name = Category::find($this->course->category_id)->name;
+        $this->teacher = User::find($this->course->teacher_id);
         $this->updateCourseName = $this->course->name;
         $this->updateCourseDescription = $this->course->description;
     }
@@ -39,8 +45,9 @@ class TeacherCourseDetail extends Component
         return view('livewire.teacher.teacher-course-detail');
     }
 
-    // fuctions ========================================
+    // ==================== HELPER FUNCTION ====================
 
+    // ==================== MAIN FUNCTION ====================
     // update course in course info modal
     public function updateCourseInfo() {
         $updateCourse = Course::find($this->courseId);

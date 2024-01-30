@@ -19,6 +19,7 @@ class TeacherLessonList extends Component
     // Lesson list
     public $lessonList;
 
+    // ==================== SYSTEM FUNCTION ====================
     public function render()
     {
         return view('livewire.teacher.teacher-lesson-list');
@@ -33,6 +34,13 @@ class TeacherLessonList extends Component
         $this->fetchData();
     }
 
+    // ==================== HELPER FUNCTION ====================\
+    public function resetInputFields() {
+        $this->newLessonName = "";
+        $this->newLessonDescription = "";
+    }
+
+    // ==================== MAIN FUNCTION ====================
     public function addNewLesson() {
         $lesson = new Lesson;
         $lesson->course_id = $this->courseId;
@@ -40,10 +48,13 @@ class TeacherLessonList extends Component
         $lesson->description = $this->newLessonDescription;
         $lesson->save();
 
+        // update course
+        $course = Course::find($this->courseId);
+        $course->number_of_lessons += 1;
+        $course->save();
+
         $this->fetchData();
 
-        // refresh wire:model data
-        $this->newLessonName = "";
-        $this->newLessonDescription = "";
+        $this->resetInputFields();
     }
 }

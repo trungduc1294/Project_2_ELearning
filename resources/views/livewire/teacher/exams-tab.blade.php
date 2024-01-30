@@ -1,3 +1,0 @@
-<div>
-    Exams Tab
-</div>

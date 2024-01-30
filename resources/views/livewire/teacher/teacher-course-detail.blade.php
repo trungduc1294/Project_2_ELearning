@@ -21,7 +21,7 @@
             </div>
             <div class="teacher_info">
                 <div class="name">
-                    <h3>Teacher Id: {{$course->teacher_id}}</h3>
+                    <h3>{{ $teacher->username }}</h3>
                 </div>
             </div>
             <div class="course-info" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
@@ -32,10 +32,10 @@
     <div class="course_content">
         <div class="summary_course">
             <div class="course_name">
-                <h1>Course_id: {{$course->id}} {{$course->name}}</h1>
+                <h1>{{$course->name}}</h1>
             </div>
             <div class="course_category">
-                <span>Web Development</span>
+                <span>{{$course_category_name}}</span>
             </div>
             <div class="course_description">
                 <p>{{$course->description}}</p>
@@ -81,6 +81,9 @@
 
             {{-- Exams --}}
             @if ($step == "exams")
+                <div class="exam-tab">
+                    <a href="#">Create new Exam</a>
+                </div>
                 <livewire:exams-tab>
             @endif
         </div>

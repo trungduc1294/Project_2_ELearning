@@ -22,6 +22,7 @@ class CourseList extends Component
     // Category
     public $listCategory;
 
+    // ==================== SYSTEM FUNCTION ====================
     public function fetchData() {
         $this->listCourse = Course::where('teacher_id', session('userId'))->get();
         $this->listCategory = Category::all();
@@ -37,6 +38,15 @@ class CourseList extends Component
         return view('livewire.teacher.course-manage.course-list');
     }
 
+    // ==================== HELPER FUNCTION ====================
+    public function resetInputFields()
+    {
+        $this->course_name = '';
+        $this->course_description = '';
+        $this->course_category_id = '';
+    }
+
+    // ==================== MAIN FUNCTION ====================
     public function addNewCourse()
     {
         $course = new Course();
@@ -44,6 +54,9 @@ class CourseList extends Component
         $course->description = $this->course_description;
         $course->category_id = $this->course_category_id;
         $course->teacher_id = session("userId");
+        $course->number_of_lessons = 0;
+        $course->number_of_students = 0;
+        $course->duration = 0;
         $course->save();
 
         $this->fetchData();

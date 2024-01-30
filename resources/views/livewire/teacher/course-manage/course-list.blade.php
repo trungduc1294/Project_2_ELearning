@@ -8,7 +8,7 @@
             </div>
             <div class="nav">
                 <div class="add-course nav-item" x-on:click="openCreateCoursePanel = !openCreateCoursePanel">
-                    <button>Add new Course</button>
+                    <button class="primary-button">Add new Course</button>
                 </div>
             </div>
         </div>
@@ -30,13 +30,13 @@
                         </div>
                         <div class="course-statistical">
                             <div class="number-of-lession">
-                                <span> Lessons </span>
+                                <span> {{ $course['number_of_lessons'] ?? 0 }} Lessons </span>
                             </div>
                             <div class="number-of-student">
-                                <span>1.2k Students</span>
+                                <span> {{ $course['number_of_students'] ?? 0 }} Students</span>
                             </div>
                             <div class="total-time">
-                                <span>2h 30m</span>
+                                <span> {{ $course['duration'] ?? "0h0p" }} </span>
                             </div>
                         </div>
                     </div>
