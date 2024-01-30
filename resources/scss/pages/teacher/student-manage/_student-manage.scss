@@ -78,10 +78,11 @@
             // @apply text-center;
             @apply flex gap-4 justify-center items-center;
 
-            .delete-std, .ban-std {
-              &:hover {
-                @apply text-red-500;
-              }
+            .delete-std {
+              @apply text-red-500;
+            }
+            .ban-std {
+              @apply text-red-500;
             }
           }
         }

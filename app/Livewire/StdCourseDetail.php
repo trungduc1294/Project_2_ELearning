@@ -22,6 +22,9 @@ class StdCourseDetail extends Component
     // check joined course
     public $isJoined;
     public $joinedCourseListId;
+
+    // tab
+    public $tab = 'lessonsList';
     
 
     // ============================= SYSTEM FUNCTION =============================
@@ -46,7 +49,12 @@ class StdCourseDetail extends Component
         return view('livewire.student.course.std-course-detail');
     }
 
-    // ============================= CUSTOM FUNCTION =============================
+    // ============================= HELPER FUNCTION =============================
+    public function changeTab($tab) {
+        $this->tab = $tab;
+    }
+
+    // ============================= MAIN FUNCTION =============================
 
     public function checkCourseJoined() {
         if (in_array($this->course_id, $this->joinedCourseListId)) {
@@ -54,5 +62,15 @@ class StdCourseDetail extends Component
             return;
         }
         $this->isJoined = false;
+    }
+
+    public function requestJoinCourse() {
+        $course_student = new CourseStudent();
+        $course_student->course_id = $this->course_id;
+        $course_student->student_id = $this->student_id;
+        $course_student->status = "requesting";
+        $course_student->save();
+
+        $this->fetchData();
     }
 }

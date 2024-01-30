@@ -20,11 +20,11 @@
             <div class="course-info">
                 <div class="lessons item">
                     <i class="fa-solid fa-book"></i>
-                    <span>15 Lessons</span>
+                    <span>{{$course->number_of_lessons ?? 0}} Lessons</span>
                 </div>
                 <div class="duration item">
                     <i class="fa-solid fa-clock"></i>
-                    <span>6h30m</span>
+                    <span>{{$course->duration ?? "0h"}}</span>
                 </div>
             </div>
         </div>

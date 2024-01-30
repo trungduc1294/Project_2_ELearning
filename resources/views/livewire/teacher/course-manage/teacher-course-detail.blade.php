@@ -84,7 +84,6 @@
                 <div class="exam-tab">
                     <a href="#">Create new Exam</a>
                 </div>
-                <livewire:exams-tab>
             @endif
         </div>
     </div>

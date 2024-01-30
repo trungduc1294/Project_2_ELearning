@@ -42,6 +42,20 @@
                 </div>
             </a>
         </div>
+
+        <div class="nav_item">
+            <a href="#">
+            <span class="comment">
+                //What wrong ?
+            </span>
+                <div class="links">
+                    <span>"Forum" => </span>
+                    <p class="nav_name">"Issues"</p>
+                </div>
+            </a>
+        </div>
+
+        {{-- statistic --}}
       
         <div class="title">
           <span>"statistical"</span>

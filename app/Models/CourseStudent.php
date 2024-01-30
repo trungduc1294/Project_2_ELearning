@@ -13,6 +13,7 @@ class CourseStudent extends Model
         'course_id',
         'student_id',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'status'
     ];
 }

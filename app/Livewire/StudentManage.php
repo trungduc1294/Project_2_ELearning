@@ -18,13 +18,15 @@ class StudentManage extends Component
     // add student
     public $newStudentEmail;
     public $listStudent = [];
+    public $listRequestStudent = [];
 
     // ==================== SYSTEM FUNCTION ====================
     // system function 
     public function fetchData() {
         $this->course = Course::find($this->course_id);
         $this->category_name = Category::find($this->course->category_id)->name;
-        $this->getListUserId();
+        $this->getListUser();
+        $this->getListRequestStudent();
     }
 
     public function mount() {
@@ -37,13 +39,30 @@ class StudentManage extends Component
     }
 
     // ==================== HELPER FUNCTION ====================
-    public function getListUserId() {
-        $listStudentId = CourseStudent::where('course_id', $this->course_id)->get();
+    public function getListUser() {
+        $listStudentId = CourseStudent::where('course_id', $this->course_id)
+            ->where('status', '!=', 'requesting')
+            ->get();
+
         if ($listStudentId) {
             $this->listStudent = [];
             foreach ($listStudentId as $studentId) {
                 $student = User::find($studentId->student_id);
                 array_push($this->listStudent, $student);
+            }
+        }
+    }
+
+    public function getListRequestStudent() {
+        $listRequestStudentId = CourseStudent::where('course_id', $this->course_id)
+            ->where('status', 'requesting')
+            ->get();
+
+        if ($listRequestStudentId) {
+            $this->listRequestStudent = [];
+            foreach ($listRequestStudentId as $studentId) {
+                $student = User::find($studentId->student_id);
+                array_push($this->listRequestStudent, $student);
             }
         }
     }
@@ -58,6 +77,7 @@ class StudentManage extends Component
             $course_student = new CourseStudent();
             $course_student->course_id = $this->course_id;
             $course_student->student_id = $student->id;
+            $course_student->status = "joined";
             $course_student->save();
 
             $course = Course::find($this->course_id);
@@ -76,6 +96,36 @@ class StudentManage extends Component
         $course = Course::find($this->course_id);
         $course->number_of_students -= 1;
         $course->save();
+
+        $this->fetchData();
+    }
+
+    public function banStudent($studentId) {
+        $banStudent = CourseStudent::where('course_id', $this->course_id)->where('student_id', $studentId)->first();
+
+        if($banStudent->status == "joined") {
+            $banStudent->status = "banned";
+        } else {
+            $banStudent->status = "joined";
+        }
+        $banStudent->save();
+
+        $this->fetchData();
+    }
+
+    // public function checkBanned($studentId) {
+    //     $checkStudent = CourseStudent::where('course_id', $this->course_id)->where('student_id', $studentId)->first();
+    //     if($checkStudent->status == "banned") {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
+    public function acceptStudent($studentId) {
+        $acceptStudent = CourseStudent::where('course_id', $this->course_id)->where('student_id', $studentId)->first();
+        $acceptStudent->status = "joined";
+        $acceptStudent->save();
 
         $this->fetchData();
     }

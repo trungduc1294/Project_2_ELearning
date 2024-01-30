@@ -89,6 +89,20 @@
 
                 }
 
+                .tab {
+                    @apply bg-primary-blue;
+                    @apply text-white font-semibold text-base;
+                    @apply inline-block;
+                    @apply py-2 px-4;
+                    @apply rounded-lg;
+                    @apply transition-all duration-300 ease-in-out;
+                    @apply cursor-pointer;
+
+                    &:hover {
+                        @apply bg-primary-gray;
+                    }
+                }
+
             }
 
             .meeting-tab, .student-tab, .exam-tab {
@@ -114,6 +128,7 @@
                     @apply bg-[rgb(24,39,63)];
                     @apply rounded-xl;
                     @apply px-8 py-4 my-3;
+                    @apply cursor-pointer;
 
                     .progress_check {
 

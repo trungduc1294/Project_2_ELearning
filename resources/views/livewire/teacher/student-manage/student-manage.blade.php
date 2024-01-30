@@ -60,7 +60,7 @@
                                 <td>{{$student->role}}</td>
                                 <td class="std-manage-action">
                                     <i class="delete-std fa-solid fa-trash" wire:click='deleteStudent({{$student->id}})'></i>
-                                    <i class="ban-std fa-solid fa-ban"></i>
+                                    <i class="fa-solid fa-ban" wire:click='banStudent({{$student->id}})'></i>
                                 </td>
                             </tr>
                         @endforeach
@@ -68,6 +68,37 @@
                 </tbody>
             </table>
         </div>
+
+        @if ($listRequestStudent)
+        <div class="student-table">
+            <h3 class="text-2xl font-semibold text-green-700">Requesting Student</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($listRequestStudent as $student)
+                        <tr>
+                            <td>{{$student->username}}</td>
+                            <td>{{$student->email}}</td>
+                            <td>{{$student->role}}</td>
+                            <td class="std-manage-action primary-button" wire:click='acceptStudent({{$student->id}})'>
+                                Accept
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        @endif
+        
+
+        
 
         {{--  panel add student --}}
         <div class="add-student-container" x-show="addStudentPanel">
@@ -88,3 +119,6 @@
     </div>
 
 </div>
+
+<script>
+</script>

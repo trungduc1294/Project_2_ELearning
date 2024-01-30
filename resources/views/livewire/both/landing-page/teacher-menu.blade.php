@@ -31,7 +31,7 @@
         </div>
 
         <div class="nav_item">
-          <a href="{{route('teacher.course')}}">
+          <a href="#">
           <span class="comment">
               //What wrong ?
           </span>
@@ -40,7 +40,7 @@
                   <p class="nav_name">"Issues"</p>
               </div>
           </a>
-      </div>
+        </div>
       
         <div class="title">
           <span>"statistical"</span>

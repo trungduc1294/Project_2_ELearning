@@ -22,9 +22,7 @@
                         @if ($isJoined)
                             <span>Joined</span>
                         @else
-                            <a href="#">
-                                <span>Join Course</span>
-                            </a>
+                            <span wire:click='requestJoinCourse'>Join Course</span>
                         @endif
                     </div>
                 </div>
@@ -39,17 +37,18 @@
             <div class="lessons_list">
 
                 <div class="course_nav">
-                    <div class="play_course">
+                    <div class="play_course tab" wire:click='changeTab("lessonsList")'>
                         <a href="#">
                             <i class="fas fa-play"></i>
                             <span>Play Course</span>
                         </a>
                     </div>
-                    <div class="take_quiz">
-                        <span>Take Quiz</span>
+                    <div class="meeting tab" wire:click='changeTab("meeting")'>
+                        <span>Join Meeting</span>
                     </div>
                 </div>
 
+                @if ($tab == "lessonsList")
                 <div class="lessons">
                     @if ($lessonList)
                         @foreach ($lessonList as $lesson)
@@ -78,8 +77,15 @@
                             </div>
                         @endforeach
                     @endif
-
                 </div>
+                @endif
+
+                @if ($tab == "meeting")
+                <div class="meeting">
+                    Meeting
+                </div>
+                @endif
+
             </div>
         </div>
     </div>
