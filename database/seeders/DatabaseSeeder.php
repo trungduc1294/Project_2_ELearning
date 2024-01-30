@@ -32,5 +32,64 @@ class DatabaseSeeder extends Seeder
             ['name' => "Computer"],
             ['name' => "Other"],
         ]);
+
+        DB::table('users')->insert([
+            [
+                'username' => 'trungduc1294',
+                'email' => 'trungduc.1294@gmail.com',
+                'password' => '123123',
+                'role' => 'teacher',
+            ],
+            [
+                'username' => 'trungduc2705',
+                'email' => 'trungduc.2705@gmail.com',
+                'password' => '123123',
+                'role' => 'teacher',
+            ],
+
+            [
+                'username' => 'std1',
+                'email' => 'std1@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std2',
+                'email' => 'std2@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std3',
+                'email' => 'std3@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std4',
+                'email' => 'std4@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std5',
+                'email' => 'std5@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std6',
+                'email' => 'std6@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+            [
+                'username' => 'std7',
+                'email' => 'std7@gmail.com',
+                'password' => '123123',
+                'role' => 'student',
+            ],
+        ]);
+
     }
 }

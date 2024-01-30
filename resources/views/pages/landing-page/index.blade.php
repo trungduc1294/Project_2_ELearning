@@ -18,9 +18,9 @@
         </div>
         <div class="navigation_tab">
             @if (session('role') == 'teacher')
-                @include('pages.landing-page.teacher-menu')
+                @livewire('teacher-menu')
             @else
-                @include('pages.landing-page.student-menu')
+                @livewire('student-menu')
             @endif
         </div>
     </div>
