@@ -21,7 +21,8 @@ class StdCourseDetail extends Component
     public $lessonList;
     // check joined course
     public $isJoined;
-    public $joinedCourseListId;
+    public $isRequesting;
+    public $joinedCourseListId; // list of course id that student joined
 
     // tab
     public $tab = 'lessonsList';
@@ -58,10 +59,16 @@ class StdCourseDetail extends Component
 
     public function checkCourseJoined() {
         if (in_array($this->course_id, $this->joinedCourseListId)) {
-            $this->isJoined = true;
+            $joinStatus = CourseStudent::where('student_id', $this->student_id)->where('course_id', $this->course_id)->first()->status;
+            if ($joinStatus == "joined") {
+                $this->isJoined = true;
+            } elseif ($joinStatus == "requesting") {
+                $this->isRequesting = true;
+            }
             return;
         }
         $this->isJoined = false;
+        $this->isRequesting = false;
     }
 
     public function requestJoinCourse() {
@@ -73,4 +80,5 @@ class StdCourseDetail extends Component
 
         $this->fetchData();
     }
+    
 }

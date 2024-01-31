@@ -21,6 +21,8 @@
                     <div class="{{ $isJoined ? 'join_course joined' : 'join_course' }}">
                         @if ($isJoined)
                             <span>Joined</span>
+                        @elseif ($isRequesting)
+                            <span>Requesting</span>
                         @else
                             <span wire:click='requestJoinCourse'>Join Course</span>
                         @endif
@@ -52,11 +54,15 @@
                 <div class="lessons">
                     @if ($lessonList)
                         @foreach ($lessonList as $lesson)
-                            <div class="lesson"
-                            onclick="window.location.href = '{{route('student.lesson.detail', [
-                                'course_id' => $course->id,
-                                'lesson_id' => $lesson->id
-                            ])}}'"
+                            <div class="{{ $isJoined ? 'lesson cursor-pointer' : 'lesson cursor-not-allowed' }}"
+                            @if ($isJoined)
+                                onclick="window.location.href = '{{route('student.lesson.detail', [
+                                    'course_id' => $course->id,
+                                    'lesson_id' => $lesson->id
+                                ])}}'"
+                            @else
+                                onclick="alert('You have to join this course first')"
+                            @endif
                             >
                                 <div class="progress_check">
                                     <div class="check">
