@@ -39,7 +39,7 @@ class Login extends Component
 
             redirect('/');
         } else {
-            dd('user not found');
+            session()->flash('error', 'Email or password is wrong.');
         }
     }
 
@@ -62,7 +62,7 @@ class Login extends Component
         // check email in database
         $user = User::where('email', $user_email)->first();
         if (!$user) {
-            dd('email not found');
+            session()->flash('error', 'Email not found.');
         }
 
         // generate verify code

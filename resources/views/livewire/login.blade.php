@@ -27,7 +27,13 @@
             <div class="input-container">
                 <button type="submit">Login</button>
             </div>
+            @if (session()->has('error'))
+                <div class="error text-red-500">
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
         </form>
+        
         
         <div class="forgot-password" x-on:click="openFogotPasswordModal = !openFogotPasswordModal">
             <p>Forgot Your Password?</p>

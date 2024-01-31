@@ -56,6 +56,14 @@
                   @apply bg-primary-gray;
                 }
               }
+
+              .is_answer {
+                @apply bg-green-500;
+              }
+
+              .is_wrong {
+                @apply bg-red-500;
+              }
             }
           }
         }

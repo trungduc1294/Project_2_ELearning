@@ -23,16 +23,18 @@
                                         <p>{{$quiz->question}}</p>
                                     </div>
                                 </div>
+
                                 <div class="answers">
-                                    <div class="answer">
+                                    <div class="{{ isset($result) && $result["answer"] == "A" ? "answer is_answer" : "answer" }}" wire:click='returnAnswer("A", {{$quiz->id}})'>
                                         <div class="answer-title">
+                                            <input type="hidden" name="answerA" >
                                             <h3>A</h3>
                                         </div>
                                         <div class="answer-content">
                                             <p>{{$quiz->answer_a}}</p>
                                         </div>
                                     </div>
-                                    <div class="answer">
+                                    <div class="{{ isset($result) && $result["answer"] == "B" ? "answer is_answer" : "answer" }}"  wire:click='returnAnswer("B", {{$quiz->id}})'>
                                         <div class="answer-title">
                                             <h3>B</h3>
                                         </div>
@@ -40,7 +42,7 @@
                                             <p>{{$quiz->answer_b}}</p>
                                         </div>
                                     </div>
-                                    <div class="answer">
+                                    <div class="{{ isset($result) && $result["answer"] == "C" ? "answer is_answer" : "answer" }}"  wire:click='returnAnswer("C", {{$quiz->id}})'>
                                         <div class="answer-title">
                                             <h3>C</h3>
                                         </div>
@@ -48,7 +50,7 @@
                                             <p>{{$quiz->answer_c}}</p>
                                         </div>
                                     </div>
-                                    <div class="answer">
+                                    <div class="{{ isset($result) && $result["answer"] == "D" ? "answer is_answer" : "answer" }}"  wire:click='returnAnswer("D", {{$quiz->id}})'>
                                         <div class="answer-title">
                                             <h3>D</h3>
                                         </div>

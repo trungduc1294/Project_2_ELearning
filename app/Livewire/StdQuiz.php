@@ -12,6 +12,7 @@ class StdQuiz extends Component
 
     // ========================================== MODEL VARIABLE ==========================================
     public $quizList;
+    public $result;
 
     // ========================================== SYSTEM FUNCTION ==========================================
     public function fetchData() {
@@ -28,4 +29,20 @@ class StdQuiz extends Component
     }
 
     // ========================================== CUSTOM FUNCTION ==========================================
+    public function returnAnswer($answer, $quiz_id) {
+        $quiz = Quiz::find($quiz_id);
+        if ($quiz->correct_answer == $answer) {
+            $this->result = [
+                'status' => 'correct',
+                'answer' => $quiz->correct_answer,
+                'quiz_id' => $quiz->id
+            ];
+        } else {
+            $this->result = [
+                'status' => 'wrong',
+                'answer' => $quiz->correct_answer,
+                'quiz_id' => $quiz->id
+            ];
+        }
+    }
 }
