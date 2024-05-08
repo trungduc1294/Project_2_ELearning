@@ -7,7 +7,7 @@
           <i class="fa-solid fa-magnifying-glass"></i>
       </div>
       <div class="signin">
-          <a href="#">Hello Duc</a>
+          <a href="#">Xin chào Duc</a>
       </div>
   </div>
 </div>

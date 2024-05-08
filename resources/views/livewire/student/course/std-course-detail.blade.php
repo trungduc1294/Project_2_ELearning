@@ -20,11 +20,11 @@
                     <h1>{{$course->name}}</h1>
                     <div class="{{ $isJoined ? 'join_course joined' : 'join_course' }}">
                         @if ($isJoined)
-                            <span>Joined</span>
+                            <span>Đã Tham Gia</span>
                         @elseif ($isRequesting)
-                            <span>Requesting</span>
+                            <span>Đang Yêu Cầu</span>
                         @else
-                            <span wire:click='requestJoinCourse'>Join Course</span>
+                            <span wire:click='requestJoinCourse'>Tham Gia</span>
                         @endif
                     </div>
                 </div>
@@ -42,11 +42,11 @@
                     <div class="play_course tab" wire:click='changeTab("lessonsList")'>
                         <a href="#">
                             <i class="fas fa-play"></i>
-                            <span>Play Course</span>
+                            <span>Danh Sách Bài Giảng</span>
                         </a>
                     </div>
                     <div class="meeting tab" wire:click='changeTab("meeting")'>
-                        <span>Join Meeting</span>
+                        <span>Phòng Học Trực Tuyến</span>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
 
                 @if ($tab == "meeting")
                 <div class="meeting">
-                    Meeting
+                    Phòng Học Trực Tuyến
                 </div>
                 @endif
 

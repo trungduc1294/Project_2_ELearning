@@ -7,7 +7,7 @@
 
     @if(session()->has('userId'))
         <div class="header-authed">
-            <a class="secondary_button" href="/logout">Logout</a>
+            <a class="secondary_button" href="/logout">Đăng Xuất</a>
 
             <a href="{{ route('account', [session('userId')])}}">
                 <div class="header__user">
@@ -21,10 +21,10 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="signin">
-                <a href="/login">Sign in</a>
+                <a href="/login">Đăng nhập</a>
             </div>
             <div class="registration">
-                <a href="/signup">Get started for free</a>
+                <a href="/signup">Bắt đầu miễn phí</a>
             </div>
         </div>
     @endif

@@ -1,7 +1,7 @@
 <div>
     <div class="nav_group">
         <div class="title">
-            <span>"teacher menu"</span>
+            <span>"GIÁO VIÊN"</span>
         </div>
       
         <div class="nav_item">
@@ -12,8 +12,8 @@
                     //My Account
                 </span>
                 <div class="links">
-                    <span>"Account" => </span>
-                    <p class="nav_name">"Manage"</p>
+                    <span>"Tài Khoản" => </span>
+                    <p class="nav_name">"Quản lý"</p>
                 </div>
             </a>
         </div>
@@ -24,8 +24,8 @@
                 //Library
             </span>
                 <div class="links">
-                    <span>"My Courses" => </span>
-                    <p class="nav_name">"Lists"</p>
+                    <span>"Khóa Học" => </span>
+                    <p class="nav_name">"Danh sách"</p>
                 </div>
             </a>
         </div>
@@ -36,14 +36,14 @@
               //What wrong ?
           </span>
               <div class="links">
-                  <span>"Forum" => </span>
-                  <p class="nav_name">"Issues"</p>
+                  <span>"Diễn Đàn" => </span>
+                  <p class="nav_name">"Vấn đề?"</p>
               </div>
           </a>
         </div>
       
         <div class="title">
-          <span>"statistical"</span>
+          <span>"THỐNG KÊ CÁ NHÂN"</span>
         </div>
       
         <div class="nav_item">
@@ -52,7 +52,7 @@
               //Library
           </span>
               <div class="links">
-                <span>"Total Courses" => </span>
+                <span>"Khóa Học Của Tôi" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -61,10 +61,10 @@
         <div class="nav_item">
           <a href="{{route('teacher.course')}}">
           <span class="comment">
-              //Library
+              //Lessons
           </span>
               <div class="links">
-                <span>"Total Lesson" => </span>
+                <span>"Bài Giảng" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -73,10 +73,10 @@
         <div class="nav_item">
           <a href="{{route('teacher.course')}}">
           <span class="comment">
-              //Library
+              //Students
           </span>
               <div class="links">
-                <span>"Total Student" => </span>
+                <span>"Học Sinh" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -85,11 +85,11 @@
         <div class="nav_item">
           <a href="{{route('teacher.course')}}">
           <span class="comment">
-              //Library
+              //Hours
           </span>
               <div class="links">
-                <span>"Total Hour" => </span>
-                <p class="nav_name">"20"</p>
+                <span>"Thời lượng" => </span>
+                <p class="nav_name">"20 phút"</p>
               </div>
           </a>
         </div>

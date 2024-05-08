@@ -38,7 +38,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' })
             ">
                 <i class="fas fa-plus"></i>
-                <span>Add Quiz</span>
+                <span>Thêm câu hỏi</span>
             </div>
         </div>
 

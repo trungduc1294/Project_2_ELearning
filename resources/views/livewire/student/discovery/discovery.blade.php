@@ -3,31 +3,37 @@
         <div class="nav_item" 
             onclick="window.location.href='{{ route('student.course', [session('userId')]) }}'"
         >
-            <span>MY LIBRARY</span>
+            <span>KHÓA HỌC CỦA TÔI</span>
             <div class="bb"></div>
         </div>
         <div class="{{ $page == 'topic' ? 'nav_item active' : 'nav_item' }}"
             wire:click='changePage("topic")'
         >
-            <span>TOPICS</span>
+            <span>MÔN HỌC</span>
+            <div class="bb"></div>
+        </div>
+        <div class="{{ $page == 'class_level' ? 'nav_item active' : 'nav_item' }}"
+            wire:click='changePage("class_level")'
+        >
+            <span>LỚP</span>
             <div class="bb"></div>
         </div>
         <div class="{{ $page == 'series' ? 'nav_item active' : 'nav_item' }}"
             wire:click='changePage("series")'
         >
-            <span>SERIES</span>
+            <span>KHÓA HỌC</span>
             <div class="bb"></div>
         </div>
         <div class="{{ $page == 'joinWithCode' ? 'nav_item active' : 'nav_item' }}"
             wire:click='changePage("joinWithCode")'
         >
-            <span>JOIN WITH CODE</span>
+            <span>THAM GIA BẰNG CODE</span>
             <div class="bb"></div>
         </div>
         <div class="nav_item"
             wire:click='changePage("forum")'
         >
-            <span>FORUM</span>
+            <span>DIỄN ĐÀN</span>
             <div class="bb"></div>
         </div>
     </div>
@@ -39,8 +45,68 @@
         <div class="topics">
             
             <div class="title_block">
-                <h3>Explore By Topic</h3>
-                <p>All course are categorized into various //topics. This should provide you with an alternate way to decide what to lean next.</p>
+                <h3>Khám phá khóa học theo môn học</h3>
+                <p>Tất cả khóa học được chia thành các phần theo môn học //topics. Điều này cung cấp cách bạn có thể tìm thấy thứ bạn cần học tiếp theo một cách đơn giản.</p>
+            </div>
+
+            <div class="courses_block">
+                <div class="topics_nav">
+                    @foreach ($categoryList as $category)
+                        <div class="{{ $topic == $category->id ? 'topics_nav_item active' : 'topics_nav_item' }}"
+                            wire:click='changeTopic({{$category->id}})'
+                        >
+                            <span>{{$category->name}}</span>
+                            <div class="bb"></div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="courses">
+                    @if ($courseListTopic)
+                        @foreach ($courseListTopic as $course)
+                            <div class="course-card"
+                            onclick="window.location.href = '{{ route('student.course.detail', [
+                                'student_id' => $user_id,
+                                'course_id' => $course->id
+                            ]) }}'"
+                            >
+                                <div class="card-illustration">
+                                    <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
+                                </div>
+                                <div class="course-content">
+                                    <div class="course-info">
+                                        <h1 class="course-name">
+                                            {{$course->name}}
+                                        </h1>
+                                        <p>{{$course->description}}</p>
+                                    </div>
+                                    <div class="course-statistical">
+                                        <div class="number-of-lession">
+                                            <span>51 Lessons</span>
+                                        </div>
+                                        <div class="number-of-student">
+                                            <span>1.2k Students</span>
+                                        </div>
+                                        <div class="total-time">
+                                            <span>2h 30m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                    
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if ($page == "class_level")
+        <div class="topics">
+            
+            <div class="title_block">
+                <h3>Phân Chia Theo Lớp</h3>
+                <p>Dễ dàng tìm kiếm khóa học theo lớp học của bạn!</p>
             </div>
 
             <div class="courses_block">

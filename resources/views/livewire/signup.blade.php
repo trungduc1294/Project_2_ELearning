@@ -5,7 +5,7 @@
         </div>
         <form wire:submit.prevent='submit'>
             <div class="input-container">
-                <label for="username">Username</label>
+                <label for="username">Tên đăng nhập</label>
                 <input type="text" name="username" id="username" placeholder="Enter Username" wire:model='username'>
                 <div class="check-icon">
                     <i class="fa-solid fa-check"></i>
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="input-container">
-                <label for="password">Password</label>
+                <label for="password">Mật khẩu</label>
                 <input type="password" name="password" id="password" placeholder="Enter Password" wire:model='password'>
                 <div class="icons show-password" onclick="togglePasswordVisibility()">
                     <i class="fa-solid fa-eye" id="password-icon"></i>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="input-container">
-                <label for="role">Role</label>
+                <label for="role">Bạn là ?</label>
                 <select name="role" id="role" wire:model='role'>
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
@@ -39,11 +39,11 @@
                 </div>
             </div>
             <div class="input-container">
-                <button type="submit">Sign Up</button>
+                <button type="submit">Đăng ký</button>
             </div>
         </form>
         <div class="signin">
-            <a href='/login'>Already have an account?</a>
+            <a href='/login'>Bạn đã có tài khoản? Hãy đăng nhập.</a>
         </div>
     </div>
 </div>

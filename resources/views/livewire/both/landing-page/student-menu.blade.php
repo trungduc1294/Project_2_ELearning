@@ -1,7 +1,7 @@
 <div>
     <div class="nav_group">
         <div class="title">
-            <span>"student menu"</span>
+            <span>"HỌC SINH"</span>
         </div>
         <div class="nav_item">
             <a href="{{session('userId') ? route('student.course', [
@@ -11,8 +11,8 @@
                     //My Library
                 </span>
                 <div class="links">
-                    <span>"Start Learning" => </span>
-                    <p class="nav_name">"Course"</p>
+                    <span>"Bắt Đầu Học" => </span>
+                    <p class="nav_name">"Khóa học"</p>
                 </div>
             </a>
         </div>
@@ -23,8 +23,8 @@
             //What to learn
         </span>
                 <div class="links">
-                    <span>"Discovery" => </span>
-                    <p class="nav_name">"NewCourses"</p>
+                    <span>"Khám Phá" => </span>
+                    <p class="nav_name">"Khóa học mới"</p>
                 </div>
             </a>
         </div>
@@ -37,8 +37,8 @@
             //Your Account
         </span>
                 <div class="links">
-                    <span>"Account" => </span>
-                    <p class="nav_name">"Manage"</p>
+                    <span>"Tài Khoản" => </span>
+                    <p class="nav_name">"Quản lý"</p>
                 </div>
             </a>
         </div>
@@ -49,8 +49,8 @@
                 //What wrong ?
             </span>
                 <div class="links">
-                    <span>"Forum" => </span>
-                    <p class="nav_name">"Issues"</p>
+                    <span>"Diễn Đàn" => </span>
+                    <p class="nav_name">"Vấn đề"</p>
                 </div>
             </a>
         </div>
@@ -58,7 +58,7 @@
         {{-- statistic --}}
       
         <div class="title">
-          <span>"statistical"</span>
+          <span>"THỐNG KÊ"</span>
         </div>
       
         <div class="nav_item">
@@ -67,7 +67,7 @@
               //Library
           </span>
               <div class="links">
-                <span>"Learning Course" => </span>
+                <span>"Khóa học của tôi" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -79,7 +79,7 @@
               //Library
           </span>
               <div class="links">
-                <span>"Your Rank" => </span>
+                <span>"Ranking Level" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -91,7 +91,7 @@
               //Library
           </span>
               <div class="links">
-                <span>"Total Hour" => </span>
+                <span>"Thời gian học" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>

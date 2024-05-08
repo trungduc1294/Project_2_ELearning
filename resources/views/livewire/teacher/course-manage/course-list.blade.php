@@ -4,11 +4,11 @@
     <div class="courses-list in-progress-courses">
         <div class="direction_bar">
             <div class="title">
-                <h3>My courses manage</h3>
+                <h3>Quản lý khóa học của tôi</h3>
             </div>
             <div class="nav">
                 <div class="add-course nav-item" x-on:click="openCreateCoursePanel = !openCreateCoursePanel">
-                    <button class="primary-button">Add new Course</button>
+                    <button class="primary-button">Thêm</button>
                 </div>
             </div>
         </div>
@@ -49,21 +49,21 @@
     {{-- create course panel --}}
     <div class="panel-container create-course-panel" x-show="openCreateCoursePanel">
         <div class="panel" @click.outside="openCreateCoursePanel = false">
-            <h1>Add new Course</h1>
+            <h1>Thêm Khóa Học Mới</h1>
             <form wire:submit.prevent='
                 addNewCourse();
                 openCreateCoursePanel = false;
             '>
                 <div class="form-group">
-                    <label for="name">Course name:</label>
+                    <label for="name">Tên Khóa Học:</label>
                     <input type="text" name="name" id="name" wire:model='course_name'>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description">Mô Tả:</label>
                     <input type="text" name="description" id="description" wire:model='course_description'>
                 </div>
                 <div class="form-group">
-                    <label for="category">Category:</label>
+                    <label for="category">Phân Loại:</label>
                     <select name="category" id="category" wire:model='course_category_id'>
                         @foreach ($listCategory as $category)
                             <option value="{{ $category['id'] }}">{{ $category->name }}</option>
@@ -71,7 +71,7 @@
                     </select>
                 </div>
                 <div class="submit">
-                    <button type="submit">Add</button>
+                    <button type="submit">Thêm</button>
                 </div>
             </form>
         </div>

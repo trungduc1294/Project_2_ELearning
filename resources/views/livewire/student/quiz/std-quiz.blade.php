@@ -4,7 +4,7 @@
         <a href="{{route('student.lesson.detail', [
             'course_id' => $course_id,
             'lesson_id' => $lesson_id
-        ])}}">Back to lesson</a>
+        ])}}">Quay lại bài giảng</a>
     </div>
 
     <div class="quiz-container">
@@ -17,7 +17,7 @@
                             <div class="quiz-block">
                                 <div class="question">
                                     <div class="question-title">
-                                        <h3>Question {{$loop->index + 1}}:</h3>
+                                        <h3>Câu {{$loop->index + 1}}:</h3>
                                     </div>
                                     <div class="question-content">
                                         <p>{{$quiz->question}}</p>

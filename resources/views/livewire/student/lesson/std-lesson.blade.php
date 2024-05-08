@@ -9,7 +9,7 @@
                 <a href="{{ route('student.course.detail', [
                     'student_id' => $student_id,
                     'course_id' => $course_id,
-                ]) }}">Series Overview</a>
+                ]) }}">Quay lại khóa học</a>
             </div>
         </div>
 
@@ -20,7 +20,7 @@
             <div class="course-info">
                 <div class="lessons item">
                     <i class="fa-solid fa-book"></i>
-                    <span>{{$course->number_of_lessons ?? 0}} Lessons</span>
+                    <span>{{$course->number_of_lessons ?? 0}} Bài Giảng</span>
                 </div>
                 <div class="duration item">
                     <i class="fa-solid fa-clock"></i>
@@ -104,7 +104,7 @@
                 <a href="{{route('student.quiz.manage', [
                     'course_id' => $course_id,
                     'lesson_id' => $lesson_id,
-                ])}}">Quiz</a>
+                ])}}">Bài tập</a>
             </div>
         </div>
 
@@ -121,8 +121,8 @@
             <div class="add-reply">
                 <img class="avatar" src="{{asset("images/default-avatar.webp")}}" alt="defaulf-avt">
                 <form class="reply-form" wire:submit.prevent='storeNewComment'>
-                    <input type="text" placeholder="Add a reply..." wire:model="addComment">
-                    <button type="submit">Reply</button>
+                    <input type="text" placeholder="Thêm bình luận mới ..." wire:model="addComment">
+                    <button type="submit">Bình luận</button>
                 </form>
             </div>
             <div class="reply-list">

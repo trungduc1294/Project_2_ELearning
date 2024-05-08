@@ -11,7 +11,7 @@
                 <i class="fa-solid fa-angle-left"></i>
                 <a href="{{ route('teacher.course.detail', [
                     'id' => $course['id'],
-                ]) }}">Series Overview</a>
+                ]) }}">Quay lại khóa học</a>
             </div>
         </div>
 
@@ -22,7 +22,7 @@
             <div class="course-info">
                 <div class="lessons item">
                     <i class="fa-solid fa-book"></i>
-                    <span>{{$course->number_of_lessons ?? 0}} Lessons</span>
+                    <span>{{$course->number_of_lessons ?? 0}} Bài giảng</span>
                 </div>
                 <div class="duration item">
                     <i class="fa-solid fa-clock"></i>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="lesson-info">
                                     <div class="lesson-number item">
-                                        <span>Episode {{$loop->index + 1}}</span>
+                                        <span>Bài {{$loop->index + 1}}</span>
                                     </div>
                                     <div class="lesson-duration item">
                                         <i class="fa-solid fa-clock"></i>
@@ -99,14 +99,14 @@
         <div class="direction">
             <div class="update-video-btn" x-on:click="openVideoPanel = !openVideoPanel;">
                 <i class="fa-solid fa-video mr-2"></i>
-                <span class="btn btn-primary">Update Video</span>
+                <span class="btn btn-primary">Thêm video bài giảng</span>
             </div>
             <div class="quiz-manage direction-btn">
                 <i class="fa-solid fa-circle-question"></i>
                 <a href="{{route('teacher.quiz.manage', [
                     'course_id' => $course_id,
                     'lesson_id' => $lesson_id,
-                ])}}">Quiz manage</a>
+                ])}}">Quản lý bài tập</a>
             </div>
         </div>
 
@@ -126,8 +126,8 @@
             <div class="add-reply">
                 <img class="avatar" src="{{asset("images/default-avatar.webp")}}" alt="defaulf-avt">
                 <form class="reply-form" wire:submit.prevent='storeAddComment'>
-                    <input type="text" placeholder="Add a reply..." wire:model="addComment">
-                    <button type="submit">Reply</button>
+                    <input type="text" placeholder="Thêm bình luận mới ..." wire:model="addComment">
+                    <button type="submit">Bình luận</button>
                 </form>
             </div>
             <div class="reply-list">
@@ -154,18 +154,18 @@
     {{-- update description panel --}}
     <div class="panel-container update-description-panel" x-show="openDescriptionPanel">
         <div class="panel" @click.outside="openDescriptionPanel = false">
-            <h1>Update Lesson Info</h1>
+            <h1>Cập Nhật Thông Tin Bài Giảng</h1>
             <form wire:submit.prevent='updateLessonInfo'>
                 <div class="form-group">
-                    <label for="name">Leson name:</label>
+                    <label for="name">Tên bài giảng:</label>
                     <input type="text" name="name" id="name" wire:model='lessonName'>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description">Mô tả:</label>
                     <input type="text" name="description" id="description" wire:model='lessonDescription'>
                 </div>
                 <div class="submit">
-                    <button type="submit" x-on:click="openDescriptionPanel = false">Update</button>
+                    <button type="submit" x-on:click="openDescriptionPanel = false">Cập nhật</button>
                 </div>
             </form>
         </div>
@@ -174,15 +174,15 @@
     {{-- update VIDEO panel --}}
     <div class="panel-container update-video-panel" x-show="openVideoPanel">
         <div class="panel" @click.outside="openVideoPanel = false">
-            <h1>Update video</h1>
+            <h1>Cập nhật video bài giảng</h1>
             <form>
                 <div class="form-group">
-                    <label for="description">Video:</label>
+                    <label for="description">Tải lên video:</label>
                     <input type="file" name="description" id="description">
                 </div>
                 
                 <div class="submit">
-                    <button type="submit">Update</button>
+                    <button type="submit">Cập nhật</button>
                 </div>
             </form>
         </div>

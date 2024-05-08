@@ -38,3 +38,9 @@ public function index()
 - upload lưu trữ video
 - kết nối api code complier
 
+- Hệ thống điểm thưởng, level
+- Update account image
+- Phân quyền cho hiệu trưởng
+
+## Teacher
+- Tạo bài kiểm tra (option)

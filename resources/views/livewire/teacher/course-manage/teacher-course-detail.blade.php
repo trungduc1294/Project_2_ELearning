@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="course-info" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
-                <span>Course Info</span>
+                <span>Thông Tin Chung</span>
             </div>
         </div>
     </div>
@@ -46,16 +46,16 @@
             <div class="course_nav">
               <div class="play_course tab-button" wire:click='changeStep("lesson-list")'>
                     <i class="fas fa-play"></i>
-                    <span>Lesson List</span>
+                    <span>Bài Giảng</span>
               </div>
               <div class="students_manage tab-button" wire:click='changeStep("students")'>
-                <span>Students</span>
+                <span>Học Sinh</span>
               </div>
               <div class="meeting_manage tab-button" wire:click='changeStep("meeting")'>
-                <span>Meeting</span>
+                <span>Phòng Học Trực Tuyến</span>
               </div>
               <div class="example_manage tab-button" wire:click='changeStep("exams")'>
-                <span>Exams</span>
+                <span>Kiểm Tra</span>
               </div>
             </div>
 
@@ -68,21 +68,21 @@
             {{-- Students --}}
             @if ($step == "students")
                 <div class="student-tab">
-                    <a href="{{route('teacher.student.manage', ['id' => $courseId])}}">Go to your Student Manage Page</a>
+                    <a href="{{route('teacher.student.manage', ['id' => $courseId])}}">Quản lý học sinh</a>
                 </div>
             @endif
 
             {{-- Meeting --}}
             @if ($step == "meeting")
                 <div class="meeting-tab">
-                    <a href="{{route('teacher.create.meeting', ['course_id' => $courseId])}}">Create new Meeting Room</a>
+                    <a href="{{route('teacher.create.meeting', ['course_id' => $courseId])}}">Tạo phòng học</a>
                 </div>
             @endif
 
             {{-- Exams --}}
             @if ($step == "exams")
                 <div class="exam-tab">
-                    <a href="#">Create new Exam</a>
+                    <a href="#">Tạo bài kiểm tra</a>
                 </div>
             @endif
         </div>
@@ -94,30 +94,30 @@
             <div class="header">
                 <div class="title-panel">
                     <i class="fa-solid fa-circle-info"></i>
-                    <h1>Lesson Info</h1>
+                    <h1>Thông Tin Khóa Học</h1>
                 </div>
                 <i class="fa-solid fa-trash delete" wire:click='deleteCourse'></i>
             </div>
             <form wire:submit.prevent='updateCourseInfo'>
                 <div class="form-group">
-                    <label for="name">Course name:</label>
+                    <label for="name">Tên khóa học:</label>
                     <input type="text" name="name" id="name" wire:model='updateCourseName'>
                 </div>
                 <div class="form-group">
-                    <label for="description">Description:</label>
+                    <label for="description">Mô tả:</label>
                     <input type="text" name="description" id="description" wire:model='updateCourseDescription'>
                 </div>
                 <div class="gen-code">
                     <div class="code">
-                        <span>Course code: </span>
-                        <span>{{$course->reference_code ?? "null"}}</span>
+                        <span>CODE tham gia: </span>
+                        <span class="text-red-500">{{$course->reference_code ?? "null"}}</span>
                     </div>
                     <div class="gen-code-btn" wire:click='generateCourseCode'>
-                        <button type="button">Generate new code</button>
+                        <button type="button">Tạo mã mới</button>
                     </div>
                 </div>
                 <div class="submit">
-                    <button type="submit" x-on:click="openCourseInfoPanel = false">Update</button>
+                    <button type="submit" x-on:click="openCourseInfoPanel = false">Cập Nhật</button>
                 </div>
             </form>
         </div>

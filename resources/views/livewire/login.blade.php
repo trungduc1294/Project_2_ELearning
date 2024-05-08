@@ -3,7 +3,7 @@
 }">
     <div class="login-container">
         <div class="title">
-            <h1>Log In</h1>
+            <h1>Đăng nhập tài khoản của bạn</h1>
         </div>
 
         <form wire:submit.prevent='submit'>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="input-container">
-                <label for="password">Password</label>
+                <label for="password">Mật khẩu</label>
                 <input type="password" name="password" id="password" placeholder="Enter Password" wire:model='password'>
                 <div class="icons show-password" onclick="togglePasswordVisibility()">
                     <i class="fa-solid fa-eye" id="password-icon"></i>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="input-container">
-                <button type="submit">Login</button>
+                <button type="submit">Đăng nhập</button>
             </div>
             @if (session()->has('error'))
                 <div class="error text-red-500">
@@ -36,10 +36,10 @@
         
         
         <div class="forgot-password" x-on:click="openFogotPasswordModal = !openFogotPasswordModal">
-            <p>Forgot Your Password?</p>
+            <p>Bạn quên mật khẩu của mình à?</p>
         </div>
         <div class="signup">
-            <a href="/signup">Sign up</a>
+            <a href="/signup">Đăng ký tài khoản mới</a>
         </div>
     </div>
 

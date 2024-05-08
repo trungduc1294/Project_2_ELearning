@@ -2,10 +2,10 @@
     <div class="courses-list in-progress-courses">
         <div class="direction_bar">
             <div class="title">
-                <h3>My library</h3>
+                <h3>Danh sách khóa học của tôi</h3>
             </div>
             <select name="category" id="category" wire:model='category_id' wire:change="filterCourse()">
-                <option value="all">All</option>
+                <option value="all">Tất cả</option>
                 @foreach ($categoryList as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
@@ -32,10 +32,10 @@
                             </div>
                             <div class="course-statistical">
                                 <div class="number-of-lession">
-                                    <span>{{$course->number_of_lessons ?? 0}} Lessons</span>
+                                    <span>{{$course->number_of_lessons ?? 0}} Bài giảng</span>
                                 </div>
                                 <div class="number-of-student">
-                                    <span>{{$course->number_of_students ?? 0}} Students</span>
+                                    <span>{{$course->number_of_students ?? 0}} Học sinh</span>
                                 </div>
                                 <div class="total-time">
                                     <span>{{$course->duration ?? '0h'}}</span>
