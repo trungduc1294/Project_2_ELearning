@@ -91,5 +91,81 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        DB::table('courses')->insert([
+            [
+                'name' => "Basic Math with two variables and two equations",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 1,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "Learn Science with fun",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 2,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "History of the world",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 3,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "English for beginner",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 4,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "Learn how to draw architecture",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 5,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "Learn how to play guitar with fun",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 6,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "Python - The best programming language",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 7,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+            [
+                'name' => "How to be social with people",
+                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'category_id' => 8,
+                'teacher_id' => 1,
+                'number_of_lessons' => 0,
+                'number_of_students' => 0,
+                'duration' => 0,
+            ],
+        ]);
+
+        
     }
 }
