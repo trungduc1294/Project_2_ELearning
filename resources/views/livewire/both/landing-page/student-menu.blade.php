@@ -55,6 +55,18 @@
             </a>
         </div>
 
+        <div class="nav_item">
+            <a href="#">
+            <span class="comment">
+                //Coding ?
+            </span>
+                <div class="links">
+                    <span>"Lập Trình" => </span>
+                    <p class="nav_name">"Python"</p>
+                </div>
+            </a>
+        </div>
+
         {{-- statistic --}}
       
         <div class="title">
