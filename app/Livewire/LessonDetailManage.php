@@ -6,10 +6,14 @@ use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class LessonDetailManage extends Component
 {
+    use WithFileUploads;
+
     // nhan da ta tu livewire teacher-lesson-list.blade.php
     public $course_id;
     public $course; //lay course tu course_id
@@ -28,6 +32,10 @@ class LessonDetailManage extends Component
 
     // Livewire variables
     public $listComment;
+
+
+    public $video;
+    public $videoUrl;
 
     // ==================== SYSTEM FUNCTION ====================
 
@@ -80,5 +88,27 @@ class LessonDetailManage extends Component
         $this->lessonDescription = "";
 
         $this->fetchData();
+    }
+
+    public function uploadVideo() {
+        $this->validate([
+            'video' => 'required|mimes:mp4|max:102400',
+        ]);
+
+        // handle the file upload
+        $path = $this->video->store('videos', 'public');
+
+        // generate the url
+        $this->videoUrl = Storage::url($path);
+
+        // save the file path in the database
+        $lesson = Lesson::find($this->lesson_id);
+        $lesson->video_url = $this->videoUrl;
+        $lesson->save();
+
+        // reset lesson
+        $this->fetchData();
+
+        session()->flash('message', 'Video uploaded successfully.');
     }
 }

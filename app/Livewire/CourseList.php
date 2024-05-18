@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class CourseList extends Component
 {
+    public $error = null;
+
     // new course model variables
     public $course_name;
     public $course_description;
@@ -26,6 +28,7 @@ class CourseList extends Component
     public function fetchData() {
         $this->listCourse = Course::where('teacher_id', session('userId'))->get();
         $this->listCategory = Category::all();
+
     }
 
     public function mount()
@@ -57,7 +60,16 @@ class CourseList extends Component
         $course->number_of_lessons = 0;
         $course->number_of_students = 0;
         $course->duration = 0;
+
+        if ($course->category_id == 0) {
+            // thong bao loi
+            $this->error = "Please select a category";
+            return;
+        }
+
         $course->save();
+        $this->resetInputFields();
+        $this->error = null;
 
         $this->fetchData();
     }

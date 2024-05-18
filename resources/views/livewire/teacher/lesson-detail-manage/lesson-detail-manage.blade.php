@@ -90,10 +90,21 @@
     {{-- Main content --}}
     <div class="lesson-content" >
 
-        <div class="video-container">
-            {{-- <video src="https://www.youtube.com/watch?v=KAYny6V1rB0&pp=ygURU2VsZWN0aW5nIGEgU3RhY2s%3D"></video> --}}
-            <img src="{{asset("images/quiz-logo.jpg")}}" alt="">
-        </div>
+        
+
+        @if ($lesson->video_url)
+            <div class="video-container">
+                <video width="100%" controls>
+                    <source src="{{ $lesson->video_url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        @else
+            <div class="video-container">
+                {{-- <video src="https://www.youtube.com/watch?v=KAYny6V1rB0&pp=ygURU2VsZWN0aW5nIGEgU3RhY2s%3D"></video> --}}
+                <img src="{{asset("images/quiz-logo.jpg")}}" alt="">
+            </div>
+        @endif
 
         {{-- direction --}}
         <div class="direction">
@@ -175,15 +186,20 @@
     <div class="panel-container update-video-panel" x-show="openVideoPanel">
         <div class="panel" @click.outside="openVideoPanel = false">
             <h1>Cập nhật video bài giảng</h1>
-            <form>
+            <form wire:submit.prevent='uploadVideo'>
                 <div class="form-group">
-                    <label for="description">Tải lên video:</label>
-                    <input type="file" name="description" id="description">
+                    <label for="video">Tải lên video:</label>
+                    <input wire:model='video' type="file" name="video" id="video">
                 </div>
                 
                 <div class="submit">
                     <button type="submit">Cập nhật</button>
                 </div>
+
+                @if ($video)
+                    <div wire:loading wire:target="video">Uploading...</div>
+                    <div wire:loading.remove wire:target="video">{{ $video->getClientOriginalName() }}</div>
+                @endif
             </form>
         </div>
     </div>

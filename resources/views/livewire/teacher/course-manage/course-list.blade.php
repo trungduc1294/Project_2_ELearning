@@ -2,7 +2,13 @@
     openCreateCoursePanel: false,
 }">
     <div class="courses-list in-progress-courses">
+        @if ($error)
+            <div class="text-red-500">
+                {{ $error }}
+            </div>
+        @endif
         <div class="direction_bar">
+            
             <div class="title">
                 <h3>Quản lý khóa học của tôi</h3>
             </div>
@@ -65,6 +71,7 @@
                 <div class="form-group">
                     <label for="category">Phân Loại:</label>
                     <select name="category" id="category" wire:model='course_category_id'>
+                        <option value="0" >Chọn một danh mục</option>
                         @foreach ($listCategory as $category)
                             <option value="{{ $category['id'] }}">{{ $category->name }}</option>
                         @endforeach
