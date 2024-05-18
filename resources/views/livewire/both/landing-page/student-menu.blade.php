@@ -56,7 +56,7 @@
         </div>
 
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('code_complier')}}">
             <span class="comment">
                 //Coding ?
             </span>

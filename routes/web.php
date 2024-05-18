@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
+use App\Http\Controllers\CodeComplierController;
 use App\Http\Controllers\StudentController\CourseDetailController;
 use App\Http\Controllers\StudentController\CourseList;
 use App\Http\Controllers\StudentController\DiscoveryController;
@@ -87,7 +88,7 @@ Route::get('/quiz-start', function () {
     return view('pages.student.quiz.quiz-start-page');
 });
 
-// Route::any('/code_complie');
+Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('code_complier');
 
 // ===================== Route for Test =====================
 Route::any('/test-lesson-layout', function () {
