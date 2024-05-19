@@ -8,7 +8,7 @@
 
     <title>@yield('title', "Learning")</title>
 
-    <link rel="icon" href="{{ asset('images/test_icon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/logo.jpg') }}" type="image/x-icon">
 
     {{--Styles css common--}}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
