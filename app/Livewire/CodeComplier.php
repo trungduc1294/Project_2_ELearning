@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 class CodeComplier extends Component
 {
     public $code;
+    public $language;
 
     public $output;
     public $statusCode;
@@ -15,11 +16,17 @@ class CodeComplier extends Component
     public $cpuTime;
 
     public function runCode() {
+
+        if($this->language == '0') {
+            $this->output = 'Please select a language';
+            return;
+        }
+
         $response = Http::post('https://api.jdoodle.com/v1/execute', [
             'clientId' => env('JD_CLIENT_ID'),
             'clientSecret' => env('JD_CLIENT_SECRET'),
             'script' => $this->code,
-            'language' => 'python3',
+            'language' => $this->language,
             'versionIndex' => '3'
         ]);
         

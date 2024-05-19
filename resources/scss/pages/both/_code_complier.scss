@@ -19,12 +19,22 @@
     @apply p-2;
     @apply rounded-md;
 
-    button {
-      @apply bg-[#DD5716] text-white font-bold;
-      @apply px-4 py-1;
-      float: right;
-      @apply rounded-md;
-      @apply mb-1;
+    form {
+      @apply flex gap-2 items-center justify-between;
+
+      button {
+        @apply bg-[#DD5716] text-white font-bold;
+        @apply px-4 py-1;
+        // float: right;
+        @apply rounded-md;
+        @apply mb-1;
+      }
+      select {
+        @apply bg-[#141414] text-white;
+        @apply px-2;
+        @apply rounded-md;
+        @apply focus:outline-none;
+      }
     }
 
     textarea {

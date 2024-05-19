@@ -5,7 +5,27 @@
         {{-- <p>{{ $problem }}</p> --}}
     </div>
     <div class="code_block">
-        <button wire:click="runCode">Execute</button>
+        <div class="code_block_header">
+            <form wire:submit.prevent='runCode' class="language_select">
+                <select wire:model="language">
+                    <option value="0">Choose language</option>
+                    <option value="python3">Python3</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="nodejs">Nodejs</option>
+                    <option value="scala">Scala</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="swift">Swift</option>
+
+                </select>
+
+                <button type="submit">Execute</button>
+            </form>
+
+        </div>
         <textarea wire:model="code"></textarea>
         {{-- <pre>{{ $output }}</pre> --}}
     </div>

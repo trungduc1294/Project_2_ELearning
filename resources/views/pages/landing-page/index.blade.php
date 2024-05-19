@@ -19,8 +19,10 @@
         <div class="navigation_tab">
             @if (session('role') == 'teacher')
                 @livewire('teacher-menu')
-            @else
+            @elseif (session('role') == 'student')
                 @livewire('student-menu')
+            @else
+                @livewire('guest-menu')
             @endif
         </div>
     </div>
