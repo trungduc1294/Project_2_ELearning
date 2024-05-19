@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Http;
 class CodeComplier extends Component
 {
     public $code;
+
     public $output;
+    public $statusCode;
+    public $memory;
+    public $cpuTime;
 
     public function runCode() {
         $response = Http::post('https://api.jdoodle.com/v1/execute', [
@@ -18,7 +22,18 @@ class CodeComplier extends Component
             'language' => 'python3',
             'versionIndex' => '3'
         ]);
-        dd($response->json());
+        
+        // decode the json response and store the output
+        $responseData = json_decode($response->body());
+
+        if($responseData->statusCode == 200) {
+            $this->output = $responseData->output;
+            $this->statusCode = $responseData->statusCode;
+            $this->memory = $responseData->memory;
+            $this->cpuTime = $responseData->cpuTime;
+        } else {
+            $this->output = $responseData->error;
+        }
     }
 
     public function render()

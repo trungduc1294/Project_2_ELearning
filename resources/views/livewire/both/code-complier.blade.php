@@ -15,9 +15,21 @@
         <input type="text" name="argument" id="argument" placeholder="Input Arguments ">
         <textarea wire:model="" placeholder="Stdin Arguments"></textarea>
 
-        <h1>Output</h1>
+        <div class="output_info">
+            <h1>Output</h1>
+
+            <div class="memory_info output_info_item">
+                <h2>Memory</h2>
+                <span>{{ $memory }}</span>
+            </div>
+
+            <div class="cpu_time output_info_item">
+                <h2>CPU Time</h2>
+                <span>{{ $cpuTime }}</span>
+            </div>
+        </div>
         <div class="output">
-            <pre>{{ $output }}</pre>
+            <span>{{ $output }}</span>
         </div>
     </div>
 </div>
