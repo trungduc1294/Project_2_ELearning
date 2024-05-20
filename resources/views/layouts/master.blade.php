@@ -32,6 +32,8 @@
     @livewireStyles
 </head>
 <body>
+    @include('sweetalert::alert')
+    
     <div class="background_pattern">
         <div class="background_cover">
             @include('partials.header')
@@ -45,7 +47,7 @@
 
     {{--Scripts js common--}}
     <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
-    {{--Scripts link to file or js custom--}}
+
     @yield('scripts')
 
     @livewireScripts

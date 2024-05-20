@@ -23,6 +23,8 @@
     {{-- alpinejs cdn --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
     @yield('style-libraries')
     {{--Styles custom--}}
     @yield('styles')
@@ -32,6 +34,7 @@
 <body class="h-[100vh]">
     <div class="background_pattern h-[100vh]">
         <div class="background_cover h-[100vh]">
+            @include('sweetalert::alert')
             @include('partials.header')
             {{-- @include('partials.account_header') --}}
 

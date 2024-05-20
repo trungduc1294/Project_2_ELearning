@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LwAccount extends Component
 {
@@ -77,6 +78,8 @@ class LwAccount extends Component
         $this->user->address = $this->address;
         $this->user->class = $this->class;
         $this->user->save();
+
+        Alert::success('Success', 'Profile updated successfully!');
 
         $this->fetchData();
     }

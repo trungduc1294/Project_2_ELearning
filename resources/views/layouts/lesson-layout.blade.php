@@ -23,6 +23,8 @@
     {{-- alpinejs cdn --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
     @yield('style-libraries')
     {{--Styles custom--}}
     @yield('styles')
@@ -30,6 +32,7 @@
     @livewireStyles
 </head>
 <body>
+    @include('sweetalert::alert')
     <div class="background_pattern">
         <div class="background_cover">
             {{-- @include('partials.account_header') --}}
