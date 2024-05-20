@@ -95,3 +95,7 @@ Route::any('/test-lesson-layout', function () {
     return view('layouts.lesson-layout');
 });
 
+Route::get('/test-editor', function () {
+    return view('pages.test_code_editor');
+});
+

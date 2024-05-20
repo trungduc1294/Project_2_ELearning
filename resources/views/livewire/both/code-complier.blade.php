@@ -6,7 +6,8 @@
     </div>
     <div class="code_block">
         <div class="code_block_header">
-            <form wire:submit.prevent='runCode' class="language_select">
+            {{-- <form wire:submit.prevent='runCode' class="language_select"> --}}
+            {{-- <form class="code_editor"> --}}
                 <select wire:model="language">
                     <option value="0">Choose language</option>
                     <option value="python3">Python3</option>
@@ -19,19 +20,18 @@
                     <option value="scala">Scala</option>
                     <option value="kotlin">Kotlin</option>
                     <option value="swift">Swift</option>
-
                 </select>
 
-                <button type="submit">Execute</button>
-            </form>
+                <button type="submit" id="submit" onclick="execute()">Execute</button>
+            {{-- </form> --}}
 
         </div>
-        <textarea wire:model="code"></textarea>
+        {{-- <textarea wire:model="code" id="code"></textarea> --}}
+        <div id="editor"></div>
         {{-- <pre>{{ $output }}</pre> --}}
     </div>
     <div class="output_block">
         <h1>Argument</h1>
-        {{-- <p>{{ $argument }}</p> --}}
         <input type="text" name="argument" id="argument" placeholder="Input Arguments ">
         <textarea wire:model="" placeholder="Stdin Arguments"></textarea>
 
@@ -53,3 +53,6 @@
         </div>
     </div>
 </div>
+
+
+<script src="{{ asset('editor.bundle.js') }}"></script>

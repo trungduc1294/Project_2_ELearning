@@ -16,6 +16,7 @@ class CodeComplier extends Component
     public $cpuTime;
 
     public function runCode() {
+        dd($this->code);
 
         if($this->language == '0') {
             $this->output = 'Please select a language';
