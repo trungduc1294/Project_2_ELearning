@@ -6,29 +6,24 @@
     </div>
     <div class="code_block">
         <div class="code_block_header">
-            {{-- <form wire:submit.prevent='runCode' class="language_select"> --}}
-            {{-- <form class="code_editor"> --}}
+            {{-- <form class="code_editor" wire:submit.prevent='runCode'> --}}
                 <select wire:model="language">
                     <option value="0">Choose language</option>
                     <option value="python3">Python3</option>
                     <option value="c">C</option>
                     <option value="cpp">C++</option>
                     <option value="java">Java</option>
-                    <option value="php">PHP</option>
-                    <option value="ruby">Ruby</option>
-                    <option value="nodejs">Nodejs</option>
-                    <option value="scala">Scala</option>
-                    <option value="kotlin">Kotlin</option>
-                    <option value="swift">Swift</option>
                 </select>
 
-                <button type="submit" id="submit" onclick="execute()">Execute</button>
+                {{-- <button type="submit" id="submit" onclick="execute()">Execute</button> --}}
+                <button type="submit" id="submit">Execute</button>
             {{-- </form> --}}
 
         </div>
-        {{-- <textarea wire:model="code" id="code"></textarea> --}}
+        {{-- <textarea wire:model="code" id="hidden_editor"></textarea> --}}
+
+        {{-- codemirror editor --}}
         <div id="editor"></div>
-        {{-- <pre>{{ $output }}</pre> --}}
     </div>
     <div class="output_block">
         <h1>Argument</h1>

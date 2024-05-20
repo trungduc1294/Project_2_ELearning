@@ -138,7 +138,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Update account image
 - Nâng cấp code complier thêm phần nhập biến từ bán phím
 - Sửa lại phòng học trực tuyến
-- quên mật khẩu
+- quên mật khẩu (vấn đề email)
 
 ## Teacher
 - Tạo bài kiểm tra (option)

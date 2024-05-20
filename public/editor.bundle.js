@@ -26731,7 +26731,11 @@
 
    // get the editor content
    document.querySelector("#submit").addEventListener("click", () => {
-     console.log(editor.state.doc.toString());
+     let content = editor.state.doc.toString();
+     console.log(content);
+
+     // send the content to the server (call livewire method)
+     Livewire.emit('store', content);
    });
 
 })();
