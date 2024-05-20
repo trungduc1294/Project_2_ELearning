@@ -61,16 +61,36 @@ class Discovery extends Component
 
     // ============================= CUSTOM FUNCTION =============================
     public function joinWithCode() {
+        // get all course_student
+        $courseStudents = CourseStudent::all();
+
         $course = Course::where('reference_code', $this->code)->first();
+
         if ($course) {
+            foreach ($courseStudents as $item) {
+                if ($item->student_id == $this->user_id && $item->course_id == $course->id) {
+                    session()->flash('error', 'Bạn đã đăng ký tham gia khóa học này rồi');
+                    // return redirect()->route('student.course.detail', [
+                    //     'student_id' => $this->user_id,
+                    //     'course_id' => $course->id
+                    // ]);
+                    return;
+                }
+            }
             $courseStudent = new CourseStudent();
             $courseStudent->course_id = $course->id;
             $courseStudent->student_id = $this->user_id;
             $courseStudent->status = "requesting";
             $courseStudent->save();
 
-            $course->number_of_student += 1;
+            $course->number_of_students += 1;
             $course->save();
+
+            // redirect to course detail
+            return redirect()->route('student.course.detail', [
+                'student_id' => $this->user_id,
+                'course_id' => $course->id
+            ]);
         } else {
             session()->flash('error', 'Mã khóa học không tồn tại');
         }

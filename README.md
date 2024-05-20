@@ -21,29 +21,11 @@ public function index()
 5. Vào livewire blade có thể nhận được data
 
 ========================================================================================
-# Thêm vào model Leson trường lesson_order thể hiện thứ tự của lesson trong 1 course, tự động điền khi add lesson
-
-# Đưa quiz vào trong lesson, cho tạo quiz cho từng lesson, thêm trường quiz_order để thể hiện thứ tự quiz trong 1 lesson
-
-
-
 @if (session()->has('error'))
-                    <div class="error">
-                        <span>{{ session('error') }}</span>
-                    </div>
-                @endif
-
-## TODO
-- sửa lại quizz
-- upload lưu trữ video
-- kết nối api code complier
-
-- Hệ thống điểm thưởng, level
-- Update account image
-- Phân quyền cho hiệu trưởng
-
-## Teacher
-- Tạo bài kiểm tra (option)
+    <div class="error">
+        <span>{{ session('error') }}</span>
+    </div>
+@endif
 
 
 
@@ -147,3 +129,23 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
     'versionIndex' => '3',
 ]);
 ```
+
+
+#### TODO chung
+
+- sửa lại quizz
+- Hệ thống điểm thưởng, level
+- Update account image
+- Nâng cấp code complier thêm phần nhập biến từ bán phím
+- Sửa lại phòng học trực tuyến
+- quên mật khẩu
+
+## Teacher
+- Tạo bài kiểm tra (option)
+- Xoá lesson
+
+## Student
+
+## Hiệu trưởng
+- Tạo một tài khoản root có mọi quyền
+- Phân quyền cho hiệu trưởng có thể phân quyền cho các giáo viên

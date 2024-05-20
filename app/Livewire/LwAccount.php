@@ -17,6 +17,10 @@ class LwAccount extends Component
     public $username;
     public $email;
     public $password;
+    public $name;
+    public $phone;
+    public $address;
+    public $class;
 
 
     // system function
@@ -25,6 +29,10 @@ class LwAccount extends Component
         $this->username = $this->user->username;
         $this->email = $this->user->email;
         $this->password = $this->user->password;
+        $this->name = $this->user->name;
+        $this->phone = $this->user->phone;
+        $this->address = $this->user->address;
+        $this->class = $this->user->class;
     }
 
     public function mount() {
@@ -51,6 +59,23 @@ class LwAccount extends Component
         $this->user->username = $this->username;
         $this->user->email = $this->email;
         $this->user->password = $this->password;
+        $this->user->save();
+
+        $this->fetchData();
+    }
+
+    public function updateProfile() {
+        $this->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'class' => 'required'
+        ]);
+
+        $this->user->name = $this->name;
+        $this->user->phone = $this->phone;
+        $this->user->address = $this->address;
+        $this->user->class = $this->class;
         $this->user->save();
 
         $this->fetchData();

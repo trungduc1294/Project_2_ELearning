@@ -76,7 +76,7 @@
     .main_content {
       @apply w-full pl-10;
 
-      .step_account {
+      .step_account, .step {
         @apply w-full;
         .title {
           h1 {
