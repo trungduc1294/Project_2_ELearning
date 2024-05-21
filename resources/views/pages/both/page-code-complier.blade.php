@@ -15,4 +15,5 @@
 @stop
 
 @section('scripts')
+  @vite(['resources/js/editor.js'])
 @stop

@@ -139,12 +139,16 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Nâng cấp code complier thêm phần nhập biến từ bán phím
 - Sửa lại phòng học trực tuyến
 - quên mật khẩu (vấn đề email)
+- Diễn đàn
+- Phần thống kê menu
 
 ## Teacher
 - Tạo bài kiểm tra (option)
 - Xoá lesson
 
 ## Student
+- Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
+- Tham gia phòng học trực tuyến
 
 ## Hiệu trưởng
 - Tạo một tài khoản root có mọi quyền

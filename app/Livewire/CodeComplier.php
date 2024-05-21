@@ -17,7 +17,7 @@ class CodeComplier extends Component
 
     protected $listeners = ['store'];
 
-    public function store($content = "default content") {
+    public function store($content) {
         $this->code = $content;
         dd($this->code);
     }

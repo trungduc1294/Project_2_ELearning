@@ -50,4 +50,12 @@
 </div>
 
 
-<script src="{{ asset('editor.bundle.js') }}"></script>
+{{-- <script src="{{ asset('editor.bundle.js') }}"></script> --}}
+@script
+<script>
+    window.addEventListener('editor:submit', (evt) => {
+        console.log(evt.detail, evt);
+        $wire.store(evt.detail);
+    })
+</script>
+@endscript

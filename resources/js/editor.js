@@ -58,5 +58,6 @@ let editor = new EditorView({
 // get the editor content
 document.querySelector("#submit").addEventListener("click", () => {
   let content = editor.state.doc.toString();
+  console.log({content});
   window.dispatchEvent(new CustomEvent('editor:submit', { detail: content }));
 });
