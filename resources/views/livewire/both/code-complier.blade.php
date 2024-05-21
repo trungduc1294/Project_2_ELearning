@@ -6,7 +6,7 @@
     </div>
     <div class="code_block">
         <div class="code_block_header">
-            {{-- <form class="code_editor" wire:submit.prevent='runCode'> --}}
+            <div class="code_editor">
                 <select wire:model="language">
                     <option value="0">Choose language</option>
                     <option value="python3">Python3</option>
@@ -15,14 +15,12 @@
                     <option value="java">Java</option>
                 </select>
 
-                {{-- <button type="submit" id="submit" onclick="execute()">Execute</button> --}}
-                <button type="submit" id="submit">Execute</button>
-            {{-- </form> --}}
+                <button id="submit">Run</button>
+            </div>
 
         </div>
         {{-- <textarea wire:model="code" id="hidden_editor"></textarea> --}}
 
-        {{-- codemirror editor --}}
         <div id="editor"></div>
     </div>
     <div class="output_block">
@@ -33,7 +31,7 @@
         <div class="output_info">
             <h1>Output</h1>
 
-            <div class="memory_info output_info_item">
+            {{-- <div class="memory_info output_info_item">
                 <h2>Memory</h2>
                 <span>{{ $memory }}</span>
             </div>
@@ -41,7 +39,7 @@
             <div class="cpu_time output_info_item">
                 <h2>CPU Time</h2>
                 <span>{{ $cpuTime }}</span>
-            </div>
+            </div> --}}
         </div>
         <div class="output">
             <span>{{ $output }}</span>
@@ -50,12 +48,11 @@
 </div>
 
 
-{{-- <script src="{{ asset('editor.bundle.js') }}"></script> --}}
 @script
 <script>
     window.addEventListener('editor:submit', (evt) => {
         console.log(evt.detail, evt);
-        $wire.store(evt.detail);
+        $wire.runCode(evt.detail);
     })
 </script>
 @endscript

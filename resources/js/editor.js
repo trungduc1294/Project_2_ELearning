@@ -58,6 +58,13 @@ let editor = new EditorView({
 // get the editor content
 document.querySelector("#submit").addEventListener("click", () => {
   let content = editor.state.doc.toString();
-  console.log({content});
+  // console.log({content});
   window.dispatchEvent(new CustomEvent('editor:submit', { detail: content }));
 });
+
+// document.querySelector(".code_editor").addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   let content = editor.state.doc.toString();
+// // console.log({content});
+//   window.dispatchEvent(new CustomEvent('editor:submit', { detail: content }));
+// });

@@ -19,7 +19,7 @@
     @apply p-2;
     @apply rounded-md;
 
-    form {
+    .code_editor {
       @apply flex gap-2 items-center justify-between;
 
       button {
