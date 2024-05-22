@@ -19,6 +19,7 @@ class StudentManage extends Component
     public $newStudentEmail;
     public $listStudent = [];
     public $listRequestStudent = [];
+    public $listRequest = [];
 
     // ==================== SYSTEM FUNCTION ====================
     // system function 
@@ -54,21 +55,25 @@ class StudentManage extends Component
     }
 
     public function getListRequestStudent() {
-        $listRequestStudentId = CourseStudent::where('course_id', $this->course_id)
+        $listRequest = CourseStudent::where('course_id', $this->course_id)
             ->where('status', 'requesting')
             ->get();
+            
+        $this->listRequest = $listRequest;
 
-        if ($listRequestStudentId) {
+        if ($listRequest) {
             $this->listRequestStudent = [];
-            foreach ($listRequestStudentId as $studentId) {
-                $student = User::find($studentId->student_id);
+            foreach ($listRequest as $request) {
+                $student = User::find($request->student_id);
                 array_push($this->listRequestStudent, $student);
             }
         }
+
+        // dd($this->listRequestStudent);
     }
 
     // ==================== MAIN FUNCTION ====================
-    // add student function
+    // add student with email function
     public function addStudent() {
         $student = User::where('email', $this->newStudentEmail)->first();
         $checkStudentExisted = CourseStudent::where('course_id', $this->course_id)->where('student_id', $student->id)->first();
@@ -122,8 +127,8 @@ class StudentManage extends Component
     //     }
     // }
 
-    public function acceptStudent($studentId) {
-        $acceptStudent = CourseStudent::where('course_id', $this->course_id)->where('student_id', $studentId)->first();
+    public function acceptStudent($courseStudentId) {
+        $acceptStudent = CourseStudent::where('id', $courseStudentId)->first();
         $acceptStudent->status = "joined";
         $acceptStudent->save();
 
@@ -131,6 +136,12 @@ class StudentManage extends Component
         $course->number_of_students += 1;
         $course->save();
 
+        $this->fetchData();
+    }
+
+    public function removeRequest($courseStudentId) {
+        $courseStudent = CourseStudent::where('id', $courseStudentId)->first();
+        $courseStudent->delete();
         $this->fetchData();
     }
 }

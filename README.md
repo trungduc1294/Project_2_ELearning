@@ -140,13 +140,13 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Sửa lại phòng học trực tuyến
 <!-- - quên mật khẩu (vấn đề email) -->
 - Diễn đàn
-- Phần thống kê menu
+<!-- - Phần thống kê menu -->
 - Theem discovery theo lop
 
 ## Teacher
 - Tạo bài kiểm tra (option)
 <!-- - Xoá lesson -->
-- Theem nut xoa yeu cau tham gia o teacher student manage
+<!-- - Theem nut xoa yeu cau tham gia o teacher student manage -->
 
 ## Student
 - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...

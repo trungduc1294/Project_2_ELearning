@@ -82,13 +82,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($listRequestStudent as $student)
+                    @foreach ($listRequest as $request)
                         <tr>
-                            <td>{{$student->username}}</td>
-                            <td>{{$student->email}}</td>
-                            <td>{{$student->role}}</td>
-                            <td class="std-manage-action primary-button" wire:click='acceptStudent({{$student->id}})'>
-                                Accept
+                            <td>{{$listRequestStudent[$loop->index]->username}}</td>
+                            <td>{{$listRequestStudent[$loop->index]->email}}</td>
+                            <td>{{$listRequestStudent[$loop->index]->role}}</td>
+                            <td class="manage">
+                                <div class="std-manage-action primary-button"  wire:click='acceptStudent({{$request->id}})'>
+                                    Accept
+                                </div>
+                                <div class="std-manage-action primary-button"  wire:click='removeRequest({{$request->id}})'>
+                                    Remove
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -109,7 +114,6 @@
                         <label for="std-email">Student email:</label>
                         <input type="text" name="std-email" id="std-email" wire:model='newStudentEmail'>
                     </div>
-                    
                     <div class="submit" x-on:click="addStudentPanel = false">
                         <button type="submit">Add Student</button>
                     </div>

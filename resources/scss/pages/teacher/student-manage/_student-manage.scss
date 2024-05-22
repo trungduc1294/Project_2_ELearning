@@ -72,8 +72,12 @@
 
           th, td {
             @apply py-2;
+            @apply text-center;
           }
-
+          tr {
+            @apply border-b border-gray-700;
+          }
+          
           .std-manage-action{
             // @apply text-center;
             @apply flex gap-4 justify-center items-center;
