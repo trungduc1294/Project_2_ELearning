@@ -134,14 +134,15 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 #### TODO chung
 
 - sửa lại quizz
-- Hệ thống điểm thưởng, level
 - Update account image
-- Nâng cấp code complier thêm phần nhập biến từ bán phím
+- Nâng cấp code complier thêm phần nhập biến từ bán phím, lỗi complie 1 lần thì editor mất
 - Sửa lại phòng học trực tuyến
 <!-- - quên mật khẩu (vấn đề email) -->
 - Diễn đàn
 <!-- - Phần thống kê menu -->
-- Theem discovery theo lop
+<!-- - Theem discovery theo lop -->
+- Thay ảnh khi chưa có video cho lesson
+- Tạo trang 404
 
 ## Teacher
 - Tạo bài kiểm tra (option)

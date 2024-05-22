@@ -13,6 +13,9 @@ class Discovery extends Component
     public $categoryList;
     public $page = "topic";
     public $topic = 1;
+    public $currentClassIndex = 0;
+
+    public $coursesByClass = [];
 
     // joinwithcode
     public $code;
@@ -29,6 +32,11 @@ class Discovery extends Component
         $this->getCourseByTopic($this->topic);
     }
 
+    public function changeClassIndex($index){
+        $this->currentClassIndex = $index;
+        $this->getCourseByClass($this->currentClassIndex);
+    }
+
     // Get course list function to render
     public $newestCourseList;
     public function getNewestCourseList() {
@@ -38,6 +46,21 @@ class Discovery extends Component
     public $courseListTopic;
     public function getCourseByTopic($category_id) {
         $this->courseListTopic = Course::where('category_id', $category_id)->get();
+    }
+
+    public function getCourseByClass($currentClassIndex) {
+        // $currentClassIndex = 0 => Lop 10
+        // $currentClassIndex = 1 => Lop 11
+        // $currentClassIndex = 2 => Lop 12
+        // $currentClassIndex = 3 => Khac (orther)
+        if ($currentClassIndex == 0) 
+            $this->coursesByClass = Course::where('class', '10')->get();
+        if ($currentClassIndex == 1)
+            $this->coursesByClass = Course::where('class','11')->get();
+        if ($currentClassIndex == 2)
+            $this->coursesByClass = Course::where('class','12')->get();
+        if ($currentClassIndex == 3)
+            $this->coursesByClass = Course::where('class','orther')->get();
     }
 
     // ============================= SYSTEM FUNCTION =============================

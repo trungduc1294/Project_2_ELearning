@@ -15,6 +15,7 @@ class Course extends Model
         'name',
         'description',
         'category_id',
+        'class',
         'number_of_lessons',
         'number_of_students',
         'duration',

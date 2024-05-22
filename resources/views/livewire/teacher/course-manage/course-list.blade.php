@@ -77,6 +77,17 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="class">Lớp:</label>
+                    <select name="class" id="class" wire:model='class'>
+                        <option value="0" >Chọn lớp</option>
+                        <option value="10">Lớp 10</option>
+                        <option value="11">Lớp 11</option>
+                        <option value="12">Lớp 12</option>
+                        <option value="orther">Khác</option>
+                        
+                    </select>
+                </div>
                 <div class="submit">
                     <button type="submit">Thêm</button>
                 </div>

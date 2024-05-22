@@ -34,7 +34,7 @@
     }
   }
 
-  .topics, .series {
+  .topics, .series, .class {
     .title_block {
       @apply flex flex-col justify-center items-center gap-4 mt-10;
       h3 {
@@ -48,7 +48,7 @@
     
   }
 
-  .topics {
+  .topics, .class {
     .courses_block {
       .topics_nav {
         @apply flex justify-center items-center gap-10 mt-10;

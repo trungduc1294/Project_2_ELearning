@@ -101,8 +101,9 @@
         </div>
     @endif
 
+    {{-- phan chia theo lop --}}
     @if ($page == "class_level")
-        <div class="topics">
+        <div class="topics class">
             
             <div class="title_block">
                 <h3>Phân Chia Theo Lớp</h3>
@@ -111,19 +112,27 @@
 
             <div class="courses_block">
                 <div class="topics_nav">
-                    @foreach ($categoryList as $category)
-                        <div class="{{ $topic == $category->id ? 'topics_nav_item active' : 'topics_nav_item' }}"
-                            wire:click='changeTopic({{$category->id}})'
-                        >
-                            <span>{{$category->name}}</span>
-                            <div class="bb"></div>
-                        </div>
-                    @endforeach
+                    <div class="{{ $currentClassIndex == 0 ? 'topics_nav_item active' : 'topics_nav_item' }}" wire:click='changeClassIndex({{0}})'>
+                        <span>Lớp 10</span>
+                        <div class="bb"></div>
+                    </div>
+                    <div class="{{ $currentClassIndex == 1 ? 'topics_nav_item active' : 'topics_nav_item' }}" wire:click='changeClassIndex({{1}})'>
+                        <span>Lớp 11</span>
+                        <div class="bb"></div>
+                    </div>
+                    <div class="{{ $currentClassIndex == 2 ? 'topics_nav_item active' : 'topics_nav_item' }}" wire:click='changeClassIndex({{2}})'>
+                        <span>Lớp 12</span>
+                        <div class="bb"></div>
+                    </div>
+                    <div class="{{ $currentClassIndex == 3 ? 'topics_nav_item active' : 'topics_nav_item' }}" wire:click='changeClassIndex({{3}})'>
+                        <span>Khác</span>
+                        <div class="bb"></div>
+                    </div>
                 </div>
 
                 <div class="courses">
-                    @if ($courseListTopic)
-                        @foreach ($courseListTopic as $course)
+                    @if ($coursesByClass)
+                        @foreach ($coursesByClass as $course)
                             <div class="course-card"
                             onclick="window.location.href = '{{ route('student.course.detail', [
                                 'student_id' => $user_id,

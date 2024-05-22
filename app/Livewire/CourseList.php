@@ -15,6 +15,7 @@ class CourseList extends Component
     public $course_name;
     public $course_description;
     public $course_category_id;
+    public $class;
 
 
     // Course
@@ -52,10 +53,12 @@ class CourseList extends Component
     // ==================== MAIN FUNCTION ====================
     public function addNewCourse()
     {
+
         $course = new Course();
         $course->name = $this->course_name;
         $course->description = $this->course_description;
         $course->category_id = $this->course_category_id;
+        $course->class = $this->class;
         $course->teacher_id = session("userId");
         $course->number_of_lessons = 0;
         $course->number_of_students = 0;
@@ -64,6 +67,11 @@ class CourseList extends Component
         if ($course->category_id == 0) {
             // thong bao loi
             $this->error = "Please select a category";
+            return;
+        }
+
+        if ($course->class == 0) {
+            $this->error = "Please select a class";
             return;
         }
 
