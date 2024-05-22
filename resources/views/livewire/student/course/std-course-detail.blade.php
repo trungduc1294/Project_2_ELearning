@@ -64,23 +64,24 @@
                                 onclick="alert('You have to join this course first')"
                             @endif
                             >
-                                <div class="progress_check">
-                                    <div class="check">
-                                        <i class="fas fa-check"></i>
+                                <div class="lesson_group">
+                                    <div class="progress_check">
+                                        <div class="check">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="lesson_info">
+                                        <div class="lesson_name">
+                                            <h3>{{$lesson->name}}</h3>
+                                        </div>
+                                        <div class="lesson_decs">
+                                            <p>{{$lesson->description}}</p>
+                                        </div>
+                                        <div class="lesson_duration">
+                                            <span>0h 2m 40s</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="lesson_info">
-                                    <div class="lesson_name">
-                                        <h3>{{$lesson->name}}</h3>
-                                    </div>
-                                    <div class="lesson_decs">
-                                        <p>{{$lesson->description}}</p>
-                                    </div>
-                                    <div class="lesson_duration">
-                                        <span>0h 2m 40s</span>
-                                    </div>
-                                </div>
-                            </div>
                         @endforeach
                     @endif
                 </div>

@@ -74,13 +74,15 @@
         </div>
       
         <div class="nav_item">
-          <a href="{{route('teacher.course')}}">
+          <a href="{{route('student.course', [
+            'id' => session('userId')
+          ])}}">
           <span class="comment">
               //Library
           </span>
               <div class="links">
                 <span>"Khóa học của tôi" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"{{$countCourseStudent}}"</p>
               </div>
           </a>
         </div>

@@ -138,16 +138,23 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Update account image
 - Nâng cấp code complier thêm phần nhập biến từ bán phím
 - Sửa lại phòng học trực tuyến
-- quên mật khẩu (vấn đề email)
+<!-- - quên mật khẩu (vấn đề email) -->
 - Diễn đàn
 - Phần thống kê menu
+- Theem discovery theo lop
 
 ## Teacher
 - Tạo bài kiểm tra (option)
-- Xoá lesson
+<!-- - Xoá lesson -->
+- Theem nut xoa yeu cau tham gia o teacher student manage
 
 ## Student
 - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
+    + tham gia khoá học + 50 điểm
+    + comment + 5 điểm
+    + làm bài tập + 10 điểm
+    + đăng bài diễn đàn + 10 điểm
+    + cmt diễn đàn + 1 điểm
 - Tham gia phòng học trực tuyến
 
 ## Hiệu trưởng

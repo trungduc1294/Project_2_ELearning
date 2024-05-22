@@ -57,4 +57,16 @@ class TeacherLessonList extends Component
 
         $this->resetInputFields();
     }
+
+    public function deleteLesson($lessonId) {
+        $lesson = Lesson::find($lessonId);
+        $lesson->delete();
+
+        // update course
+        $course = Course::find($this->courseId);
+        $course->number_of_lessons -= 1;
+        $course->save();
+
+        $this->fetchData();
+    }
 }

@@ -123,37 +123,53 @@
                 @apply mt-4;
 
                 .lesson {
-                    @apply flex gap-4;
+                    @apply flex justify-between items-center;
                     @apply items-center;
                     @apply bg-[rgb(24,39,63)];
                     @apply rounded-xl;
                     @apply px-8 py-4 my-3;
                     @apply cursor-pointer;
 
-                    .progress_check {
+                    .lesson_group {
+                        @apply flex gap-4;
 
-                        .check {
-                            @apply w-20 h-20;
-                            @apply flex flex-col justify-center items-center;
-                            @apply rounded-full;
-                            @apply bg-[rgb(236,69,79)];
-                            @apply text-white font-medium text-center text-2xl;
+                        .progress_check {
+
+                            .check {
+                                @apply w-20 h-20;
+                                @apply flex flex-col justify-center items-center;
+                                @apply rounded-full;
+                                @apply bg-[rgb(236,69,79)];
+                                @apply text-white font-medium text-center text-2xl;
+                            }
                         }
+    
+                        .lesson_info {
+    
+                            .lesson_name {
+                                @apply text-white font-medium text-xl;
+                            }
+    
+                            .lesson_decs {
+                                @apply text-sm font-medium text-white;
+                                @apply py-4;
+                            }
+    
+                            .lesson_duration {
+                                @apply text-sm font-medium text-[#6D85A3];
+                            }
+                        }
+
                     }
 
-                    .lesson_info {
+                    .delete {
+                        @apply text-white font-medium text-sm;
+                        @apply p-4;
+                        @apply cursor-pointer;
+                        @apply transition-all duration-200;
 
-                        .lesson_name {
-                            @apply text-white font-medium text-xl;
-                        }
-
-                        .lesson_decs {
-                            @apply text-sm font-medium text-white;
-                            @apply py-4;
-                        }
-
-                        .lesson_duration {
-                            @apply text-sm font-medium text-[#6D85A3];
+                        &:hover {
+                            @apply text-red-500;
                         }
                     }
                 }

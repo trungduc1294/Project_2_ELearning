@@ -53,7 +53,7 @@
           </span>
               <div class="links">
                 <span>"Khóa Học Của Tôi" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"{{count($teacherCourse)}}"</p>
               </div>
           </a>
         </div>
@@ -65,7 +65,7 @@
           </span>
               <div class="links">
                 <span>"Bài Giảng" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"{{count($lessons)}}"</p>
               </div>
           </a>
         </div>
@@ -77,7 +77,7 @@
           </span>
               <div class="links">
                 <span>"Học Sinh" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"{{$totalStudents}}"</p>
               </div>
           </a>
         </div>

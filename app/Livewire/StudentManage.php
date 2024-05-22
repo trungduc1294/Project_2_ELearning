@@ -127,6 +127,10 @@ class StudentManage extends Component
         $acceptStudent->status = "joined";
         $acceptStudent->save();
 
+        $course = Course::find($this->course_id);
+        $course->number_of_students += 1;
+        $course->save();
+
         $this->fetchData();
     }
 }
