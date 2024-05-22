@@ -35,6 +35,12 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             [
+                'username' => 'headmaster',
+                'email' => 'headmaster@gmail.com',
+                'password' => '123123',
+                'role' => 'headmaster',
+            ],
+            [
                 'username' => 'trungduc1294',
                 'email' => 'teacher1@gmail.com',
                 'password' => '123123',

@@ -1,34 +1,27 @@
 <div>
     <div class="nav_group">
         <div class="title">
-            <span>"HỌC SINH"</span>
+            <span>"HIỆU TRƯỞNG"</span>
         </div>
+
         <div class="nav_item">
-            <a href="#">
-                <span class="comment">
-                    //My Library
-                </span>
-                <div class="links">
-                    <span>"Bắt Đầu Học" => </span>
-                    <p class="nav_name">"Khóa học"</p>
-                </div>
-            </a>
-        </div>
-      
-        <div class="nav_item">
-            <a href="#">
+            <a href="{{
+                route('headmaster.teacher.manage')
+            }}">
         <span class="comment">
-            //What to learn
+            //Manage
         </span>
                 <div class="links">
-                    <span>"Khám Phá" => </span>
-                    <p class="nav_name">"Khóa học mới"</p>
+                    <span>"Quản lý" => </span>
+                    <p class="nav_name">"Giáo viên"</p>
                 </div>
             </a>
         </div>
       
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('account', [
+                'id' => session('userId')
+              ])}}">
         <span class="comment">
             //Your Account
         </span>
@@ -51,18 +44,6 @@
             </a>
         </div>
 
-        <div class="nav_item">
-            <a href="#">
-            <span class="comment">
-                //Coding ?
-            </span>
-                <div class="links">
-                    <span>"Lập Trình" => </span>
-                    <p class="nav_name">"Python"</p>
-                </div>
-            </a>
-        </div>
-
         {{-- statistic --}}
       
         <div class="title">
@@ -72,10 +53,10 @@
         <div class="nav_item">
           <a href="#">
           <span class="comment">
-              //Library
+              //Course
           </span>
               <div class="links">
-                <span>"Khóa học của tôi" => </span>
+                <span>"Tổng Số Khoá Học" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -84,10 +65,10 @@
         <div class="nav_item">
           <a href="#">
           <span class="comment">
-              //Library
+              //Teacher
           </span>
               <div class="links">
-                <span>"Ranking Level" => </span>
+                <span>"Tổng Số Giáo Viên" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>
@@ -96,10 +77,10 @@
         <div class="nav_item">
           <a href="#">
           <span class="comment">
-              //Library
+              //Student
           </span>
               <div class="links">
-                <span>"Thời gian học" => </span>
+                <span>"Tổng Số Học Sinh" => </span>
                 <p class="nav_name">"20"</p>
               </div>
           </a>

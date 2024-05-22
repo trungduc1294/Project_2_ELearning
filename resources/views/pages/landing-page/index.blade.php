@@ -21,6 +21,8 @@
                 @livewire('teacher-menu')
             @elseif (session('role') == 'student')
                 @livewire('student-menu')
+            @elseif (session('role') == 'headmaster')
+                @livewire('headmaster-menu')
             @else
                 @livewire('guest-menu')
             @endif

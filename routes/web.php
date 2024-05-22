@@ -14,6 +14,7 @@ use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\MeetingController;
 use App\Http\Controllers\TeacherController\StudentManage;
 use App\Http\Controllers\TeacherController\TeacherQuiz;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 
 
@@ -89,6 +90,11 @@ Route::get('/quiz-start', function () {
 });
 
 Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('code_complier');
+
+// ===================== Route for Admin/Headmaster =====================
+Route::any('/headmaster/teacher-manage', function () {
+    return view('pages.headmaster.page-teacher-manage');
+})->name('headmaster.teacher.manage');
 
 // ===================== Route for Test =====================
 Route::any('/test-lesson-layout', function () {

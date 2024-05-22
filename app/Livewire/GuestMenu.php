@@ -8,6 +8,6 @@ class GuestMenu extends Component
 {
     public function render()
     {
-        return view('livewire.guest-menu');
+        return view('livewire.both.landing-page.guest-menu');
     }
 }
