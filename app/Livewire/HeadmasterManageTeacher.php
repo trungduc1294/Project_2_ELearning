@@ -67,5 +67,6 @@ class HeadmasterManageTeacher extends Component
         $user->save();
 
         $this->fetchData();
+        // dd($id);
     }
 }
