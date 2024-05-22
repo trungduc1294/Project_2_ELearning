@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
 use App\Http\Controllers\CodeComplierController;
+use App\Http\Controllers\HeadmasterController\HeadmasterController;
 use App\Http\Controllers\StudentController\CourseDetailController;
 use App\Http\Controllers\StudentController\CourseList;
 use App\Http\Controllers\StudentController\DiscoveryController;
@@ -92,9 +93,7 @@ Route::get('/quiz-start', function () {
 Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('code_complier');
 
 // ===================== Route for Admin/Headmaster =====================
-Route::any('/headmaster/teacher-manage', function () {
-    return view('pages.headmaster.page-teacher-manage');
-})->name('headmaster.teacher.manage');
+Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
 
 // ===================== Route for Test =====================
 Route::any('/test-lesson-layout', function () {

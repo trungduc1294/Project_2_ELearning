@@ -1,0 +1,95 @@
+.headmaster_manage_teacher {
+  @apply py-4 px-32;
+
+  .nav {
+    @apply flex;
+
+    .nav_item {
+      @apply text-center text-white cursor-pointer;
+      @apply bg-[#68686879];
+      @apply rounded-t-xl;
+
+      .tag {
+        @apply rounded-t-xl;
+        @apply py-2 px-20;
+      }
+
+      .active {
+        @apply bg-[#232323];
+      }
+    }
+  }
+
+  .search_box{
+    @apply w-full flex gap-2 items-center;
+    @apply bg-[#232323];
+    @apply py-4 px-10;
+    @apply rounded-tr-xl;
+
+    input {
+      @apply w-[300px];
+      @apply p-2;
+      @apply border-none outline-none;
+      @apply rounded-md;
+      @apply bg-[#68686879];
+      @apply text-white;
+
+      @apply focus:ring-2 focus:ring-[#646668];
+    }
+
+    i {
+      @apply text-white;
+      @apply cursor-pointer;
+      @apply bg-slate-400;
+      @apply p-3;
+      @apply rounded-md;
+    }
+
+  }
+
+  .table_of_user {
+    @apply w-full h-[450px];
+    @apply bg-[#232323];
+    @apply overflow-y-auto;
+    @apply py-4 px-10;
+
+    @apply shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)];
+    @apply rounded-br-xl rounded-bl-xl;
+
+    .user_table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: #4a4a4a;
+        color: white;
+      }
+
+      td {
+        border-bottom: 1px solid #68686879;
+
+        
+      }
+
+      .edit_button, .delete_button {
+        padding: 0.3rem 1rem;
+        background-color: #2f9812;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        margin-right: 0.5rem;
+      }
+      
+      .delete_button {
+        background-color: #dc3545;
+      }
+      
+    }
+  }
+}
