@@ -39,18 +39,21 @@ class DatabaseSeeder extends Seeder
                 'email' => 'headmaster@gmail.com',
                 'password' => '123123',
                 'role' => 'headmaster',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'trungduc1294',
                 'email' => 'teacher1@gmail.com',
                 'password' => '123123',
                 'role' => 'teacher',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'trungduc2705',
                 'email' => 'teacher2@gmail.com',
                 'password' => '123123',
                 'role' => 'teacher',
+                'rank_point' => 0,
             ],
 
             [
@@ -58,42 +61,49 @@ class DatabaseSeeder extends Seeder
                 'email' => 'std1@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std2',
                 'email' => 'std2@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std3',
                 'email' => 'std3@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std4',
                 'email' => 'std4@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std5',
                 'email' => 'std5@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std6',
                 'email' => 'std6@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
             [
                 'username' => 'std7',
                 'email' => 'std7@gmail.com',
                 'password' => '123123',
                 'role' => 'student',
+                'rank_point' => 0,
             ],
         ]);
 

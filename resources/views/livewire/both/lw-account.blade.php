@@ -28,7 +28,7 @@
                 </div>
                 <div class="
                 {{ $step == 'ranking' ? 'side_nav__item active' : 'side_nav__item' }}" 
-                wire:click='changeStep("Preferences")
+                wire:click='changeStep("ranking")
                 '>
                     <div class="before_line"></div>
                     <span>Rank Học Tập</span>
@@ -121,6 +121,25 @@
                         </div>
                         <button type="submit">Cập Nhật</button>
                     </form>
+                </div>
+            @endif
+            @if ($step == 'ranking')
+                <div class="step_ranking step m-auto">
+                    <div class="title">
+                        <h1>Ranking chăm chỉ</h1>
+                    </div>
+                    <div class="rank_img flex flex-col items-center justify-center mt-10">
+                        <img class="w-32" src="{{ asset('images/ranking/rank' . $user_rank . '.png') }}">
+                        <h1 class="text-white text-lg font-bold mt-2">Rank {{$user_rank}}</h1>
+                    </div>
+                    <div class="rank_info mt-10">
+                        <div class="rank_progress">
+                            <div class="progress w-full h-3 bg-slate-400 rounded-lg relative">
+                                <div class="progress_bar bg-red-400 absolute h-3 rounded-lg" style="width: {{$progress_bar_percent}}%"></div>
+                            </div>
+                            <span class="text-white text-md font-bold float-right mt-2">{{$rank_point}} điểm</span>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>

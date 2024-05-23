@@ -141,7 +141,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Diễn đàn
 <!-- - Phần thống kê menu -->
 <!-- - Theem discovery theo lop -->
-- Thay ảnh khi chưa có video cho lesson
+<!-- - Thay ảnh khi chưa có video cho lesson -->
 - Tạo trang 404
 - Trang tai lieu hoc tap cho moi lesson
 
@@ -153,10 +153,11 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 ## Student
 - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
     + tham gia khoá học + 50 điểm
-    + comment + 5 điểm
-    + làm bài tập + 10 điểm
-    + đăng bài diễn đàn + 10 điểm
-    + cmt diễn đàn + 1 điểm
+    + comment + 10 điểm
+    + làm bài tập + 30 điểm
+    + đăng bài diễn đàn + 20 điểm
+    + cmt diễn đàn + 10 điểm
+    + xem het video + 100 diem
 - Tham gia phòng học trực tuyến
 
 ## Hiệu trưởng

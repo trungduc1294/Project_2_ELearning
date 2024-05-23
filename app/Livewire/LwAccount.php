@@ -23,8 +23,14 @@ class LwAccount extends Component
     public $address;
     public $class;
 
+    // ranking
+    public $rank_point;
+    public $progress_bar_percent;
+    public $user_rank; //from 1 to 15
 
-    // system function
+
+
+    // ==================== SYSTEM FUNCTION ====================
     public function fetchData() {
         $this->user = User::find($this->user_id);
         $this->username = $this->user->username;
@@ -34,6 +40,11 @@ class LwAccount extends Component
         $this->phone = $this->user->phone;
         $this->address = $this->user->address;
         $this->class = $this->user->class;
+
+        // ranking
+        $this->rank_point = $this->user->rank_point;
+        $this->progress_bar_percent = $this->countPercent($this->rank_point);
+        $this->user_rank = $this->getRank($this->rank_point);
     }
 
     public function mount() {
@@ -49,7 +60,7 @@ class LwAccount extends Component
         return view('livewire.both.lw-account');
     }
 
-    // program function
+    // ==================== Chung ====================
     public function updateAccount() {
         $this->validate([
             'username' => 'required|min:6',
@@ -65,6 +76,7 @@ class LwAccount extends Component
         $this->fetchData();
     }
 
+    // ==================== Profile ====================
     public function updateProfile() {
         $this->validate([
             'name' => 'required',
@@ -82,5 +94,44 @@ class LwAccount extends Component
         Alert::success('Success', 'Profile updated successfully!');
 
         $this->fetchData();
+    }
+
+    // ==================== Rank ====================
+    public function countPercent($point) {
+        return ($point % 1000) / 1000 * 100;
+    }
+
+    public function getRank($point) {
+        if ($point < 1000) {
+            return 1;
+        } else if ($point < 2000) {
+            return 2;
+        } else if ($point < 3000) {
+            return 3;
+        } else if ($point < 4000) {
+            return 4;
+        } else if ($point < 5000) {
+            return 5;
+        } else if ($point < 6000) {
+            return 6;
+        } else if ($point < 7000) {
+            return 7;
+        } else if ($point < 8000) {
+            return 8;
+        } else if ($point < 9000) {
+            return 9;
+        } else if ($point < 10000) {
+            return 10;
+        } else if ($point < 11000) {
+            return 11;
+        } else if ($point < 12000) {
+            return 12;
+        } else if ($point < 13000) {
+            return 13;
+        } else if ($point < 14000) {
+            return 14;
+        } else {
+            return 15;
+        }
     }
 }

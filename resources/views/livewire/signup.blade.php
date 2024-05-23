@@ -28,7 +28,7 @@
                     <i class="fa-solid fa-check"></i>
                 </div>
             </div>
-            <div class="input-container">
+            {{-- <div class="input-container">
                 <label for="role">Bạn là ?</label>
                 <select name="role" id="role" wire:model='role'>
                     <option value="student">Student</option>
@@ -37,7 +37,7 @@
                 <div class="check-icon">
                     <i class="fa-solid fa-check"></i>
                 </div>
-            </div>
+            </div> --}}
             <div class="input-container">
                 <button type="submit">Đăng ký</button>
             </div>

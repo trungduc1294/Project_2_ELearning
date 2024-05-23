@@ -29,7 +29,8 @@ class Signup extends Component
         $user->username = $this->username;
         $user->email = $this->email;
         $user->password = $this->password;
-        $user->role = $this->role;
+        $user->role = "student";
+        $user->rank_point = 0;
         $user->save();
 
         redirect('/login');
