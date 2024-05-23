@@ -1,0 +1,123 @@
+.discussion_detail {
+  @apply w-2/3 mx-auto;
+
+  .discussion {
+    @apply flex gap-4 bg-[#0D1727] py-4 px-6 rounded-xl border border-[#1d324f] mb-4;
+    @apply transform transition duration-200 ease-in-out;
+    &:hover {
+      @apply bg-[#132239];
+    }
+
+
+    .user_info {
+      @apply mr-2;
+      @apply max-w-[100px];
+      /* Add styles for user info (avatar, name, etc.) if needed */
+      img {
+        @apply w-14 h-14 rounded-md;
+      }
+
+      span {
+        @apply line-clamp-1 mt-1;
+      }
+
+      .rank {
+        @apply flex gap-2 mt-2;
+        img {
+          @apply w-4 h-5;
+        }
+        span {
+          @apply text-xs font-semibold;
+        }
+      }
+    }
+
+    .discussion_info {
+      @apply flex-1;
+
+      .header {
+        @apply flex justify-between items-center mb-2;
+
+        .title {
+          @apply text-lg font-bold m-0;
+        }
+
+        .general_info {
+          @apply flex gap-4 text-sm;
+
+          .view,
+          .comment {
+            @apply flex items-center gap-1;
+          }
+
+          .category {
+            @apply px-6 py-1 border border-[#4E89DA] rounded-full;
+          }
+        }
+      }
+
+      .content_box {
+        .content {
+          @apply text-sm;
+        }
+      }
+    }
+  }
+
+  .reply{
+    @apply py-10;
+
+    .title {
+      @apply text-3xl text-white font-bold mb-6;
+    }
+
+    form {
+      @apply flex gap-4;
+      @apply border-b border-gray-300 p-4;
+
+      input {
+        @apply flex-1;
+        @apply bg-transparent px-2 py-1;
+        @apply border-none outline-none;
+      }
+
+      button {
+        @apply px-4 py-2 bg-[#4E89DA] text-white rounded-md;
+        @apply transition duration-200 ease-in-out;
+        &:hover {
+          @apply bg-[#3A77C2];
+        }
+      }
+    }
+  }
+
+  .comment_item {
+    @apply flex py-10 gap-6;
+
+    .user_info {
+      @apply max-w-[100px];
+
+      img {
+        @apply w-12 h-12 rounded-sm;
+      }
+      span {
+        @apply line-clamp-1 mt-1 line-clamp-1;
+      }
+      .rank {
+        @apply flex gap-2 mt-2;
+        img {
+          @apply w-4 h-5;
+        }
+        span {
+          @apply text-xs font-semibold line-clamp-1;
+        }
+      }
+    }
+
+    .comment_info {
+      .content {
+        @apply text-xl;
+      }
+    }
+  }
+}

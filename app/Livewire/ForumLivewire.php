@@ -98,7 +98,4 @@ class ForumLivewire extends Component
         return Discussion::all();
     }
 
-    public function getUsername($id) {
-        return User::find($id)->name;
-    }
 }

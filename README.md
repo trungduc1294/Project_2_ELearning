@@ -143,7 +143,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 <!-- - Diễn đàn -->
 - Taoj trang dien dan chi tiet, comment, like
 - Tạo trang 404
-- Bang xep hang
+- Bang xep hang trong account
 - Update account image
 
 - Trang tai lieu hoc tap cho moi lesson (option)
@@ -160,7 +160,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
     + comment lesson + 10 điểm (v)
     + làm bài tập + 30 điểm (v)
     + đăng bài diễn đàn + 20 điểm (v)
-    + cmt diễn đàn + 10 điểm
+    + cmt diễn đàn + 10 điểm (v)
     + xem het video + 100 diem
 - Tham gia phòng học trực tuyến
 

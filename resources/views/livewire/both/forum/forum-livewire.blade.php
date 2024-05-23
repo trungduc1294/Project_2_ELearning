@@ -54,7 +54,13 @@
             
             @if ($discussion_list)
                 @foreach ($discussion_list as $item)
-                <div class="discussion">
+                <a class="discussion" href="
+                    {{
+                        route('discussion', [
+                            'id' => $item->id,
+                        ])
+                    }}                
+                ">
                     <div class="user_info">
                         <img src="{{ asset('images/default-avatar.webp') }}" alt="">
                         <span>
@@ -70,7 +76,7 @@
                             <h1 class="title">{{$item->title}}</h1>
                             <div class="general_info">
                                 <div class="view">
-                                    <i class="fa-solid fa-eye"></i>
+                                    <i class="fa-solid fa-heart"></i>
                                     <span>{{$item->likes}}</span>
                                 </div>
                                 <div class="comment">
@@ -89,7 +95,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             @endif
             
