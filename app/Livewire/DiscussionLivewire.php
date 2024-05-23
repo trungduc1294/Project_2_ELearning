@@ -43,6 +43,10 @@ class DiscussionLivewire extends Component
         $newCmt->discussion_id = $this->id;
         $newCmt->save();
 
+        // count total comment
+        $this->discussion->comments += 1;
+        $this->discussion->save();
+
         // add point to user
         UserHelper::addPoint(User::find(session('userId')), 10);
 

@@ -141,7 +141,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 <!-- - Theem discovery theo lop -->
 <!-- - Thay ảnh khi chưa có video cho lesson -->
 <!-- - Diễn đàn -->
-- Taoj trang dien dan chi tiet, comment, like
+<!-- - Taoj trang dien dan chi tiet, comment, like -->
 - Tạo trang 404
 - Bang xep hang trong account
 - Update account image
@@ -162,6 +162,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
     + đăng bài diễn đàn + 20 điểm (v)
     + cmt diễn đàn + 10 điểm (v)
     + xem het video + 100 diem
+    
 - Tham gia phòng học trực tuyến
 
 ## Hiệu trưởng
