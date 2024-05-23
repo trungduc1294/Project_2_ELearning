@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Helpers\UserHelper;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseStudent;
@@ -77,6 +78,9 @@ class StdCourseDetail extends Component
         $course_student->student_id = $this->student_id;
         $course_student->status = "requesting";
         $course_student->save();
+
+        // add point to student
+        UserHelper::addPoint($this->student, 50);
 
         $this->fetchData();
     }

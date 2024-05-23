@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Helpers\UserHelper;
 use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Lesson;
@@ -54,8 +55,16 @@ class StdLesson extends Component
             $newComment->comment_content = $this->addComment;
             $newComment->save();
 
+            // add rankpoint to student
+            UserHelper::addPoint($this->student, 10);
+
             $this->addComment = '';
             $this->fetchData();
         }
+    }
+
+    public function doExercise() {
+        // add rankpoint to student
+        UserHelper::addPoint($this->student, 30);
     }
 }

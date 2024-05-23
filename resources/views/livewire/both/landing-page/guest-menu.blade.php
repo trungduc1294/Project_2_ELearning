@@ -4,7 +4,7 @@
             <span>"KHÁCH"</span>
         </div>
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('login')}}">
                 <span class="comment">
                     //My Library
                 </span>
@@ -16,7 +16,7 @@
         </div>
       
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('login')}}">
         <span class="comment">
             //What to learn
         </span>
@@ -28,7 +28,7 @@
         </div>
       
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('login')}}">
         <span class="comment">
             //Your Account
         </span>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('login')}}">
             <span class="comment">
                 //What wrong ?
             </span>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('login')}}">
             <span class="comment">
                 //Coding ?
             </span>
@@ -70,37 +70,37 @@
         </div>
       
         <div class="nav_item">
-          <a href="#">
+          <a href="{{route('login')}}">
           <span class="comment">
               //Library
           </span>
               <div class="links">
                 <span>"Khóa học của tôi" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"???"</p>
               </div>
           </a>
         </div>
       
         <div class="nav_item">
-          <a href="#">
+          <a href="{{route('login')}}">
           <span class="comment">
               //Library
           </span>
               <div class="links">
                 <span>"Ranking Level" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"???"</p>
               </div>
           </a>
         </div>
       
         <div class="nav_item">
-          <a href="#">
+          <a href="{{route('login')}}">
           <span class="comment">
               //Library
           </span>
               <div class="links">
                 <span>"Thời gian học" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"???"</p>
               </div>
           </a>
         </div>

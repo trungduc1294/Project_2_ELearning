@@ -23,14 +23,26 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         DB::table('categories')->insert([
-            ['name' => "Math"],
-            ['name' => "Science"],
-            ['name' => "History"],
-            ['name' => "English"],
-            ['name' => "Art"],
-            ['name' => "Music"],
-            ['name' => "Computer"],
-            ['name' => "Other"],
+            // ['name' => "Math"],
+            // ['name' => "Science"],
+            // ['name' => "History"],
+            // ['name' => "English"],
+            // ['name' => "Art"],
+            // ['name' => "Music"],
+            // ['name' => "Computer"],
+            // ['name' => "Other"],
+
+            ['name' => "Toán"],
+            ['name' => "Văn"],
+            ['name' => "Tiếng Anh"],
+            ['name' => "Vật Lý"],
+            ['name' => "Hoá"],
+            ['name' => "Sinh"],
+            ['name' => "Sử"],
+            ['name' => "Địa"],
+            ['name' => "GDCD"],
+            ['name' => "Khác"],
+
         ]);
 
         DB::table('users')->insert([

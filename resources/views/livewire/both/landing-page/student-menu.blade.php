@@ -44,7 +44,7 @@
         </div>
 
         <div class="nav_item">
-            <a href="#">
+            <a href="{{route('forum')}}">
             <span class="comment">
                 //What wrong ?
             </span>
@@ -94,7 +94,7 @@
           </span>
               <div class="links">
                 <span>"Ranking Level" => </span>
-                <p class="nav_name">"20"</p>
+                <p class="nav_name">"{{$student->rank_point}}"</p>
               </div>
           </a>
         </div>

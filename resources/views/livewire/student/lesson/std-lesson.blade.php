@@ -103,7 +103,7 @@
         @endif
 
         {{-- direction --}}
-        <div class="direction">
+        <div class="direction" wire:click='doExercise'>
             <div class="quiz-manage direction-btn">
                 <i class="fa-solid fa-circle-question"></i>
                 {{-- <a href="{{route('teacher.quiz.manage', [

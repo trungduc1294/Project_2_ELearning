@@ -30,12 +30,12 @@
             <span>THAM GIA BẰNG CODE</span>
             <div class="bb"></div>
         </div>
-        <div class="nav_item"
-            wire:click='changePage("forum")'
+        <a class="nav_item"
+            href="{{route('forum')}}"
         >
             <span>DIỄN ĐÀN</span>
             <div class="bb"></div>
-        </div>
+        </a>
     </div>
 
     {{-- Step my library --}}

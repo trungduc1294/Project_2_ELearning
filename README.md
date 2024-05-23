@@ -133,17 +133,21 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 #### TODO chung
 
-- sửa lại quizz
-- Update account image
+- sửa lại quizz (không chuyển đến câu tiếp theo)
 - Nâng cấp code complier thêm phần nhập biến từ bán phím, lỗi complie 1 lần thì editor mất
 - Sửa lại phòng học trực tuyến
 <!-- - quên mật khẩu (vấn đề email) -->
-- Diễn đàn
 <!-- - Phần thống kê menu -->
 <!-- - Theem discovery theo lop -->
 <!-- - Thay ảnh khi chưa có video cho lesson -->
+<!-- - Diễn đàn -->
+- Taoj trang dien dan chi tiet, comment, like
 - Tạo trang 404
-- Trang tai lieu hoc tap cho moi lesson
+- Bang xep hang
+- Update account image
+
+- Trang tai lieu hoc tap cho moi lesson (option)
+
 
 ## Teacher
 - Tạo bài kiểm tra (option)
@@ -152,10 +156,10 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 ## Student
 - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
-    + tham gia khoá học + 50 điểm
-    + comment + 10 điểm
-    + làm bài tập + 30 điểm
-    + đăng bài diễn đàn + 20 điểm
+    + tham gia khoá học + 50 điểm (v)
+    + comment lesson + 10 điểm (v)
+    + làm bài tập + 30 điểm (v)
+    + đăng bài diễn đàn + 20 điểm (v)
     + cmt diễn đàn + 10 điểm
     + xem het video + 100 diem
 - Tham gia phòng học trực tuyến
@@ -164,3 +168,6 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 <!-- - Tạo một tài khoản root có mọi quyền -->
 <!-- - Phân quyền cho hiệu trưởng có thể phân quyền cho các giáo viên -->
 - Lỗi đơ khi chuyển quyền giaos viên
+
+## Guest
+<!-- - return moi route den login -->

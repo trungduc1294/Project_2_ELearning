@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
 use App\Http\Controllers\CodeComplierController;
+use App\Http\Controllers\ForumController\ForumController;
 use App\Http\Controllers\HeadmasterController\HeadmasterController;
 use App\Http\Controllers\StudentController\CourseDetailController;
 use App\Http\Controllers\StudentController\CourseList;
@@ -94,6 +95,9 @@ Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('co
 
 // ===================== Route for Admin/Headmaster =====================
 Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
+
+// ===================== Route for Both =====================
+Route::any('/forum', [ForumController::class,'index'])->name('forum');
 
 // ===================== Route for Test =====================
 Route::any('/test-lesson-layout', function () {
