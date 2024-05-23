@@ -98,7 +98,7 @@
         @else
             <div class="video-container">
                 {{-- <video src="https://www.youtube.com/watch?v=KAYny6V1rB0&pp=ygURU2VsZWN0aW5nIGEgU3RhY2s%3D"></video> --}}
-                <img src="{{asset("images/quiz-logo.jpg")}}" alt="">
+                <img src="{{asset("images/logo.jpg")}}" alt="">
             </div>
         @endif
 

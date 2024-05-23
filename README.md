@@ -143,6 +143,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 <!-- - Theem discovery theo lop -->
 - Thay ảnh khi chưa có video cho lesson
 - Tạo trang 404
+- Trang tai lieu hoc tap cho moi lesson
 
 ## Teacher
 - Tạo bài kiểm tra (option)
