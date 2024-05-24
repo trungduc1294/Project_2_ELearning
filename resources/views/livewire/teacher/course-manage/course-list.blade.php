@@ -14,7 +14,7 @@
             </div>
             <div class="nav">
                 <div class="add-course nav-item" x-on:click="openCreateCoursePanel = !openCreateCoursePanel">
-                    <button class="primary-button">Thêm</button>
+                    <button class="primary-button">Tạo khoá học mới</button>
                 </div>
             </div>
         </div>

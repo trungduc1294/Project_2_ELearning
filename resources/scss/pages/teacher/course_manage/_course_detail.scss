@@ -42,7 +42,7 @@
           @apply text-white font-medium text-base;
         }
 
-        input {
+        input, textarea {
           @apply w-full;
           @apply rounded-lg;
           @apply bg-[rgb(24,39,63)];

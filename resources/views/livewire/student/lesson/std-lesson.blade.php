@@ -38,7 +38,7 @@
                                 <span>{{$loop->index + 1}}</span>
                             </div>
                             <div class="content">
-                                <div class="lesson-title">
+                                <div class="lesson-title line-clamp-1">
                                     <h4>{{$lesson_item->name}}</h4>
                                 </div>
                                 <div class="lesson-info">
@@ -63,7 +63,7 @@
                                 <span>{{$loop->index + 1}}</span>
                             </div>
                             <div class="content">
-                                <div class="lesson-title">
+                                <div class="lesson-title line-clamp-1">
                                     <h4>{{$lesson_item->name}}</h4>
                                 </div>
                                 <div class="lesson-info">
@@ -121,7 +121,7 @@
         <div class="lesson-description">
             <div class="content">
                 <h1 class="title">{{$lesson->name}}</h1>
-                <p class="content">{{$lesson->description}}</p>
+                <pre class="content">{{$lesson->description}}</pre>
             </div>
         </div>
 

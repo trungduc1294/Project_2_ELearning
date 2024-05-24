@@ -125,7 +125,7 @@
         <div class="lesson-description">
             <div class="content">
                 <h1 class="title">{{$lesson->name}}</h1>
-                <p class="content">{{$lesson->description}}</p>
+                <pre class="content">{{$lesson->description}}</p>
             </div>
             <div class="update"  x-on:click="openDescriptionPanel = !openDescriptionPanel;">
                 <i class="fa-solid fa-pencil"></i>
@@ -173,7 +173,8 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Mô tả:</label>
-                    <input type="text" name="description" id="description" wire:model='lessonDescription'>
+                    {{-- <input type="text" name="description" id="description" wire:model='lessonDescription'> --}}
+                    <textarea name="description" wire:model='lessonDescription' id="description" cols="30" rows="10"></textarea>
                 </div>
                 <div class="submit">
                     <button type="submit" x-on:click="openDescriptionPanel = false">Cập nhật</button>

@@ -15,10 +15,10 @@
                             </div>
                         </div>
                         <div class="lesson_info">
-                            <div class="lesson_name">
+                            <div class="lesson_name line-clamp-1">
                                 <h3>{{$lesson->name}}</h3>
                             </div>
-                            <div class="lesson_decs">
+                            <div class="lesson_decs line-clamp-2">
                                 <p>{{$lesson->description}}</p>
                             </div>
                             <div class="lesson_duration">
@@ -45,21 +45,22 @@
             </template>
         </button>
         <div class="create_lesson_form" x-show="open" @click.outside="open = false">
-            <h1>Create new lesson</h1>
+            <h1>Thêm bài giảng cho khoá học</h1>
             <form 
             wire:submit.prevent='
                 addNewLesson;
                 open = false;
             '>
                 <div class="input-container">
-                    <label for="course_title">Lesson Title</label>
-                    <input type="text" id="course_title" name="course_title" placeholder="Enter Course Title" wire:model='newLessonName'>    
+                    <label for="course_title">Tiêu đề bài giảng</label>
+                    <input type="text" id="course_title" name="course_title" placeholder="Nhập tiêu đề" wire:model='newLessonName'>    
                 </div>
                 <div class="input-container">
-                    <label for="course_description">Lesson Description</label>
-                    <input id="course_description" name="course_description" placeholder="Enter Course Description" wire:model='newLessonDescription'>  
+                    <label for="course_description">Mô tả bài giảng</label>
+                    {{-- <input id="course_description" name="course_description" placeholder="Nhập mô tả" wire:model='newLessonDescription'>   --}}
+                    <textarea name="course_description" id="course_description" cols="30" rows="10" placeholder="Nhập mô tả" wire:model='newLessonDescription'></textarea>
                 </div>
-                <button class="" type="submit">Add a lesson</button>
+                <button class="" type="submit">Thêm</button>
             </form>
         </div>
     </div>
