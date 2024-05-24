@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('video_url')->nullable();
             $table->integer('course_id')->nullable();
             $table->integer('duration')->nullable(); // duration of the lesson (minutes)
