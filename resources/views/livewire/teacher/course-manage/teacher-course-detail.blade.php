@@ -75,7 +75,7 @@
             {{-- Meeting --}}
             @if ($step == "meeting")
                 <div class="meeting-tab">
-                    <a href="{{route('teacher.create.meeting', ['course_id' => $courseId])}}">Tạo phòng học</a>
+                    <a href="{{route('teacher.create.meeting')}}">Tạo phòng học</a>
                 </div>
             @endif
 

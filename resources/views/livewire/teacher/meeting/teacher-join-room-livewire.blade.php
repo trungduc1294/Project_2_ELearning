@@ -1,4 +1,5 @@
 <div>
+    {{-- Header --}}
     <header id="nav">
         <div class="nav--list">
             <button id="members__button">
@@ -19,7 +20,7 @@
                         d="M24 20h-3v4l-5.333-4h-7.667v-4h2v2h6.333l2.667 2v-2h3v-8.001h-2v-2h4v12.001zm-15.667-6l-5.333 4v-4h-3v-14.001l18 .001v14h-9.667zm-6.333-2h3v2l2.667-2h8.333v-10l-14-.001v10.001z" />
                 </svg></button>
             <a class="nav__link" href="/">
-                Lobby
+                Phòng chờ
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ede0e0" viewBox="0 0 24 24">
                     <path
                         d="M20 7.093v-5.093h-3v2.093l3 3zm4 5.907l-12-12-12 12h3v10h7v-5h4v5h7v-10h3zm-5 8h-3v-5h-8v5h-3v-10.26l7-6.912 7 6.99v10.182z" />
@@ -28,12 +29,15 @@
         </div>
     </header>
 
-    <main class="container">
+    {{--  Main container --}}
+    <main class="container_main_meeting">
+        
         <div id="room__container">
+            {{-- Left nav --}}
             <section id="members__container">
 
                 <div id="members__header">
-                    <p>Participants</p>
+                    <p>Người tham gia</p>
                     <strong id="members__count">0</strong>
                 </div>
 
@@ -41,6 +45,8 @@
                 </div>
 
             </section>
+
+            {{-- Stream Container --}}
             <section id="stream__container">
 
                 <div id="stream__box">
@@ -75,11 +81,13 @@
                     </button>
                 </div>
 
+                {{-- button to join stream --}}
                 <button id="join-btn">
-                    Join Stream
+                    Tham gia phòng
                 </button>
             </section>
 
+            {{-- Message Container --}}
             <section id="messages__container">
 
                 <div id="messages"></div>

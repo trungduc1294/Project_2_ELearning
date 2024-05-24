@@ -64,9 +64,10 @@ Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDeta
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-Route::any('/teacher/courses-detail/{course_id}/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
+Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
 
-Route::any('/teacher/courses-detail/{course_id}/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
+Route::any('/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
+// Route::any('/metting/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
 
 // ===================== Route for Student =====================
 

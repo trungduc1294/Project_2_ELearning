@@ -10,9 +10,7 @@
 
 @section('content')
 
-  @livewire('teacher-join-room-livewire', [
-    'course_id' => $course_id,
-  ]) 
+  @livewire('teacher-join-room-livewire') 
 
 @stop
 
