@@ -74,11 +74,11 @@
                                     <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                                 </div>
                                 <div class="course-content">
-                                    <div class="course-info">
-                                        <h1 class="course-name">
+                                    <div class="course-info min-h-[180px]">
+                                        <h1 class="course-name line-clamp-2">
                                             {{$course->name}}
                                         </h1>
-                                        <p>{{$course->description}}</p>
+                                        <p class="description line-clamp-3">{{$course->description}}</p>
                                     </div>
                                     <div class="course-statistical">
                                         <div class="number-of-lession">
@@ -143,11 +143,11 @@
                                     <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                                 </div>
                                 <div class="course-content">
-                                    <div class="course-info">
-                                        <h1 class="course-name">
+                                    <div class="course-info min-h-[180px]">
+                                        <h1 class="course-name line-clamp-2">
                                             {{$course->name}}
                                         </h1>
-                                        <p>{{$course->description}}</p>
+                                        <p class="description line-clamp-3">{{$course->description}}</p>
                                     </div>
                                     <div class="course-statistical">
                                         <div class="number-of-lession">
@@ -191,11 +191,11 @@
                                 <img src="https://ik.imagekit.io/laracasts/series/thumbnails/svg/learn-vue-3.svg" alt="">
                             </div>
                             <div class="course-content">
-                                <div class="course-info">
-                                    <h1 class="course-name">
+                                <div class="course-info min-h-[180px]">
+                                    <h1 class="course-name line-clamp-2">
                                         {{$course->name}}
                                     </h1>
-                                    <p>{{$course->description}}</p>
+                                    <p class="description line-clamp-3">{{$course->description}}</p>
                                 </div>
                                 <div class="course-statistical">
                                     <div class="number-of-lession">
