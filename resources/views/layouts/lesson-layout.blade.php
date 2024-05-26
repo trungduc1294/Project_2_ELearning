@@ -23,7 +23,8 @@
     {{-- alpinejs cdn --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    {{-- sweet alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @yield('style-libraries')
     {{--Styles custom--}}
@@ -41,10 +42,21 @@
     </div>
 
     {{--Scripts js common--}}
-    <script src="{{ asset('js/jquery-3.4.1.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.4.1.js') }}"></>
     {{--Scripts link to file or js custom--}}
     @yield('scripts')
 
     @livewireScripts
+    <script type="text/javascript">
+        document.addEventListener('swal', function(evt) {
+            console.log('event swal', evt.detail)
+            let type = evt.detail.type === 'success' ? 'success' : 'error';
+            swal({
+                title: evt?.detail?.title ?? 'Success',
+                text: evt?.detail?.message ?? 'Operation successful',
+                icon: type,
+            });
+        });
+    </script>
 </body>
 </html>

@@ -44,5 +44,6 @@ class StdQuiz extends Component
                 'quiz_id' => $quiz->id
             ];
         }
+        $this->dispatch('selected:answer',answer: $answer, quiz_id: $quiz_id);
     }
 }

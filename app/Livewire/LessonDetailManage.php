@@ -110,5 +110,6 @@ class LessonDetailManage extends Component
         $this->fetchData();
 
         session()->flash('message', 'Video uploaded successfully.');
+        $this->dispatch('swal', title: 'Video uploaded successfully.', type: 'success');
     }
 }

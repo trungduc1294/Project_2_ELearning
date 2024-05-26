@@ -21,7 +21,7 @@
         </div>
         {{-- <textarea wire:model="code" id="hidden_editor"></textarea> --}}
 
-        <div id="editor"></div>
+        <div id="editor" wire:ignore></div>
     </div>
     <div class="output_block">
         <h1>Argument</h1>

@@ -25,6 +25,9 @@
     {{-- alpinejs cdn --}}
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    {{-- sweet alert --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     @yield('style-libraries')
     {{--Styles custom--}}
     @yield('styles')
@@ -51,5 +54,17 @@
     @yield('scripts')
 
     @livewireScripts
+
+    <script type="text/javascript">
+        document.addEventListener('swal', function(evt) {
+            console.log('event swal', evt.detail)
+            let type = evt.detail.type === 'success' ? 'success' : 'error';
+            swal({
+                title: evt?.detail?.title ?? 'Success',
+                text: evt?.detail?.message ?? 'Operation successful',
+                icon: type,
+            });
+        });
+    </script>
 </body>
 </html>

@@ -134,7 +134,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 #### TODO chung
 
 - sửa lại quizz (không chuyển đến câu tiếp theo)
-- Nâng cấp code complier thêm phần nhập biến từ bán phím, lỗi complie 1 lần thì editor mất
+- Nâng cấp code complier . lỗi complie 1 lần thì editor mất
 
 - Sửa lại phòng học trực tuyến 
     + lưu code phòng meeting vào db khi giáo viên tạo meeting, hiển thị cho phía học sinh
@@ -155,8 +155,8 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 <!-- - course-card info min-h-[180px] -->
 
-- Them loading khi upload video
-- Tích hợp thêm alert cho các thông báo
+<!-- - Them loading khi upload video -->
+<!-- - Tích hợp thêm alert cho các thông báo -->
 
 
 
