@@ -179,7 +179,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 ## Hiệu trưởng
 <!-- - Tạo một tài khoản root có mọi quyền -->
 <!-- - Phân quyền cho hiệu trưởng có thể phân quyền cho các giáo viên -->
-- Lỗi đơ khi chuyển quyền giaos viên
+- Lỗi đơ khi chuyển quyền giaos viên, (wire:irgnore), khoong cho component tu rebuild khi click
 
 ## Guest
 <!-- - return moi route den login -->
