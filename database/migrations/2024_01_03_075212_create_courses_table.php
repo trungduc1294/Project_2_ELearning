@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('duration')->nullable(); // duration of the course (minutes)
             $table->integer('teacher_id')->nullable(); // teacher id
             $table->string('reference_code')->nullable(); // reference code of the course
+            $table->string('meeting_code')->nullable(); // meeting code of the course
             $table->timestamps();
         });
     }

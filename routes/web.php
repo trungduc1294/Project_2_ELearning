@@ -64,10 +64,6 @@ Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDeta
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('teacher.create.meeting');
-
-Route::any('/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
-// Route::any('/metting/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('teacher.join.room');
 
 // ===================== Route for Student =====================
 
@@ -99,7 +95,12 @@ Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('co
 Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
 
 // ===================== Route for Both =====================
+Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('create.meeting');
+
+Route::any('/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('join.room');
+
 Route::any('/forum', [ForumController::class,'index'])->name('forum');
+
 Route::any('/discussion/{id}', [DiscussionController::class,'index'])->name('discussion');
 
 // ===================== Route for Test =====================

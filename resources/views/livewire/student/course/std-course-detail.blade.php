@@ -71,10 +71,10 @@
                                         </div>
                                     </div>
                                     <div class="lesson_info">
-                                        <div class="lesson_name">
+                                        <div class="lesson_name line-clamp-1">
                                             <h3>{{$lesson->name}}</h3>
                                         </div>
-                                        <div class="lesson_decs">
+                                        <div class="lesson_decs line-clamp-3">
                                             <p>{{$lesson->description}}</p>
                                         </div>
                                         <div class="lesson_duration">
@@ -90,7 +90,12 @@
 
                 @if ($tab == "meeting")
                 <div class="meeting">
-                    Phòng Học Trực Tuyến
+                    <div class="meeting_code">
+                        Hiện tại đang có phòng học với mã: <span>Meeting code</span>
+                    </div>
+                    <div class="meeting-tab">
+                        <a href="{{route('create.meeting')}}">Tham gia phòng học</a>
+                    </div>
                 </div>
                 @endif
 

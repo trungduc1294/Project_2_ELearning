@@ -21,6 +21,7 @@ class Course extends Model
         'duration',
         'teacher_id',
         'reference_code',
+        'meeting_code',
         "created_at",
         "updated_at",
     ];
