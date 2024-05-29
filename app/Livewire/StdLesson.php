@@ -68,4 +68,9 @@ class StdLesson extends Component
         // add rankpoint to student
         UserHelper::addPoint($this->student, 30);
     }
+
+    public function endVideo() {
+        dd("end video");
+        $this->dispatch("swal", title:"Diem ranking +30", type:"success");
+    }
 }

@@ -90,7 +90,7 @@
 
         @if ($lesson->video_url)
             <div class="video-container">
-                <video width="100%" controls>
+                <video id='videoPlayer' width="100%" controls>
                     <source src="{{ $lesson->video_url }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -160,44 +160,14 @@
             </div>
         </div>
     </div>
-
-
-    {{-- update description panel --}}
-    {{-- <div class="panel-container update-description-panel" x-show="openDescriptionPanel">
-        <div class="panel" @click.outside="openDescriptionPanel = false">
-            <h1>Update Lesson Info</h1>
-            <form wire:submit.prevent='updateLessonInfo'>
-                <div class="form-group">
-                    <label for="name">Leson name:</label>
-                    <input type="text" name="name" id="name" wire:model='lessonName'>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <input type="text" name="description" id="description" wire:model='lessonDescription'>
-                </div>
-                <div class="submit">
-                    <button type="submit" x-on:click="openDescriptionPanel = false">Update</button>
-                </div>
-            </form>
-        </div>
-    </div> --}}
-
-    {{-- update VIDEO panel --}}
-    {{-- <div class="panel-container update-video-panel" x-show="openVideoPanel">
-        <div class="panel" @click.outside="openVideoPanel = false">
-            <h1>Update video</h1>
-            <form>
-                <div class="form-group">
-                    <label for="description">Video:</label>
-                    <input type="file" name="description" id="description">
-                </div>
-                
-                <div class="submit">
-                    <button type="submit">Update</button>
-                </div>
-            </form>
-        </div>
-    </div> --}}
-    
 </div>
 
+
+@script
+<script>
+    window.addEventListener('videoPlayer:ended', (evt) => {
+        console.log('video end');
+        $wire.endVideo();
+    });
+</script>
+@endscript
