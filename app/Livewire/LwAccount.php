@@ -28,6 +28,9 @@ class LwAccount extends Component
     public $progress_bar_percent;
     public $user_rank; //from 1 to 15
 
+    // leader board
+    public $top3User;
+
 
 
     // ==================== SYSTEM FUNCTION ====================
@@ -45,6 +48,10 @@ class LwAccount extends Component
         $this->rank_point = $this->user->rank_point;
         $this->progress_bar_percent = $this->countPercent($this->rank_point);
         $this->user_rank = $this->getRank($this->rank_point);
+
+        // leader board
+        $this->top3User = $this->getTop3User();
+        // dd($this->top3User[0]->rank_point);
     }
 
     public function mount() {
@@ -135,5 +142,10 @@ class LwAccount extends Component
         } else {
             return 15;
         }
+    }
+
+    // ======================= Leaderboard =======================
+    public function getTop3User() {
+        return User::orderBy('rank_point', 'desc')->take(3)->get();
     }
 }

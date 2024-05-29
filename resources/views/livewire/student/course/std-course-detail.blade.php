@@ -18,7 +18,7 @@
             <div class="summary_course">
                 <div class="course_name">
                     <h1>{{$course->name}}</h1>
-                    <div class="{{ $isJoined ? 'join_course joined' : 'join_course' }}">
+                    <div class="{{ $isJoined ? 'join_course joined' : 'join_course' }} cursor-pointer">
                         @if ($isJoined)
                             <span>Đã Tham Gia</span>
                         @elseif ($isRequesting)
@@ -67,7 +67,8 @@
                                 <div class="lesson_group">
                                     <div class="progress_check">
                                         <div class="check">
-                                            <i class="fas fa-check"></i>
+                                            {{-- <i class="fas fa-check"></i> --}}
+                                            <span>{{ $loop->index + 1 }}</span>
                                         </div>
                                     </div>
                                     <div class="lesson_info">

@@ -46,4 +46,9 @@ class StdQuiz extends Component
         }
         $this->dispatch('selected:answer',answer: $answer, quiz_id: $quiz_id);
     }
+
+    public function changeQuiz() {
+        // reset result
+        $this->result = null;
+    }
 }
