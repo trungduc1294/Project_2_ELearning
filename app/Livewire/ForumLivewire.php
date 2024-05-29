@@ -89,6 +89,7 @@ class ForumLivewire extends Component
 
         $this->refreshModel();
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã thêm một bài thảo luận.', type: 'success');
 
         //  cộng điểm đăng bài diễn đàn
         UserHelper::addPoint($this->user, 20);

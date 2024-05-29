@@ -74,10 +74,11 @@ class LessonDetailManage extends Component
             $this->addComment = "";
             $this->fetchData();
         }
+        $this->dispatch('swal', title: 'Bạn chưa viết gì cho bình luận.', type: 'error');
+
     }
 
     public function updateLessonInfo() {
-
         $lesson = Lesson::find($this->lesson_id);
         $lesson->name = $this->lessonName;
         $lesson->description = $this->lessonDescription;
@@ -88,6 +89,8 @@ class LessonDetailManage extends Component
         $this->lessonDescription = "";
 
         $this->fetchData();
+
+        $this->dispatch('swal', title: 'Cập nhật thông tin bài giảng thành công.', type: 'success');
     }
 
     public function uploadVideo() {
@@ -110,6 +113,7 @@ class LessonDetailManage extends Component
         $this->fetchData();
 
         session()->flash('message', 'Video uploaded successfully.');
-        $this->dispatch('swal', title: 'Video uploaded successfully.', type: 'success');
+        
+        $this->dispatch('swal', title: 'Cập nhật video bài giảng thành công.', type: 'success');
     }
 }

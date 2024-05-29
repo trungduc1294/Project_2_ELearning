@@ -60,6 +60,7 @@ class StdLesson extends Component
 
             $this->addComment = '';
             $this->fetchData();
+            $this->dispatch('swal', title: 'Đã thêm bình luận.', type: 'success');
         }
     }
 

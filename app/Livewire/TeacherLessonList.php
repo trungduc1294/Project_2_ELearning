@@ -56,6 +56,7 @@ class TeacherLessonList extends Component
         $this->fetchData();
 
         $this->resetInputFields();
+        $this->dispatch('swal', title: 'Thêm bài giảng thành công.', type: 'success');
     }
 
     public function deleteLesson($lessonId) {
@@ -68,5 +69,6 @@ class TeacherLessonList extends Component
         $course->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã xoá bài giảng.', type: 'success');
     }
 }

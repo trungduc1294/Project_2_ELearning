@@ -56,6 +56,7 @@ class TeacherCourseDetail extends Component
         $updateCourse->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Cập nhật thông tin khoá học thành công.', type: 'success');
     }
 
     // delete course
@@ -76,6 +77,7 @@ class TeacherCourseDetail extends Component
         }
 
         return $randomCode;
+        
     }
 
     // Ham tao ma khoa hoc
@@ -89,6 +91,7 @@ class TeacherCourseDetail extends Component
             $this->course->save();
 
             $this->fetchData();
+            $this->dispatch('swal', title: 'Tạo mã tham gia khoá học thành công.', type: 'success');
         }
     }
 }

@@ -25,6 +25,9 @@
 
     <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     @yield('style-libraries')
     {{--Styles custom--}}
     @yield('styles')
@@ -44,5 +47,28 @@
     @yield('scripts')
 
     @livewireScripts
+
+    <script type="text/javascript">
+      document.addEventListener('swal', function(evt) {
+          console.log('event swal', evt.detail);
+          let type = evt.detail.type === 'success' ? 'success' : 'error';
+          Swal.fire({
+              title: evt?.detail?.title ?? 'Success',
+              text: evt?.detail?.message ?? 'successful',
+              icon: type,
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              padding: '0.5em',
+              // background: '#0D1727',
+              didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer);
+                  toast.addEventListener('mouseleave', Swal.resumeTimer);
+              }
+          });
+      });
+  </script>
 </body>
 </html>

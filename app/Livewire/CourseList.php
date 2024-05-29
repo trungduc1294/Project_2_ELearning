@@ -80,5 +80,7 @@ class CourseList extends Component
         $this->error = null;
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã thêm khoá học mới của bạn.', type: 'success');
+
     }
 }

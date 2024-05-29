@@ -133,8 +133,8 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 #### TODO chung
 
-- sửa lại quizz (không chuyển đến câu tiếp theo)
-- Nâng cấp code complier . lỗi complie 1 lần thì editor mất
+- sửa lại quizz. reset cau tra loi dung khi next cau
+- Nâng cấp code complier. them input
 
 - Sửa lại phòng học trực tuyến 
     + lưu code phòng meeting vào db khi giáo viên tạo meeting, hiển thị cho phía học sinh
@@ -152,6 +152,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Update account image
 
 - Trang tai lieu hoc tap cho moi lesson (option)
+<!-- - lam alert -->
 
 <!-- - course-card info min-h-[180px] -->
 
@@ -164,6 +165,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Tạo bài kiểm tra (option)
 <!-- - Xoá lesson -->
 <!-- - Theem nut xoa yeu cau tham gia o teacher student manage -->
+- Sua loading khi upload video
 
 ## Student
 - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...

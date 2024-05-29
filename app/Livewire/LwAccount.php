@@ -74,6 +74,7 @@ class LwAccount extends Component
         $this->user->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Cập nhật thông tin tài khoản thành công.', type: 'success');
     }
 
     // ==================== Profile ====================
@@ -94,6 +95,7 @@ class LwAccount extends Component
         Alert::success('Success', 'Profile updated successfully!');
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Cập nhật thông tin cá nhân thành công.', type: 'success');
     }
 
     // ==================== Rank ====================

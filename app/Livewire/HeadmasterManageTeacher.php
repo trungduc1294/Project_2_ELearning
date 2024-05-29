@@ -68,5 +68,6 @@ class HeadmasterManageTeacher extends Component
 
         $this->fetchData();
         // dd($id);
+        $this->dispatch('swal', title: 'Cập nhật nhiệm vụ thành công.', type: 'success');
     }
 }

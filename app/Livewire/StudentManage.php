@@ -91,6 +91,7 @@ class StudentManage extends Component
         }
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Thêm học sinh thành công.', type: 'success');
     }
 
     // delete student function
@@ -103,6 +104,7 @@ class StudentManage extends Component
         $course->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã xoá học sinh khỏi khoá học.', type: 'success');
     }
 
     public function banStudent($studentId) {
@@ -116,6 +118,7 @@ class StudentManage extends Component
         $banStudent->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã cấm học sinh.', type: 'success');
     }
 
     // public function checkBanned($studentId) {
@@ -137,11 +140,13 @@ class StudentManage extends Component
         $course->save();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Xác nhận tham gia thành công.', type: 'success');
     }
 
     public function removeRequest($courseStudentId) {
         $courseStudent = CourseStudent::where('id', $courseStudentId)->first();
         $courseStudent->delete();
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã xoá yêu cầu tham gia.', type: 'success');
     }
 }

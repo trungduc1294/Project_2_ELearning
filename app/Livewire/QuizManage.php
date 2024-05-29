@@ -70,6 +70,7 @@ class QuizManage extends Component
         $newQuiz->save();
         
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã thêm câu hỏi.', type: 'success');
     }
 
     // delete question quiz
@@ -78,5 +79,6 @@ class QuizManage extends Component
         $quiz->delete();
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã xoá câu hỏi.', type: 'success');
     }
 }

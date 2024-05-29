@@ -83,6 +83,7 @@ class StdCourseDetail extends Component
         UserHelper::addPoint($this->student, 50);
 
         $this->fetchData();
+        $this->dispatch('swal', title: 'Đã yêu cầu tham gia khoá học.', type: 'success');
     }
     
 }

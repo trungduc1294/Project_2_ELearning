@@ -116,6 +116,8 @@ class Discovery extends Component
             ]);
         } else {
             session()->flash('error', 'Mã khóa học không tồn tại');
+            $this->dispatch('swal', title: 'Không có khoá học với mã này.', type: 'error');
+
         }
     }
 }

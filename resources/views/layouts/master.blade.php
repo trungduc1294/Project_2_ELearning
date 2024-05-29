@@ -26,7 +26,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{-- sweet alert --}}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @yield('style-libraries')
     {{--Styles custom--}}
@@ -57,12 +57,23 @@
 
     <script type="text/javascript">
         document.addEventListener('swal', function(evt) {
-            console.log('event swal', evt.detail)
+            console.log('event swal', evt.detail);
             let type = evt.detail.type === 'success' ? 'success' : 'error';
-            swal({
+            Swal.fire({
                 title: evt?.detail?.title ?? 'Success',
-                text: evt?.detail?.message ?? 'Operation successful',
+                text: evt?.detail?.message ?? 'successful',
                 icon: type,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                padding: '0.5em',
+                // background: '#0D1727',
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer);
+                    toast.addEventListener('mouseleave', Swal.resumeTimer);
+                }
             });
         });
     </script>
