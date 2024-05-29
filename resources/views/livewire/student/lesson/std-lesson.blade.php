@@ -115,6 +115,13 @@
                     'lesson_id' => $lesson_id,
                 ])}}">Bài tập</a>
             </div>
+            <div class="quiz-manage direction-btn">
+                <i class="fa-solid fa-circle-question"></i>
+                <a href="{{route('student.document', [
+                    'course_id' => $course_id,
+                    'lesson_id' => $lesson_id,
+                ])}}">Tài liệu</a>
+            </div>
         </div>
 
         {{-- lesson description --}}

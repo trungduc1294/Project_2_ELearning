@@ -151,7 +151,8 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 <!-- - Bang xep hang trong account -->
 - Update account image
 
-- Trang tai lieu hoc tap cho moi lesson (option)
+<!-- - Trang tai lieu hoc tap cho moi lesson (option) -->
+- CSS trng taif lieu hoc tap
 <!-- - lam alert -->
 
 <!-- - course-card info min-h-[180px] -->

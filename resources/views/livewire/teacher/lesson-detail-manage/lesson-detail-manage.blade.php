@@ -117,7 +117,16 @@
                     'lesson_id' => $lesson_id,
                 ])}}">Quản lý bài tập</a>
             </div>
+            <div class="quiz-manage direction-btn">
+                <i class="fa-solid fa-circle-question"></i>
+                <a href="{{route('document', [
+                    'course_id' => $course_id,
+                    'lesson_id' => $lesson_id,
+                ])}}">Quản lý tài liệu</a>
+            </div>
         </div>
+
+        
 
         {{-- lesson description --}}
         <div class="lesson-description">

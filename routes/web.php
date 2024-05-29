@@ -13,6 +13,7 @@ use App\Http\Controllers\StudentController\LessonDetailController as StudentLess
 use App\Http\Controllers\StudentController\QuizController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
+use App\Http\Controllers\TeacherController\DocumentsController;
 use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\MeetingController;
 use App\Http\Controllers\TeacherController\StudentManage;
@@ -62,6 +63,8 @@ Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class,
 
 Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
 
+Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/document', [DocumentsController::class, 'index'])->name('document');
+
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
 
@@ -74,6 +77,8 @@ Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('stude
 Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
 
 Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
+
+Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/document', [DocumentsController::class, 'studentDocument'])->name('student.document');
 
 Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
 
