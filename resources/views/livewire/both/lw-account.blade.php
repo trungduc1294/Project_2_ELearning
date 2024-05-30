@@ -155,13 +155,13 @@
                         <div class="top1 top_user_container flex flex-col items-center justify-center absolute left-[230px]">
                             <img src="{{ asset('images/default-avatar.webp') }}" alt="" class="w-32 h-32 rounded-full border-white border-2">
                             <div class="point flex items-center justify-center gap-2 my-1">
-                                <span>{{ $top3User[2]->rank_point }} điểm</span>
+                                <span>{{ $top3User[0]->rank_point }} điểm</span>
                                 <img src="{{ asset('images/ranking/rank1.png') }}" alt="" class="w-6">
                             </div>
                             <div class="name relative">
                                 <img src="{{ asset('images/name-frame.png') }}" alt="" class="w-40">
                                 <span class="absolute top-1 left-[16px] text-black font-bold text-lg">1</span>
-                                <span class="absolute top-2 left-10 text-white font-semibold max-w-32 line-clamp-1">{{ $top3User[2]->username }}</span>
+                                <span class="absolute top-2 left-10 text-white font-semibold max-w-32 line-clamp-1">{{ $top3User[0]->username }}</span>
                             </div>
                         </div>
                         <div class="top2 top_user_container flex flex-col items-center justify-center absolute left-0 top-20">
@@ -179,13 +179,13 @@
                         <div class="top3 top_user_container flex flex-col items-center justify-center absolute right-0 top-32">
                             <img src="{{ asset('images/default-avatar.webp') }}" alt="" class="w-32 h-32 rounded-full border-white border-2">
                             <div class="point flex items-center justify-center gap-2 my-1">
-                                <span>{{ $top3User[0]->rank_point }} điểm</span>
+                                <span>{{ $top3User[2]->rank_point }} điểm</span>
                                 <img src="{{ asset('images/ranking/rank1.png') }}" alt="" class="w-6">
                             </div>
                             <div class="name relative">
                                 <img src="{{ asset('images/name-frame.png') }}" alt="" class="w-40">
                                 <span class="absolute top-1 left-[16px] text-black font-bold text-lg">3</span>
-                                <span class="absolute top-2 left-10 text-white font-semibold max-w-32 line-clamp-1">{{ $top3User[0]->username }}</span>
+                                <span class="absolute top-2 left-10 text-white font-semibold max-w-32 line-clamp-1">{{ $top3User[2]->username }}</span>
                             </div>
                         </div>
                     </div>

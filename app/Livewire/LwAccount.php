@@ -146,6 +146,7 @@ class LwAccount extends Component
 
     // ======================= Leaderboard =======================
     public function getTop3User() {
-        return User::orderBy('rank_point', 'desc')->take(3)->get();
+        $topUser = User::orderBy('rank_point', 'desc')->take(3)->get();
+        return $topUser;
     }
 }
