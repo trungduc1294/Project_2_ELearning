@@ -3,6 +3,7 @@
 use App\Http\Controllers\Account;
 use App\Http\Controllers\AuthController\LoginController;
 use App\Http\Controllers\CodeComplierController;
+use App\Http\Controllers\CreateExamController;
 use App\Http\Controllers\ForumController\DiscussionController;
 use App\Http\Controllers\ForumController\ForumController;
 use App\Http\Controllers\HeadmasterController\HeadmasterController;
@@ -66,6 +67,8 @@ Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDeta
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/document', [DocumentsController::class, 'index'])->name('document');
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
+
+Route::any('/teacher/course-detail/{course_id}/create-exam', [CreateExamController::class,'index'])->name('teacher.create-exam');
 
 
 // ===================== Route for Student =====================

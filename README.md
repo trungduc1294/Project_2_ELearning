@@ -152,7 +152,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Update account image
 
 <!-- - Trang tai lieu hoc tap cho moi lesson (option) -->
-- CSS trng taif lieu hoc tap
+<!-- - CSS trng taif lieu hoc tap -->
 <!-- - lam alert -->
 
 <!-- - course-card info min-h-[180px] -->
@@ -176,6 +176,8 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
     + đăng bài diễn đàn + 20 điểm (v)
     + cmt diễn đàn + 10 điểm (v)
     + xem het video + 100 diem
+
+- Taoj tinh nang lam bai kiem tra
     
 <!-- - Tham gia phòng học trực tuyến -->
 
@@ -186,3 +188,45 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 ## Guest
 <!-- - return moi route den login -->
+
+
+
+### Tính năng Bài kiểm tra
+# Giáo viên: 
+- Mỗi khoá học sẽ có một mục kiểm tra, giáo viên vào đây để xem danh sách bài kiểm tra của khoá học và tạo bài kiểm tra mới
+- Ở mỗi bài kiểm tra sẽ có nút bấm xem chi tiết bài kiểm tra, cho phép giáo viên xem lại các câu hỏi,
+- Và có nút bấm thống kê của bài kiểm tra, xem bao nhiêu học sinh đã làm, điểm số như thế nào
+- Khi bấm vào mỗi học sinh thì sẽ hiện ra  bài làm chi tiết của học sinh đó, giáo viên có thể chấm lại điểm cuối cùng
+
+# Học sinh:
+- Mỗi khoá học có mục kiểm tra, học sinh có thể vào xem danh sách các bài kiểm tra và làm các bài kiểm tra mới
+- Danh sách sẽ có dạng bảng (tên, thời gian băts đầu, thời gian kêts thúc, nút làm bài, nếu làm rồi thì cho phép xem lại và hiện điểm, có điểm tạm chấm và điểm cuối cùng do giáo viên xác nhận)
+
+# Database
+- exams:
+    + id
+    + title 
+    + description
+    + start_time
+    + end_time
+    + create_by (teacher_id)
+    + course_id
+
+- exam_questions:
+    + id
+    + exam_id
+    + question_text
+    + question_type (essay/multiple_choice)
+
+- exam_options: (danh cho trac nghiem)
+    + id
+    + question_id
+    + option_text
+    + is_correct
+
+- exam_answers (câu trả lời của học sinh)
+    + id
+    + exam_id
+    + question_id
+    + student_id
+    + answer_text (option_id / text)

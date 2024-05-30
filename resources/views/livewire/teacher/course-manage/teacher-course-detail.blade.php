@@ -82,7 +82,12 @@
             {{-- Exams --}}
             @if ($step == "exams")
                 <div class="exam-tab">
-                    <a href="#">Tạo bài kiểm tra</a>
+                    <a href="#">Xem danh sách bài kiểm tra</a>
+                </div>
+                <div class="exam-tab">
+                    <a href="{{
+                        route('teacher.create-exam', ['course_id' => $courseId])
+                    }}">Tạo bài kiểm tra</a>
                 </div>
             @endif
         </div>
