@@ -1,6 +1,6 @@
-<div class="create_exam__container max-w-3xl mx-auto bg-red-500 relative">
+<div class="create_exam__container max-w-4xl py-10 mx-auto relative">
 
-    <div class="add_button w-12 h-12 rounded-full bg-white absolute -right-14 bottom-0 flex items-center justify-center hover:bg-green-400 transform transition duration-300 ease-in-out cursor-pointer">
+    <div class="add_button w-12 h-12 rounded-full bg-white absolute -right-14 bottom-20 flex items-center justify-center hover:bg-green-400 transform transition duration-300 ease-in-out cursor-pointer">
         <i class="fa-solid fa-plus text-black text-2xl"></i>
     </div>
 {{-- ----------------------- HEADER ------------------------- --}}
@@ -38,87 +38,94 @@
                     >
                 </div>
             </div>
-            <div class="submit mt-4" wire:click='createExam'>
-                <button class="submit_btn bg-blue-500 text-white px-4 py-2 rounded-lg">
-                    Tạo bài kiểm tra
-                </button>
-            </div>
+
+            @if ($is_exam_created)
+                <div class="submit mt-4" wire:click='updateExam'>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
+                        Cập nhật
+                    </button>
+                </div>
+            @else
+                <div class="submit mt-4" wire:click='createExam'>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
+                        Tạo bài kiểm tra
+                    </button>
+                </div>
+            @endif
+            
         </div>
     </div>
 
 {{-- ----------------------- QUESTION LIST ------------------------- --}}
 
+    
+
     {{-- question list --}}
     <div class="question_list mt-10">
-        <div class="text_question bg-white rounded-lg mt-2">
-            <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
-            <div class="main_content p-4">
-                <div class="question flex gap-8">
-                    <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black"> kjcn ce wec ew c ewc wc wec w</p>
-                    <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
-                        Câu trả lời ngắn
-                    </span>
-                </div>
-    
-                <div class="'text_option'">
-                    <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">Caau trajkrv loi veve</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="text_question bg-white rounded-lg mt-2">
-            <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
-            <div class="main_content p-4">
-                <div class="question flex gap-8">
-                    <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black"> kjcn ce wec ew c ewc wc wec w</p>
-                    <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
-                        Đoạn văn
-                    </span>
-                </div>
-    
-                <div class="'text_option'">
-                    <pre class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
-                        Caau trajkrv loi veve
-                        ẻve
-                        crer
-                        c
-                        ể
-                        ce
-
-                    </pre>
-                </div>
-            </div>
-        </div>
-
-        <div class="text_question bg-white rounded-lg mt-2">
-            <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
-            <div class="main_content p-4">
-                <div class="question flex gap-8">
-                    <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black"> kjcn ce wec ew c ewc wc wec w</p>
-                    <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
-                        Câu trả lời ngắn
-                    </span>
-                </div>
-                <div class="multiple_choice_option">
-                    <div class="option flex">
-                        <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">csdkjj cscds</p>
-                        <input type="radio" name="multiple_choice_option" id="A" class="ml-4">
-                    </div>
-                    <div class="option flex">
-                        <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">csdkjj cscds</p>
-                        <input type="radio" name="multiple_choice_option" id="B" class="ml-4">
-                    </div>
-                    <div class="option flex">
-                        <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">csdkjj cscds</p>
-                        <input type="radio" name="multiple_choice_option" id="C" class="ml-4">
-                    </div>
-                    <div class="option flex">
-                        <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">csdkjj cscds</p>
-                        <input type="radio" name="multiple_choice_option" id="D" class="ml-4">
+        
+        @foreach ($questions as $question)
+            @if ($question['question_type'] == 'text')
+                <div class="text_question bg-white rounded-lg mt-2">
+                    <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
+                    <div class="main_content p-4">
+                        <div class="question flex gap-8">
+                            <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black">{{$question['question_text']}}</p>
+                            <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
+                                Câu trả lời ngắn
+                            </span>
+                        </div>
+            
+                        <div class="'text_option'">
+                            <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">{{$question['options_text'][0]}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            @endif
+            @if ($question['question_type'] == 'long_text')
+                <div class="long_text_question bg-white rounded-lg mt-2">
+                    <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
+                    <div class="main_content p-4">
+                        <div class="question flex gap-8">
+                            <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black">{{$question['question_text']}}</p>
+                            <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
+                                Đoạn văn
+                            </span>
+                        </div>
+            
+                        <div class="'text_option'">
+                            <pre class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
+                                {{$question['options_text'][0]}}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            @endif
+            @if ($question['question_type'] == 'multiple_choice')
+                <div class="text_question bg-white rounded-lg mt-2">
+                    <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
+                    <div class="main_content p-4">
+                        <div class="question flex gap-8">
+                            <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black">{{$question['question_text']}}</p>
+                            <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
+                                Trắc nghiệm
+                            </span>
+                        </div>
+                        <div>
+                            @foreach ($question['options_text'] as $index => $option_text)
+                                <div class="option flex">
+                                    <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">{{$option_text}}</p>
+                                    @if ($question['correct_answer'][$index] == 1)
+                                        <input type="radio" class="ml-4" checked>
+                                    @else
+                                        <input type="radio" class="ml-4" disabled>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
     </div>
 
 {{-- ----------------------- CREATE NEW QUESTION ------------------------- --}}
@@ -128,8 +135,14 @@
         <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
         <div class="main_content p-4">
             <div class="question flex gap-8">
-                <input class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black" type="text" name="question" placeholder="Câu hỏi không có tiêu đề">
-                <select name="question_type" id="question_type" class="text-gray-700 w-40 border border-gray-300 rounded-md px-4" wire:model='question_type'>
+                <input 
+                    class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black" 
+                    type="text" name="question" placeholder="Câu hỏi không có tiêu đề" 
+                    wire:model='question_text'
+                >
+                <select name="question_type" id="question_type" 
+                    class="text-gray-700 w-40 border border-gray-300 rounded-md px-4" 
+                    wire:model='question_type'>
                     <option value="0">Chọn loại câu hỏi</option>
                     <option value="text">Câu trả lời ngắn</option>
                     <option value="long_text">Đoạn dài</option>
@@ -138,36 +151,75 @@
             </div>
 
             {{-- Text  --}}
-            <div class="{{ $question_type == 'text' ? 'text_option' : 'text_option hidden' }}">
-                <input type="text" name="essay_option" placeholder="Câu trả lời ngắn" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
+            <div class="text_option hidden">
+                <input 
+                    type="text" name="essay_option" placeholder="Câu trả lời ngắn" 
+                    class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                    wire:model='text_answer'
+                >
             </div>
 
             {{-- Long test --}}
-            <div class="{{ $question_type == 'long_text' ? 'long_text_option' : 'long_text_option hidden' }}">
-                <textarea name="long_text_option" id="long_text_option" placeholder="Câu trả lời dài" cols="30" rows="10" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"></textarea>
+            <div class="long_text_option hidden">
+                <textarea 
+                    name="long_text_option" id="long_text_option" placeholder="Câu trả lời dài" cols="30" rows="10" 
+                    class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                    wire:model='text_answer'
+                ></textarea>
             </div>
 
             {{-- Multiple choice --}}
-            <div class="{{ $question_type == 'multiple_choice' ? 'multiple_choice_option' : 'multiple_choice_option hidden' }}">
-                <div class="option">
-                    <input type="text" name="option" placeholder="Câu trả lời" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
-                    <input type="radio" name="multiple_choice_option" id="A" class="ml-4">
+            <div class="multiple_choice_option hidden">
+                @foreach ($multi_choice_answers as $index => $answer)
+                    <div class="option">
+                        <input type="text" placeholder="Câu trả lời" 
+                            class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                            wire:model='multi_choice_answers.{{ $index }}'
+                        >
+                        <input type="radio" name="multiple_radio" class="ml-4" value="{{ $index }}" 
+                            wire:model='selected_answer'
+                        >
+                    </div>
+                @endforeach
+                {{-- <div class="option">
+                    <input type="text" placeholder="Câu trả lời" 
+                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                        wire:model='multi_choice_answers.0'
+                    >
+                    <input type="radio" name="multiple_radio" class="ml-4" value="1" 
+                        wire:model='selected_answer'
+                    >
                 </div>
                 <div class="option">
-                    <input type="text" name="option" placeholder="Câu trả lời" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
-                    <input type="radio" name="multiple_choice_option" id="B" class="ml-4">
+                    <input type="text" placeholder="Câu trả lời" 
+                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                        wire:model='multi_choice_answers.1'
+                    >
+                    <input type="radio" name="multiple_radio" class="ml-4" value="2" 
+                        wire:model='selected_answer'
+                    >
                 </div>
                 <div class="option">
-                    <input type="text" name="option" placeholder="Câu trả lời" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
-                    <input type="radio" name="multiple_choice_option" id="C" class="ml-4">
+                    <input type="text" placeholder="Câu trả lời" 
+                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                        wire:model='multi_choice_answers.2'
+                    >
+                    <input type="radio" name="multiple_radio" class="ml-4" value="3" 
+                        wire:model='selected_answer'
+                    >
                 </div>
                 <div class="option">
-                    <input type="text" name="option" placeholder="Câu trả lời" class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
-                    <input type="radio" name="multiple_choice_option" id="D" class="ml-4">
-                </div>
+                    <input type="text" placeholder="Câu trả lời" 
+                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
+                        wire:model='multi_choice_answers.3'
+                    >
+                    <input type="radio" name="multiple_radio" class="ml-4" 
+                        value="4" wire:model='selected_answer'
+                    >
+                </div> --}}
             </div>
 
-            <div class="submit mt-4">
+            <div class="submit mt-4" wire:click='createQuestion'>
                 <button class="submit_btn bg-blue-500 text-white px-4 py-2 rounded-lg">Thêm câu hỏi</button>
             </div>
         </div>

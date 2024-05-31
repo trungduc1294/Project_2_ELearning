@@ -21,7 +21,7 @@
     @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
 
     {{-- alpinejs cdn --}}
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
     {{-- sweet alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -33,9 +33,9 @@
 
     @livewireStyles
 </head>
-<body class="h-[100vh]">
-    <div class="background_pattern h-[100vh]">
-        <div class="background_cover h-[100vh]">
+<body class="min-h-[100vh]">
+    <div class="background_pattern min-h-[100vh]">
+        <div class="background_cover min-h-[100vh]">
             @include('sweetalert::alert')
             @include('partials.header')
             {{-- @include('partials.account_header') --}}

@@ -130,6 +130,10 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 ]);
 ```
 
+### Fix bug
+- Lỗi text field không reset, do link cdn của alpineJS trong layout
+- Bỏ đi là được nhưng chú ý có một số page cần alpineJS, nếu lỗi thì bỏ link alpineJS vào trong page cần dùng
+
 
 #### TODO chung
 
@@ -218,7 +222,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
     + question_text
     + question_type (essay/multiple_choice)
 
-- exam_options: (danh cho trac nghiem)
+- exam_options:
     + id
     + question_id
     + option_text

@@ -17,9 +17,6 @@ return new class extends Migration
             $table->integer('exam_id')->unsigned();
             $table->string('question_text');
             $table->string('question_type'); // essay / multiple_choice
-
-            // Foreign key constraint
-            // $table->foreign('exam_id')->references('id')->on('exams')->onDelete('cascade');
         });
     }
 
