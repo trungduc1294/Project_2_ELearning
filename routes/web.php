@@ -15,6 +15,7 @@ use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\CreateExamController;
 use App\Http\Controllers\TeacherController\DocumentsController;
+use App\Http\Controllers\TeacherController\ExamController;
 use App\Http\Controllers\TeacherController\ExamListController;
 use App\Http\Controllers\TeacherController\LessonDetailController;
 use App\Http\Controllers\TeacherController\MeetingController;
@@ -69,9 +70,11 @@ Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/docume
 
 Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-Route::any('/teacher/course-detail/{course_id}/create-exam', [CreateExamController::class,'index'])->name('teacher.exam.create');
+Route::any('/teacher/course-detail/{course_id}/create-exam', [ExamController::class,'createExam'])->name('teacher.exam.create');
 
-Route::any('/teacher/course-detail/{course_id}/list-exam', [ExamListController::class,'index'])->name('teacher.exam.list');
+Route::any('/teacher/course-detail/{course_id}/list-exam', [ExamController::class,'showExamList'])->name('teacher.exam.list');
+
+Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}', [ExamController::class,'showExamDetail'])->name('teacher.exam.detail');
 
 
 // ===================== Route for Student =====================

@@ -81,7 +81,6 @@ class CreateExamLivewire extends Component
 
     public function updateExam() {
         $exam = Exam::find($this->current_exam->id);
-        dd($exam);
         $exam->title = $this->exam_title;
         $exam->description = $this->exam_description;
         $exam->start_time = $this->exam_start_time;
@@ -144,6 +143,12 @@ class CreateExamLivewire extends Component
         $this->reset(['question_text', 'multi_choice_answers', 'selected_answer', 'question_type']);
 
         $this->dispatch('swal', title: 'Tạo câu hỏi thành công.', type: 'success');
+    }
+
+    public function deleteQuestionById($question_id) {
+        ExamQuestion::find($question_id)->delete();
+        $this->fetchData();
+        $this->dispatch('swal', title: 'Xóa câu hỏi thành công.', type: 'success');
     }
 
     // ====================== SHOW QUESTION LIST ======================

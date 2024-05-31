@@ -48,6 +48,9 @@
                     <div class="meeting tab" wire:click='changeTab("meeting")'>
                         <span>Phòng Học Trực Tuyến</span>
                     </div>
+                    <a class="meeting tab" href="">
+                        <span>Kiểm tra</span>
+                    </a>
                 </div>
 
                 @if ($tab == "lessonsList")

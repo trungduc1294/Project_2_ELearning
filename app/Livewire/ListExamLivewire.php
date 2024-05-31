@@ -39,4 +39,10 @@ class ListExamLivewire extends Component
     public function getTeacher() {
         return User::find($this->course->teacher_id);
     }
+    public function deleteExam($exam_id) {
+        $exam = Exam::find($exam_id);
+        $exam->delete();
+        $this->fetchData();
+        $this->dispatch('swal', title: 'Xóa bài kiểm tra thành công.', type: 'success');
+    }
 }

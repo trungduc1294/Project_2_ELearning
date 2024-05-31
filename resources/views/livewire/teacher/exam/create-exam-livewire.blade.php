@@ -1,5 +1,14 @@
 <div class="create_exam__container max-w-4xl py-10 mx-auto relative">
 
+    <div class="routing mb-6">
+        <a href="{{
+            route('teacher.course.detail', [
+                'id' => $course_id
+            ])
+        }}" class="font-semibold cursor-pointer">CourseDetail</a>
+        <a href="" class="font-semibold text-gray-500">//CreateNewExam</a>
+    </div>
+
     <div class="add_button w-12 h-12 rounded-full bg-white absolute -right-14 bottom-20 flex items-center justify-center hover:bg-green-400 transform transition duration-300 ease-in-out cursor-pointer">
         <i class="fa-solid fa-plus text-black text-2xl"></i>
     </div>
@@ -69,15 +78,17 @@
                     <div class="top h-2 w-full bg-blue-500 rounded-t-lg"></div>
                     <div class="main_content p-4">
                         <div class="question flex gap-8">
+                            <input type="text" class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black" wire:model="$question['question_text']" value="{{$question['question_text']}}">
                             <p class="flex-1 px-2 py-4 outline-none bg-gray-100 border-b border-gray-700 text-black">{{$question['question_text']}}</p>
                             <span class="text-gray-700 w-40 border border-gray-300 rounded-md px-4 flex items-center">
                                 Câu trả lời ngắn
                             </span>
                         </div>
             
-                        <div class="'text_option'">
+                        <div class="text_option">
                             <p class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">{{$question['options_text'][0]}}</p>
                         </div>
+                        <i class="fa-solid fa-trash text-red-400 text-xl hover:text-red-700 mt-4 cursor-pointer" wire:click="deleteQuestionById({{$question['id']}})"></i>
                     </div>
                 </div>
             @endif
@@ -92,11 +103,12 @@
                             </span>
                         </div>
             
-                        <div class="'text_option'">
+                        <div class="text_option">
                             <pre class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600">
                                 {{$question['options_text'][0]}}
                             </pre>
                         </div>
+                        <i class="fa-solid fa-trash text-red-400 text-xl hover:text-red-700 mt-4 cursor-pointer" wire:click="deleteQuestionById({{$question['id']}})"></i>
                     </div>
                 </div>
             @endif
@@ -122,6 +134,7 @@
                                 </div>
                             @endforeach
                         </div>
+                        <i class="fa-solid fa-trash text-red-400 text-xl hover:text-red-700 mt-4 cursor-pointer" wire:click="deleteQuestionById({{$question['id']}})"></i>
                     </div>
                 </div>
             @endif
@@ -181,42 +194,6 @@
                         >
                     </div>
                 @endforeach
-                {{-- <div class="option">
-                    <input type="text" placeholder="Câu trả lời" 
-                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
-                        wire:model='multi_choice_answers.0'
-                    >
-                    <input type="radio" name="multiple_radio" class="ml-4" value="1" 
-                        wire:model='selected_answer'
-                    >
-                </div>
-                <div class="option">
-                    <input type="text" placeholder="Câu trả lời" 
-                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
-                        wire:model='multi_choice_answers.1'
-                    >
-                    <input type="radio" name="multiple_radio" class="ml-4" value="2" 
-                        wire:model='selected_answer'
-                    >
-                </div>
-                <div class="option">
-                    <input type="text" placeholder="Câu trả lời" 
-                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
-                        wire:model='multi_choice_answers.2'
-                    >
-                    <input type="radio" name="multiple_radio" class="ml-4" value="3" 
-                        wire:model='selected_answer'
-                    >
-                </div>
-                <div class="option">
-                    <input type="text" placeholder="Câu trả lời" 
-                        class="w-2/3 mt-2 p-2 outline-none border-b border-dotted border-gray-300 text-gray-600"
-                        wire:model='multi_choice_answers.3'
-                    >
-                    <input type="radio" name="multiple_radio" class="ml-4" 
-                        value="4" wire:model='selected_answer'
-                    >
-                </div> --}}
             </div>
 
             <div class="submit mt-4" wire:click='createQuestion'>

@@ -37,19 +37,24 @@
                 </div>
 
                 <div class="button_comntainer flex gap-4">
-                    <div class="submit mt-4">
+                    <a class="submit mt-4" href="{{
+                        route('teacher.exam.detail', [
+                            'course_id' => $course_id,
+                            'exam_id' => $exam->id
+                        ])
+                    }}">
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                             Xem chi tiết
                         </button>
-                    </div>
+                    </a>
         
-                    <div class="submit mt-4">
+                    <a class="submit mt-4">
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                             Thống kê bài làm
                         </button>
-                    </div>
+                    </a>
                 </div>
-                
+                <i class="fa-solid fa-trash text-red-400 text-xl hover:text-red-700 mt-4 cursor-pointer" wire:click="deleteExam({{$exam->id}})"></i>
             </div>
         </div>
     @endforeach
