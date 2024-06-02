@@ -11,6 +11,7 @@ use App\Http\Controllers\StudentController\CourseList;
 use App\Http\Controllers\StudentController\DiscoveryController;
 use App\Http\Controllers\StudentController\LessonDetailController as StudentLessonDetailController;
 use App\Http\Controllers\StudentController\QuizController;
+use App\Http\Controllers\StudentController\StudentExamController;
 use App\Http\Controllers\TeacherController\CourseDetailManage;
 use App\Http\Controllers\TeacherController\CourseListManage;
 use App\Http\Controllers\TeacherController\CreateExamController;
@@ -90,6 +91,10 @@ Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [Stud
 Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/document', [DocumentsController::class, 'studentDocument'])->name('student.document');
 
 Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
+
+Route::any('/student/course_detail/{course_id}/exam-list', [StudentExamController::class, 'showExamList'])->name('student.exam.list');
+
+Route::any('/student/course_detail/{course_id}/do-exam/{exam_id}', [StudentExamController::class, 'doExam'])->name('student.exam.do');
 
 // Route::get('/user/my-library', function () {
 //     return view('pages.student.my-library.mylibrary');

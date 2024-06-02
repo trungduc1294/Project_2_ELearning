@@ -9,6 +9,7 @@
         <a href="" class="font-semibold text-gray-500">//CreateNewExam</a>
     </div>
 
+    {{-- Add question button --}}
     <div class="add_button w-12 h-12 rounded-full bg-white absolute -right-14 bottom-20 flex items-center justify-center hover:bg-green-400 transform transition duration-300 ease-in-out cursor-pointer">
         <i class="fa-solid fa-plus text-black text-2xl"></i>
     </div>

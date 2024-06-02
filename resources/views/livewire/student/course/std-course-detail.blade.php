@@ -48,7 +48,7 @@
                     <div class="meeting tab" wire:click='changeTab("meeting")'>
                         <span>Phòng Học Trực Tuyến</span>
                     </div>
-                    <a class="meeting tab" href="">
+                    <a class="meeting tab" href="{{route('student.exam.list', ['course_id' => $course->id])}}">
                         <span>Kiểm tra</span>
                     </a>
                 </div>
