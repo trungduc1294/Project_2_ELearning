@@ -36,16 +36,11 @@
                 </div>
 
                 <div class="button_comntainer flex gap-4">
-                    <a class="submit mt-4" href="{{
-                        route('student.exam.do', [
-                            'course_id' => $course_id,
-                            'exam_id' => $exam->id
-                        ])
-                    }}">
+                    <span class="submit mt-4" wire:click='doExam({{$exam->id}})'>
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                             Làm bài thi
                         </button>
-                    </a>
+                    </span>
         
                     <a class="submit mt-4">
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">

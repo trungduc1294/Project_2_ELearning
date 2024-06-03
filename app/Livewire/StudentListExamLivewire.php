@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Course;
 use App\Models\Exam;
 use Livewire\Component;
+use Carbon\Carbon;
 
 class StudentListExamLivewire extends Component
 {
@@ -30,5 +31,27 @@ class StudentListExamLivewire extends Component
     }
     public function getCourseById($course_id) {
         return Course::find($course_id);
+    }
+
+    public function doExam($exam_id) {
+        $exam = Exam::find($exam_id);
+        // Kiểm tra xem kỳ thi có tồn tại không
+        if (!$exam) {
+            $this->dispatch('swal', title:'Kỳ thi không tồn tại.', type: 'error');
+            return;
+        }
+        // Kiểm tra thời gian bắt đầu và kết thúc
+        $timezone = 'Asia/Ho_Chi_Minh';
+        $now = Carbon::now($timezone);
+        if ($exam->start_time > $now) {
+            $this->dispatch('swal', title: 'Chưa đến thời gian bắt đầu.', type: 'error');
+            return;
+        }
+        if ($exam->end_time < $now) {
+            $this->dispatch('swal', title: 'Quá thời gian kết thúc.', type: 'error');
+            return;
+        }
+
+        return redirect()->route('student.exam.do', ['course_id' => $this->course_id, 'exam_id' => $exam_id]);
     }
 }

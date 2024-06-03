@@ -1,6 +1,6 @@
 @extends('layouts.quiz-layout')
 
-@section('title', 'Create Exam')
+@section('title', 'Learning Cast')
 
 @section('style-libraries')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
