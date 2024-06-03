@@ -19,4 +19,11 @@ class StudentExamController extends Controller
             'exam_id' => $request->exam_id,
         ]);
     }
+
+    public function reviewExam(Request $request) {
+        return view('pages.student.exam.page-student-review-exam', [
+            'course_id' => $request->course_id,
+            'exam_id' => $request->exam_id,
+        ]);
+    }
 }

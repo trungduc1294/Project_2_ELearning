@@ -42,7 +42,7 @@
                         </button>
                     </span>
         
-                    <a class="submit mt-4">
+                    <a class="submit mt-4" wire:click='reviewExam({{$exam->id}})'>
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                             Xem kết quả
                         </button>

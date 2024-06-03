@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Course;
 use App\Models\Exam;
+use App\Models\ExamScore;
 use Livewire\Component;
 use Carbon\Carbon;
 
@@ -51,7 +52,20 @@ class StudentListExamLivewire extends Component
             $this->dispatch('swal', title: 'Quá thời gian kết thúc.', type: 'error');
             return;
         }
+        if (ExamScore::where('exam_id', $exam_id)->where('student_id', session('userId'))->first()) {
+            $this->dispatch('swal', title: 'Bạn đã làm bài kiểm tra này rồi.', type: 'error');
+            return;
+        }
 
         return redirect()->route('student.exam.do', ['course_id' => $this->course_id, 'exam_id' => $exam_id]);
+    }
+
+    public function reviewExam($exam_id) {
+        $exam_score = ExamScore::where('exam_id', $exam_id)->where('student_id', session('userId'))->first();
+        if (!$exam_score) {
+            $this->dispatch('swal', title: 'Không tìm  bài làm của bạn, hoặc bạn chưa làm bài kiểm tra này.', type: 'error');
+            return;
+        }
+        return redirect()->route('student.exam.review', ['course_id' => $this->course_id, 'exam_id' => $exam_id]);
     }
 }

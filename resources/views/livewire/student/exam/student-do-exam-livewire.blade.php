@@ -140,7 +140,7 @@
 
         {{-- submit exam --}}
         <div class="submit_exam flex justify-center mt-10">
-            <button class="btn bg-blue-400 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600" wire:click='submitExam'>
+            <button class="btn bg-blue-400 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-600" wire:click='endExam'>
                 Kết thúc bài thi
             </button>
         </div>
@@ -177,4 +177,4 @@
         var interval = setInterval(updateCountdown, 1000);
         updateCountdown();
     });
-    </script>
+</script>

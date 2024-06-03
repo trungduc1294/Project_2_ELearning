@@ -73,5 +73,31 @@
             });
         });
     </script>
+
+    {{-- <script type="text/javascript">
+        document.addEventListener('swal-confirm', function(evt) {
+        console.log('event swal-confirm', evt.detail);
+        Swal.fire({
+            title: evt?.detail?.title ?? 'Confirmation',
+            text: evt?.detail?.message ?? 'Are you sure?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Xử lý khi người dùng xác nhận
+                // Gửi sự kiện swal-confirm-confirmed nếu cần
+                document.dispatchEvent(new CustomEvent('swal-confirm-confirmed', {
+                    detail: {
+                        confirmed: true
+                    }
+                    }));
+                }
+            });
+        });
+    </script> --}}
 </body>
 </html>

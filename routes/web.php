@@ -101,6 +101,8 @@ Route::middleware(['checkRole:student'])->group(function () {
 
     Route::any('/student/course_detail/{course_id}/do-exam/{exam_id}', [StudentExamController::class, 'doExam'])->name('student.exam.do');
 
+    Route::any('/student/course_detail/{course_id}/review-exam/{exam_id}', [StudentExamController::class, 'reviewExam'])->name('student.exam.review');
+
     // Route::get('/user/my-library', function () {
     //     return view('pages.student.my-library.mylibrary');
     // });

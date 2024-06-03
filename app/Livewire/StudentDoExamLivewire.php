@@ -114,6 +114,9 @@ class StudentDoExamLivewire extends Component
     }
 
     public function endExam() {
-        // change route to statistical exam
+        // show a confirm dialog
+        
+        return redirect()->route('student.exam.review', ['course_id' => $this->course_id, 'exam_id' => $this->exam_id]);
     }
+
 }
