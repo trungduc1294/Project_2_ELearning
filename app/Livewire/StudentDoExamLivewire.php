@@ -112,4 +112,8 @@ class StudentDoExamLivewire extends Component
     public function updateSubmitedAnswersIndex($index) {
         $this->submited_answers_index[$index] = false;
     }
+
+    public function endExam() {
+        // change route to statistical exam
+    }
 }

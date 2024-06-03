@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckRole
@@ -16,9 +17,11 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        // if (!Auth::check() || Auth::user()->role !== $role) {
-        //     abort(403, "You don't have permission to access this page.");
-        // }
+        
+        $userRole = Session::get('role');
+        if ($userRole !== $role) {
+            return abort(403, 'Unauthorized action.');
+        }
         return $next($request);
     }
 }

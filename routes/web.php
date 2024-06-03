@@ -55,64 +55,71 @@ Route::any('/account/{id}', [Account::class, 'index'])->name('account');
 
 // ===================== Route for Teacher =====================
 
-Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
+Route::middleware(['checkRole:teacher'])->group(function () {
+    Route::get('/teacher/courses-list', [CourseListManage::class,'index'])->name('teacher.course');
 
-Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
+    Route::any('/teacher/courses-detail/{id}', [CourseDetailManage::class, 'index'])->name('teacher.course.detail');
 
-Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage'); // ???
+    Route::any('/teacher/lesson-detail-manage', [LessonDetailController::class, 'index'])->name('lesson-detail-manage'); // ???
 
-Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
+    Route::any('/teacher/student-manage', [StudentManage::class, 'index'])->name('student-manage');
 
-Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class, 'getStudentManagePage'])->name('teacher.student.manage');
+    Route::any('/teacher/courses-detail/{id}/student-manage', [StudentManage::class, 'getStudentManagePage'])->name('teacher.student.manage');
 
-Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
+    Route::any('/teacher/courses-detail/{id}/lesson-detail/{lesson_id}', [LessonDetailController::class, 'getLessonDetailPage'])->name('teacher.lesson.detail');
 
-Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/document', [DocumentsController::class, 'index'])->name('document');
+    Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/document', [DocumentsController::class, 'index'])->name('document');
 
-Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
+    Route::any('/teacher/courses-detail/{course_id}/lesson-detail/{lesson_id}/quiz', [TeacherQuiz::class, 'getQuizDetailPage'])->name('teacher.quiz.manage');
 
-Route::any('/teacher/course-detail/{course_id}/create-exam', [ExamController::class,'createExam'])->name('teacher.exam.create');
+    Route::any('/teacher/course-detail/{course_id}/create-exam', [ExamController::class,'createExam'])->name('teacher.exam.create');
 
-Route::any('/teacher/course-detail/{course_id}/list-exam', [ExamController::class,'showExamList'])->name('teacher.exam.list');
+    Route::any('/teacher/course-detail/{course_id}/list-exam', [ExamController::class,'showExamList'])->name('teacher.exam.list');
 
-Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}', [ExamController::class,'showExamDetail'])->name('teacher.exam.detail');
+    Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}', [ExamController::class,'showExamDetail'])->name('teacher.exam.detail');
+});
+
+
 
 
 // ===================== Route for Student =====================
 
-Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
+Route::middleware(['checkRole:student'])->group(function () {
+    Route::any('/discovery', [DiscoveryController::class, 'index'])->name('discovery');
 
-Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
+    Route::any('/student/mylibrary/{id}', [CourseList::class, 'index'])->name('student.course');
 
-Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
+    Route::any('/student/{student_id}/course-detail/{course_id}', [CourseDetailController::class, 'index'])->name('student.course.detail');
 
-Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
+    Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}', [StudentLessonDetailController::class, 'index'])->name('student.lesson.detail');
 
-Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/document', [DocumentsController::class, 'studentDocument'])->name('student.document');
+    Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/document', [DocumentsController::class, 'studentDocument'])->name('student.document');
 
-Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
+    Route::any('/student/course_detail/{course_id}/lesson_detail/{lesson_id}/quiz', [QuizController::class, 'index'])->name('student.quiz.manage');
 
-Route::any('/student/course_detail/{course_id}/exam-list', [StudentExamController::class, 'showExamList'])->name('student.exam.list');
+    Route::any('/student/course_detail/{course_id}/exam-list', [StudentExamController::class, 'showExamList'])->name('student.exam.list');
 
-Route::any('/student/course_detail/{course_id}/do-exam/{exam_id}', [StudentExamController::class, 'doExam'])->name('student.exam.do');
+    Route::any('/student/course_detail/{course_id}/do-exam/{exam_id}', [StudentExamController::class, 'doExam'])->name('student.exam.do');
 
-// Route::get('/user/my-library', function () {
-//     return view('pages.student.my-library.mylibrary');
-// });
+    // Route::get('/user/my-library', function () {
+    //     return view('pages.student.my-library.mylibrary');
+    // });
 
-Route::get('/course-detail', function () {
-    return view('pages.student.course-detail.course-detail');
+    Route::get('/course-detail', function () {
+        return view('pages.student.course-detail.course-detail');
+    });
+
+    Route::get('/quiz-start', function () {
+        return view('pages.student.quiz.quiz-start-page');
+    });
+
+    Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('code_complier');
 });
-
-Route::get('/quiz-start', function () {
-    return view('pages.student.quiz.quiz-start-page');
-});
-
-Route::any('/code_complier', [CodeComplierController::class, 'index'])->name('code_complier');
 
 // ===================== Route for Admin/Headmaster =====================
-Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
-
+Route::middleware(['checkRole:headmaster'])->group(function () {
+    Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
+});
 // ===================== Route for Both =====================
 Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('create.meeting');
 
