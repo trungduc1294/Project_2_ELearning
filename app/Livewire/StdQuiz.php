@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Models\Quiz;
 use Livewire\Component;
 
+use function PHPUnit\Framework\isEmpty;
+
 class StdQuiz extends Component
 {
     public $course_id;
@@ -12,6 +14,7 @@ class StdQuiz extends Component
 
     // ========================================== MODEL VARIABLE ==========================================
     public $quizList;
+    public $quizList_index = 0;
     public $result;
 
     // ========================================== SYSTEM FUNCTION ==========================================
@@ -45,10 +48,35 @@ class StdQuiz extends Component
             ];
         }
         $this->dispatch('selected:answer',answer: $answer, quiz_id: $quiz_id);
+
+        $this->checkQuizCorrect();
+        $this->countCorrectAnswer($quiz_id, $this->result);
     }
 
-    public function changeQuiz() {
-        // reset result
-        $this->result = null;
+    public function nextQuiz() {
+        if ($this->quizList_index < count($this->quizList) - 1) {
+            $this->quizList_index++;
+        } else {
+            $this->dispatch('swal', title: 'Không có câu hỏi nào nữa.', type: 'error');
+        }
+        $this->reset('result');
     }
+
+    public function prevQuiz() {
+        if ($this->quizList_index > 0) {
+            $this->quizList_index--;
+        } else {
+            $this->dispatch('swal', title: 'Không có câu hỏi nào nữa.', type: 'error');
+        }
+        $this->reset('result');
+    }
+
+    public function checkQuizCorrect() {
+        if ($this->result['status'] == 'correct') {
+            $this->dispatch('swal', title: 'Chúc mừng bạn đã trả lời đúng.', type: 'success');
+        } else {
+            $this->dispatch('swal', title: 'Rất tiếc, câu trả lời của bạn không chính xác.', type: 'error');
+        }
+    }
+
 }
