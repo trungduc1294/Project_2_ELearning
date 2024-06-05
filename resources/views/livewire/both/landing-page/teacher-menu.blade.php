@@ -31,7 +31,7 @@
         </div>
 
         <div class="nav_item">
-          <a href="#">
+          <a href="{{route('forum')}}">
           <span class="comment">
               //What wrong ?
           </span>

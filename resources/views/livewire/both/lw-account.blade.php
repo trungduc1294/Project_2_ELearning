@@ -1,4 +1,4 @@
-<div class="account_container">
+<div class="account_container pb-20">
     <div class="account_header">
         <div class="title">
             <h1>Cài Đặt Tài Khoản</h1>
@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div class="account_content">
+    <div class="account_content pb-10">
         <div class="side">
             <div class="avatar relative">
                 <img src="{{ asset('images/default-avatar.webp') }}" alt="">
@@ -57,20 +57,20 @@
                     <div class="before_line"></div>
                     <span>Bảng xếp hạng</span>
                 </div>
-                <div class="
+                {{-- <div class="
                 {{ $step == 'Referral' ? 'side_nav__item active' : 'side_nav__item' }}" 
                 wire:click='changeStep("Referral")
                 '>
                     <div class="before_line"></div>
                     <span>Referral Program</span>
-                </div>
-                <div class="
+                </div> --}}
+                {{-- <div class="
                 {{ $step == 'Gift' ? 'side_nav__item active' : 'side_nav__item' }}" 
                 wire:click='changeStep("Gift")
                 '>
                     <div class="before_line"></div>
                     <span>Gift an Account</span>
-                </div>
+                </div> --}}
             </div>
         </div>
 
@@ -146,12 +146,12 @@
                 </div>
             @endif
             @if ($step == 'leaderboard')
-                <div class="step mx-auto">
+                <div class="step mx-auto pb-10">
                     <div class="title mb-10">
                         <h1>Bảng xếp hạng</h1>
                     </div>
                     
-                    <div class="top_ranking mx-auto relative max-w-[600px]">
+                    <div class="top_ranking mx-auto relative max-w-[600px] pb-10">
                         <div class="top1 top_user_container flex flex-col items-center justify-center absolute left-[230px]">
                             <img src="{{ asset('images/default-avatar.webp') }}" alt="" class="w-32 h-32 rounded-full border-white border-2">
                             <div class="point flex items-center justify-center gap-2 my-1">
