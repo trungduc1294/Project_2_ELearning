@@ -2,12 +2,13 @@
 
     <div class="temp_score my-4 bg-white p-4 rounded-lg w-[200px] fixed left-10 top-24 shadow-xl">
         <h2 class="text-lg font-semibold text-gray-700">Điểm tạm chấm</h2>
-        <div class="text-lg text-red-400">{{$examScore}}/{{count($questions)}}</div>
+        <div class="text-lg text-red-400">{{$temp_score}}/{{count($questions)}}</div>
     </div>
 
     {{-- submited answer --}}
     <div class="score my-4 bg-white p-4 rounded-lg w-[200px] fixed left-10 top-56 shadow-xl">
         <h2 class="text-lg font-semibold text-gray-700">Điểm giáo viên chấm</h2>
+        <div class="text-lg text-red-400">{{$teacherGiveScore}}</div>
         {{-- <input type="text" class="border-b border-dotted border-gray-700 outline-none text-xl text-red-400 font-semibold w-[50px]" wire:model='teacherGiveScore'> --}}
         {{-- <button class="bg-blue-500 text-white px-2 py-1 rounded-lg" wire:click='submitTeacherScore'>Chấm</button> --}}
     </div>

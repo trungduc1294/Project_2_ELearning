@@ -6,6 +6,13 @@
                 'id' => $course_id
             ])
         }}" class="font-semibold cursor-pointer">CourseDetail</a>
+        <a href="{{
+            route('teacher.exam.list', [
+                'course_id' => $course_id
+            ])
+        }}" class="font-semibold cursor-pointer">
+            // ListExam
+        </a>
         <a href="" class="font-semibold text-gray-500">//ExamDetail</a>
     </div>
 

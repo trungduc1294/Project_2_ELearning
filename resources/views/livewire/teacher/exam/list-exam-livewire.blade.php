@@ -48,7 +48,12 @@
                         </button>
                     </a>
         
-                    <a class="submit mt-4">
+                    <a class="submit mt-4" href="{{
+                        route('teacher.exam.statistic', [
+                            'course_id' => $course_id,
+                            'exam_id' => $exam->id
+                        ])
+                    }}">
                         <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                             Thống kê bài làm
                         </button>

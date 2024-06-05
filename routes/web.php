@@ -77,6 +77,8 @@ Route::middleware(['checkRole:teacher'])->group(function () {
     Route::any('/teacher/course-detail/{course_id}/list-exam', [ExamController::class,'showExamList'])->name('teacher.exam.list');
 
     Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}', [ExamController::class,'showExamDetail'])->name('teacher.exam.detail');
+
+    Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}/statistic', [ExamController::class,'showExamStatistical'])->name('teacher.exam.statistic');
 });
 
 
@@ -102,6 +104,7 @@ Route::middleware(['checkRole:student'])->group(function () {
     Route::any('/student/course_detail/{course_id}/do-exam/{exam_id}', [StudentExamController::class, 'doExam'])->name('student.exam.do');
 
     Route::any('/student/course_detail/{course_id}/review-exam/{exam_id}', [StudentExamController::class, 'reviewExam'])->name('student.exam.review');
+    
 
     // Route::get('/user/my-library', function () {
     //     return view('pages.student.my-library.mylibrary');

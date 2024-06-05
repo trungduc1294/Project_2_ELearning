@@ -19,7 +19,7 @@ class StudentReviewExamLivewire extends Component
     public $student_id;
 
     public $questions;
-    public $examScore;
+    public $temp_score;
     public $teacherGiveScore;
     
     public function fetchData() {
@@ -33,6 +33,7 @@ class StudentReviewExamLivewire extends Component
 
         // count score
         $this->countTempScore();
+        $this->teacherGiveScore = $this->getTeacherScore();
     }
     
     public function render()
@@ -98,13 +99,24 @@ class StudentReviewExamLivewire extends Component
                 $score++;
             }
         }
-        $examScore = new ExamScore();
-        $examScore->student_id = $this->student_id;
-        $examScore->exam_id = $this->exam_id;
-        $examScore->temp_score = $score;
-        $examScore->save();
+        $temp_score = new ExamScore();
+        $temp_score->student_id = $this->student_id;
+        $temp_score->exam_id = $this->exam_id;
+        $temp_score->temp_score = $score;
+        $temp_score->save();
 
-        $this->examScore = $score;
+        $this->temp_score = $score;
+    }
+
+    public function getTeacherScore() {
+        $examScore = ExamScore::where('student_id', $this->student_id)
+            ->where('exam_id', $this->exam_id)
+            ->first();
+        if($examScore->score != null) {
+            return $examScore->score;
+        } else {
+            return null;
+        }
     }
 
     // public function submitTeacherScore() {

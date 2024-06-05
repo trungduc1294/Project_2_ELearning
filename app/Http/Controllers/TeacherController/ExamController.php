@@ -25,4 +25,11 @@ class ExamController extends Controller
             'exam_id' => $request->exam_id,
         ]);
     }
+
+    public function showExamStatistical(Request $request) {
+        return view('pages.teacher.exam.page-exam-statistic',[
+            'course_id' => $request->course_id,
+            'exam_id' => $request->exam_id,
+        ]);
+    }
 }
