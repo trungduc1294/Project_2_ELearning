@@ -94,4 +94,12 @@ class TeacherCourseDetail extends Component
             $this->dispatch('swal', title: 'Tạo mã tham gia khoá học thành công.', type: 'success');
         }
     }
+
+    public function redirectToMeetingRoom() {
+        if($this->course->reference_code == null) {
+            $this->dispatch('swal', title: 'Vui lòng tạo mã tham gia khoá học trước khi tạo phòng học.', type: 'error');
+            return;
+        }
+        return redirect()->route('create.meeting');
+    }
 }

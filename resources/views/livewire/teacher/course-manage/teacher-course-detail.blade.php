@@ -24,7 +24,7 @@
                     <h3>{{ $teacher->username }}</h3>
                 </div>
             </div>
-            <div class="course-info" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
+            <div class="course-info cursor-pointer" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
                 <span>Thông Tin Chung</span>
             </div>
         </div>
@@ -48,6 +48,9 @@
                     <i class="fas fa-play"></i>
                     <span>Bài Giảng</span>
               </div>
+              <div class="announce tab-button" wire:click='changeStep("announce")'>
+                    <span>Thông báo lớp học</span>
+            </div>
               <div class="students_manage tab-button" wire:click='changeStep("students")'>
                 <span>Học Sinh</span>
               </div>
@@ -64,6 +67,13 @@
                 @livewire('teacher-lesson-list', ['courseId' => $courseId])
             @endif
 
+            {{-- Announce --}}
+            @if ($step == "announce")
+                <div class="announce-tab">
+                    Thoong bao lop hoc o day
+                </div>
+            @endif
+
 
             {{-- Students --}}
             @if ($step == "students")
@@ -74,8 +84,12 @@
 
             {{-- Meeting --}}
             @if ($step == "meeting")
-                <div class="meeting-tab">
-                    <a href="{{route('create.meeting')}}">Tạo phòng học</a>
+                <div class="note my-6 flex flex-col gap-1">
+                    <span class="text-lg">Vào phần <span class="text-red-400 font-semibold">"Thông báo lớp học"</span> để thông báo cho học sinh về giờ học mà lớp học sẽ bắt đầu.</span>
+                    <span class="text-lg">Sử dụng mã CODE trong phần <span class="text-red-400 font-semibold">"Thông tin chung"</span> để làm mã code tham gia lớp học. Nếu chưa có, hãy tạo mã code cho khoá học.</span>
+                </div>
+                <div class="meeting-tab cursor-pointer" wire:click='redirectToMeetingRoom'>
+                    <span>Tạo phòng học</span>
                 </div>
             @endif
 

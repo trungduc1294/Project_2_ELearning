@@ -1,4 +1,8 @@
-<div>
+<div
+    class="course_detail relative"
+    x-data="{ openCourseInfoPanel: false }"
+    x-cloak
+>
     <div class="course_detail">
         <div class="teacher_detail">
             <div class="teacher_detail_container">
@@ -9,6 +13,9 @@
                     <div class="name">
                         <h3>{{$teacher->username}}</h3>
                     </div>
+                </div>
+                <div class="course-info" x-on:click="openCourseInfoPanel = !openCourseInfoPanel">
+                    <span>Thông Tin Chung</span>
                 </div>
             </div>
         </div>
@@ -44,6 +51,9 @@
                             <i class="fas fa-play"></i>
                             <span>Danh Sách Bài Giảng</span>
                         </a>
+                    </div>
+                    <div class="announce tab" wire:click='changeTab("announce")'>
+                        <span>Thông báo lớp học</span>
                     </div>
                     <div class="meeting tab" wire:click='changeTab("meeting")'>
                         <span>Phòng Học Trực Tuyến</span>
@@ -92,10 +102,18 @@
                 </div>
                 @endif
 
+                @if ($tab == "announce")
+                <div>
+                    Thông báo lớp học ở đây.
+                </div>
+                @endif
+
                 @if ($tab == "meeting")
-                <div class="meeting">
+                <div class="meeting my-6">
                     <div class="meeting_code">
-                        Hiện tại đang có phòng học với mã: <span>Meeting code</span>
+                        <span class="text-lg">Vào phần <span class="text-red-400 font-semibold">"Thông báo lớp học"</span> để xem nếu có thông báo cuộc họp trực tuyến.</span>
+                        <br>
+                        <span class="text-lg">Sử dụng mã CODE trong phần <span class="text-red-400 font-semibold">"Thông tin chung"</span> để tham gia lớp học khi đến giờ.</span>
                     </div>
                     <div class="meeting-tab">
                         <a href="{{route('create.meeting')}}">Tham gia phòng học</a>
@@ -104,6 +122,34 @@
                 @endif
 
             </div>
+        </div>
+    </div>
+
+    {{-- course Info panel --}}
+    <div class="panel-container" x-show="openCourseInfoPanel">
+        <div class="panel course-info-panel" @click.outside="openCourseInfoPanel = false">
+            <div class="header">
+                <div class="title-panel">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <h1>Thông Tin Khóa Học</h1>
+                </div>
+            </div>
+            <form wire:submit.prevent='updateCourseInfo'>
+                <div class="form-group">
+                    <label for="name">Tên khóa học:</label>
+                    <span>{{$course->name}}</span>
+                </div>
+                <div class="form-group">
+                    <label for="description">Mô tả:</label>
+                    <span>{{$course->description}}</span>
+                </div>
+                <div class="gen-code">
+                    <div class="code">
+                        <span>CODE tham gia: </span>
+                        <span class="text-red-500">{{$course->reference_code ?? "null"}}</span>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
