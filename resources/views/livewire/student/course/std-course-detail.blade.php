@@ -103,9 +103,7 @@
                 @endif
 
                 @if ($tab == "announce")
-                <div>
-                    Thông báo lớp học ở đây.
-                </div>
+                    @livewire('student-course-announce-livewire', ['course' => $course])
                 @endif
 
                 @if ($tab == "meeting")

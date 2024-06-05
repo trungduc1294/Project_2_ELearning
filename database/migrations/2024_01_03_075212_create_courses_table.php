@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name'); // name of the course
             $table->string('description'); // description of the course
+            $table->longText('announcement')->nullable(); // announcement of the course (html format
             $table->integer('category_id')->nullable(); // category id of the course
             $table->string('class')->nullable();
             $table->integer('number_of_lessons')->nullable(); // number of lessions

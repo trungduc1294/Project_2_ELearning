@@ -69,9 +69,7 @@
 
             {{-- Announce --}}
             @if ($step == "announce")
-                <div class="announce-tab">
-                    Thoong bao lop hoc o day
-                </div>
+                @livewire('teacher-course-announce-livewire', ['course_id' => $courseId])
             @endif
 
 
