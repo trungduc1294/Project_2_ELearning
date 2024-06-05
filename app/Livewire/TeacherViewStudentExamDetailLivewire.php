@@ -8,37 +8,38 @@ use App\Models\ExamAnswer;
 use App\Models\ExamOption;
 use App\Models\ExamQuestion;
 use App\Models\ExamScore;
+use App\Models\User;
 use Livewire\Component;
 
-class StudentReviewExamLivewire extends Component
+class TeacherViewStudentExamDetailLivewire extends Component
 {
+    public $student_id;
+    public $student;
     public $exam_id;
     public $exam;
     public $course_id;
     public $course;
-    public $student_id;
 
     public $questions;
     public $temp_score;
     public $teacherGiveScore;
-    
+
     public function fetchData() {
         $this->questions = $this->getAllQuestionByExamId($this->exam_id);
+
+        $this->teacherGiveScore = $this->getTeacherScore();
     }
     public function mount() {
         $this->exam = $this->getExamById($this->exam_id);
         $this->course = $this->getCourseById($this->course_id);
-        $this->student_id = session('userId');
+        $this->student = $this->getStudentById($this->student_id);
         $this->fetchData();
 
-        // count score
         $this->countTempScore();
-        $this->teacherGiveScore = $this->getTeacherScore();
     }
-    
     public function render()
     {
-        return view('livewire.student.exam.student-review-exam-livewire');
+        return view('livewire.teacher.exam.teacher-view-student-exam-detail-livewire');
     }
 
     // ============================= CUS FUCNT =============================
@@ -48,7 +49,9 @@ class StudentReviewExamLivewire extends Component
     public function getCourseById($id) {
         return Course::find($id);
     }
-
+    public function getStudentById($id) {
+        return User::find($id);
+    }
     public function getAllQuestionByExamId($exam_id) {
         $questions = [];
         $examQuestions = ExamQuestion::where('exam_id', $exam_id)->get();
@@ -124,13 +127,12 @@ class StudentReviewExamLivewire extends Component
         }
     }
 
-    // public function submitTeacherScore() {
-    //     $examScore = ExamScore::where('student_id', $this->student_id)
-    //         ->where('exam_id', $this->exam_id)
-    //         ->first();
-    //     $examScore->score = $this->teacherGiveScore;
-    //     $examScore->save();
-    //     $this->dispatch('swal', title: 'Chấm điểm thành công', type: 'success');
-    // }
-    
+    public function submitTeacherScore() {
+        $examScore = ExamScore::where('student_id', $this->student_id)
+            ->where('exam_id', $this->exam_id)
+            ->first();
+        $examScore->score = $this->teacherGiveScore;
+        $examScore->save();
+        $this->dispatch('swal', title: 'Chấm điểm thành công', type: 'success');
+    }
 }

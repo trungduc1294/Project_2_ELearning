@@ -31,6 +31,7 @@
                 <th class="border border-gray-300 px-4 py-2">STT</th>
                 <th class="border border-gray-300 px-4 py-2">Tên học sinh</th>
                 <th class="border border-gray-300 px-4 py-2">Đã làm bài kiểm tra</th>
+                <th class="border border-gray-300 px-4 py-2">Thời điểm nạp</th>
                 <th class="border border-gray-300 px-4 py-2">Điểm tạm chấm</th>
                 <th class="border border-gray-300 px-4 py-2">Điểm thực nhận</th>
                 <th class="border border-gray-300 px-4 py-2">Xem bài chi tiết</th>
@@ -45,10 +46,17 @@
                     <td class="border border-gray-300 px-4 py-2">
                         <i class="fa-regular fa-circle-check text-xl text-green-400"></i>
                     </td>
+                    <td class="border border-gray-300 px-4 py-2">{{$student['submited_time']}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$student['temp_score']}}</td>
                     <td class="border border-gray-300 px-4 py-2">{{$student['score'] ?? 'Chưa có'}}</td>
                     <td class="border border-gray-300 px-4 py-2">
-                        <a>
+                        <a href="{{
+                            route('teacher.exam.student.detail', [
+                                'course_id' => $course_id,
+                                'exam_id' => $exam_id,
+                                'student_id' => $student['student_id']
+                            ])
+                        }}">
                             <button class="bg-blue-500 text-white px-4 py-1 rounded-lg hover:bg-green-400 transform transition duration-200 ease-in-out">
                                 Xem chi tiết
                             </button>
@@ -65,6 +73,7 @@
                     <td class="border border-gray-300 px-4 py-2">
                         <i class="fa-regular fa-circle-xmark text-xl text-red-400"></i>
                     </td>
+                    <td class="border border-gray-300 px-4 py-2">null</td>
                     <td class="border border-gray-300 px-4 py-2">Chưa có</td>
                     <td class="border border-gray-300 px-4 py-2">Chưa có</td>
                     <td class="border border-gray-300 px-4 py-2">

@@ -7,6 +7,7 @@ use App\Models\CourseStudent;
 use App\Models\Exam;
 use App\Models\ExamScore;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class TeacherExamStatisticLivewire extends Component
@@ -45,7 +46,7 @@ class TeacherExamStatisticLivewire extends Component
                 'score' => $exam_score->score,
                 'temp_score' => $exam_score->temp_score,
                 'is_submited' => true,
-                'submited_time' => $exam_score->created_at,
+                'submited_time' => Carbon::parse($exam_score->created_at)->timezone('Asia/Ho_Chi_Minh')->format('Y-m-d H:i:s'),
             ];
         }
         // dd($list_student_submited_exam[0]['student_name']);

@@ -79,6 +79,8 @@ Route::middleware(['checkRole:teacher'])->group(function () {
     Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}', [ExamController::class,'showExamDetail'])->name('teacher.exam.detail');
 
     Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}/statistic', [ExamController::class,'showExamStatistical'])->name('teacher.exam.statistic');
+
+    Route::any('/teacher/course-detail/{course_id}/exam-detail/{exam_id}/student-detail/{student_id}', [ExamController::class,'showExamDetailOfStudent'])->name('teacher.exam.student.detail');
 });
 
 

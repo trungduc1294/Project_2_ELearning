@@ -32,4 +32,12 @@ class ExamController extends Controller
             'exam_id' => $request->exam_id,
         ]);
     }
+
+    public function showExamDetailOfStudent(Request $request) {
+        return view('pages.teacher.exam.page-exam-detail-of-student',[
+            'course_id' => $request->course_id,
+            'exam_id' => $request->exam_id,
+            'student_id' => $request->student_id,
+        ]);
+    }
 }
