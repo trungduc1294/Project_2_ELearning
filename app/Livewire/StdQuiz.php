@@ -50,7 +50,6 @@ class StdQuiz extends Component
         $this->dispatch('selected:answer',answer: $answer, quiz_id: $quiz_id);
 
         $this->checkQuizCorrect();
-        $this->countCorrectAnswer($quiz_id, $this->result);
     }
 
     public function nextQuiz() {
