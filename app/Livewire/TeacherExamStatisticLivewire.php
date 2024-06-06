@@ -60,6 +60,8 @@ class TeacherExamStatisticLivewire extends Component
         $course_students_id = CourseStudent::where('course_id', $this->course_id)->pluck('student_id')->toArray();
         $list_student_not_submited_exam_id = array_diff($course_students_id, $exam_score_students_id);
 
+        $list_student_not_submited_exam = [];
+
         foreach ($list_student_not_submited_exam_id as $student_id) {
             $student = User::find($student_id);
             $list_student_not_submited_exam[] = [
