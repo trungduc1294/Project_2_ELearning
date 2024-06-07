@@ -243,5 +243,5 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Khảo sát người dùng được thì càng tốt
 <!-- - Sửa lỗi xem chi tiết bài kiểm tra -->
 - Thêm text editor cho phần thông tin bài giảng
-- stdin cho code complier
+<!-- - stdin cho code complier -->
 - video va share video call

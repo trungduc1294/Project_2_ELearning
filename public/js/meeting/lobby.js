@@ -1,6 +1,4 @@
-console.log(2);
 let form = document.getElementById('lobby__form')
-
 
 let displayName = sessionStorage.getItem('display_name')
 if (displayName) {
@@ -16,7 +14,5 @@ form.addEventListener('submit', e => {
   if (!inviteCode) {
     inviteCode = String(Math.floor(Math.random() * 10000))
   }
-  // window.location = `room.html?room=${inviteCode}`
-  window.location = `/join-room?room=${inviteCode}`
-  // window.location = `/meeting/join-room?room=${inviteCode}`
+  window.location = `room.html?room=${inviteCode}`
 })
