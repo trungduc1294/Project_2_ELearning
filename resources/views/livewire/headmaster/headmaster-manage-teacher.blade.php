@@ -2,12 +2,12 @@
     <div class="nav">
         <div class="nav_item"  wire:click='changeNavIndex({{0}})'>
             <div class="{{ $currentNavIndex == 0 ? 'tag active' : 'tag' }}">
-                Người Dùng
+                Danh sách người dùng
             </div>
         </div>
         <div class="nav_item" wire:click='changeNavIndex({{1}})'>
             <div class="{{ $currentNavIndex == 1 ? 'tag active' : 'tag' }}">
-                Giáo Viên
+                Danh sách giáo viên
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->role }}</td>
+                        <td>Người dùng</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
@@ -49,7 +49,7 @@
                         <td>{{ $loop->index + 1 }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->role }}</td>
+                        <td>Giáo viên</td>
                         <td>{{ $user->created_at }}</td>
                         <td>{{ $user->updated_at }}</td>
                         <td>
