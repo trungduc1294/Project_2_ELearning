@@ -26,7 +26,7 @@
     <div class="output_block">
         <h1>Argument</h1>
         <input type="text" name="argument" id="argument" placeholder="Input Arguments ">
-        <textarea wire:model="" placeholder="Stdin Arguments"></textarea>
+        <textarea placeholder="Stdin Arguments" wire:model='stdin'></textarea>
 
         <div class="output_info">
             <h1>Output</h1>

@@ -9,6 +9,7 @@ class CodeComplier extends Component
 {
     public $code;
     public $language;
+    public $stdin;
 
     public $output;
     public $statusCode;
@@ -34,12 +35,16 @@ class CodeComplier extends Component
         //     return;
         // }
 
+        // dd($this->stdin, $content);
+
         $response = Http::post('https://api.jdoodle.com/v1/execute', [
             'clientId' => env('JD_CLIENT_ID'),
             'clientSecret' => env('JD_CLIENT_SECRET'),
             // 'script' => $this->code,
             'script' => $content,
             'language' => $this->language,
+            'stdin' => $this->stdin,
+            // 'stdin' => 2,
             // 'language' => 'python3',
             'versionIndex' => '3'
         ]);
@@ -55,7 +60,7 @@ class CodeComplier extends Component
             // $this->cpuTime = $responseData->cpuTime;
         } else {
             $this->output = $responseData->error;
-            dd($this->output);
+            $this->dispatch('swal', title: 'Chưa chọn ngôn ngữ biên dịch.', type: 'error');
         }
     }
 
