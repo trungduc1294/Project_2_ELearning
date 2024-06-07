@@ -1,85 +1,120 @@
-.container_main_meeting {
-  @apply mt-14 relative;
-  @apply h-[calc(100vh-57px)] w-full;
-
-  #room__container {
-    @apply flex relative gap-12;
-
-    #members__container {
-      @apply bg-[#262625] border-r-[1px] border-[#797a79] ;
-      @apply overflow-y-auto w-[100%] max-w-[250px] fixed h-full z-50;
-
-      #members__header {
-        @apply flex justify-between items-center p-[0.5rem] fixed w-[250px] bg-[#323143] text-[18px];
-
-        #members__count {
-          @apply bg-[#1d1d1c] px-[15px] py-[7px] text-[14px] font-semibold rounded-[5px];
-        }
-      }
-
-      #member__list {
-        @apply flex flex-col gap-4 p-[1rem] pt-[5rem] pb-[6.5rem];
-      }
-
-      .members__list::-webkit-scrollbar {
-        @apply h-[14px];
-      }
-    }
-
-
-    #messages__container {
-      @apply bg-[#262625];
-      @apply h-[calc(100vh-57px)] w-[100%] max-w-[25rem];
-      @apply right-0 z-50;
-      @apply absolute overflow-y-auto;
-      @apply border-l-[1px] border-[#111];
-
-      #messages {
-        @apply w-full h-full overflow-y-auto;
-      }
-    }
-
-  }
+.container {
+  margin-top: 57px;
+  height: clac(100vh - 57px);
+  width: 100%;
+  position: relative;
 }
 
+#room__container {
+  position: relative;
+  display: flex;
+  gap: 3rem;
+}
+
+#members__container {
+  background-color: #262625;
+  border-right: 1px solid #797a79;
+  overflow-y: auto;
+  width: 90%;
+  max-width: 250px;
+  position: fixed;
+  height: 100%;
+  z-index: 999;
+}
+
+#members__count {
+  background-color: #1d1d1c;
+  padding: 7px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+#members__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 1rem;
+  position: fixed;
+  font-size: 18px;
+  background-color: #323143;
+  width: 218px;
+}
+
+#member__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 6.5rem;
+}
+
+.members__list::-webkit-scrollbar {
+  height: 14px;
+}
 
 .member__wrapper {
-  @apply flex items-center gap-2;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding-left: 1em;
 }
 
 .green__icon {
-  @apply h-[8px] w-[8px] rounded-full bg-[#2aca3e];
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: #2aca3e;
 }
 
 .member_name {
-  @apply text-[14px] font-semibold;
+  font-size: 14px;
+  line-height: 0;
 }
 
+#messages__container {
+  height: calc(100vh - 85px);
+  background-color: #262625;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  max-width: 25rem;
+  overflow-y: auto;
+  border-left: 1px solid #111;
+}
 
-
-
-
+#messages {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
 
 .message__wrapper:last-child {
   margin-bottom: 6.5rem;
 }
 
 .message__wrapper {
-  @apply flex gap-10 m-[1em];
+  display: flex;
+  gap: 10px;
+  margin: 1em;
 }
 
 .message__body {
-  @apply bg-[#363739] rounded-[10px] p-4 max-w-[900px];
+  background-color: #363739;
+  border-radius: 10px;
+  padding: 10px 15px;
   width: fit-content;
-
-  strong {
-    font-weight: 600;
-    color: #ede0e0;
-  }
+  max-width: 900px;
 }
 
 .my__message {
   justify-content: flex-end;
+}
+
+.message__body strong {
+  font-weight: 600;
+  color: #ede0e0;
 }
 
 .message__body__bot {
@@ -106,7 +141,7 @@
 }
 
 #message__form {
-  width: 25rem;
+  width: 23.2rem;
   position: fixed;
   bottom: 0;
   display: block;
@@ -138,7 +173,7 @@
   width: calc(100% - 40.7rem);
   position: fixed;
   left: 15.7rem;
-  top: 100px;
+  top: clac(100vh - 72px);
   overflow-y: auto;
   height: 100%;
 }
@@ -183,7 +218,7 @@
   height: 300px;
   width: 300px;
 
-  background-image: url('/public/images/avatar-svgrepo-com.svg');
+  background-image: url('/images/avatar-svgrepo-com.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -275,7 +310,7 @@
   border-radius: 8px;
   background-color: #1a1a1a60;
   padding: 1rem;
-  left: 45%;
+  left: 50%;
   display: none;
   gap: 1rem;
   transform: translateX(-50%);
