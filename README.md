@@ -138,7 +138,7 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 #### TODO chung
 
 <!-- - sửa lại quizz. reset cau tra loi dung khi next cau -->
-- Nâng cấp code complier. them input
+<!-- - Nâng cấp code complier. them input -->
 
 - Sửa lại phòng học trực tuyến 
     + lưu code phòng meeting vào db khi giáo viên tạo meeting, hiển thị cho phía học sinh
@@ -167,21 +167,21 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 
 
 ## Teacher
-- Tạo bài kiểm tra (option)
+<!-- - Tạo bài kiểm tra (option) -->
 <!-- - Xoá lesson -->
 <!-- - Theem nut xoa yeu cau tham gia o teacher student manage -->
 <!-- - Sua loading khi upload video -->
 
 ## Student
-- Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
+<!-- - Kiểm tra cách cộng điểm để tăng level, xem hết video, làm bài tập, tham gia khóa học, hoàn thành khóa học, ...
     + tham gia khoá học + 50 điểm (v)
     + comment lesson + 10 điểm (v)
     + làm bài tập + 30 điểm (v)
     + đăng bài diễn đàn + 20 điểm (v)
     + cmt diễn đàn + 10 điểm (v)
-    + xem het video + 100 diem
+    + xem het video + 100 diem -->
 
-- Taoj tinh nang lam bai kiem tra
+<!-- - Taoj tinh nang lam bai kiem tra -->
     
 <!-- - Tham gia phòng học trực tuyến -->
 

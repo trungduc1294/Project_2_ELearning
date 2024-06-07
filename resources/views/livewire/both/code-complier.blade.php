@@ -24,12 +24,13 @@
         <div id="editor" wire:ignore></div>
     </div>
     <div class="output_block">
-        <h1>Argument</h1>
-        <input type="text" name="argument" id="argument" placeholder="Input Arguments ">
-        <textarea placeholder="Stdin Arguments" wire:model='stdin'></textarea>
+        <h1 class="text-lg font-semibold mb-3">Đầu vào</h1>
+        {{-- <input type="text" name="argument" id="argument" placeholder="Input Arguments "> --}}
+        <span class="text-red-300 text-xs font-semibold">Nếu cần nhập nhiều input thì xuống dòng ở mỗi input.</span>
+        <textarea class="outline-none" placeholder="Stdin Arguments" wire:model='stdin'></textarea>
 
         <div class="output_info">
-            <h1>Output</h1>
+            <h1>Kết quả</h1>
 
             {{-- <div class="memory_info output_info_item">
                 <h2>Memory</h2>
@@ -42,7 +43,7 @@
             </div> --}}
         </div>
         <div class="output">
-            <span>{{ $output }}</span>
+            <span class="text-green-400">{{ $output }}</span>
         </div>
     </div>
 </div>

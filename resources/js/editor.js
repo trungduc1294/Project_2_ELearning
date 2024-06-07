@@ -7,13 +7,13 @@ import { EditorState } from "@codemirror/state";
 let myTheme = EditorView.theme({
   "&": {
     color: "white",
-    backgroundColor: "#034"
+    backgroundColor: "#282C34"
   },
   ".cm-content": {
     caretColor: "#0e9"
   },
   "&.cm-focused .cm-cursor": {
-    borderLeftColor: "#0e9"
+    borderLeftColor: "#3E4451"
   },
   "&.cm-focused .cm-selectionBackground, ::selection": {
     backgroundColor: "#074"
