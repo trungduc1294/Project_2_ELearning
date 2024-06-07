@@ -241,4 +241,5 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Làm quyển nhanh lên, còn 2 tuần nữa
 - Hoàn thiện các chức năng và lỗi
 - Khảo sát người dùng được thì càng tốt
-- Sửa lỗi xem chi tiết bài kiểm tra
+<!-- - Sửa lỗi xem chi tiết bài kiểm tra -->
+- Thêm text editor cho phần thông tin bài giảng

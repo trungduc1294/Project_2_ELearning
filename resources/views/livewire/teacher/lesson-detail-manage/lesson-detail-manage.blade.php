@@ -106,7 +106,7 @@
 
         {{-- direction --}}
         <div class="direction">
-            <div class="update-video-btn" x-on:click="openVideoPanel = !openVideoPanel;">
+            <div class="update-video-btn ml-20" x-on:click="openVideoPanel = !openVideoPanel;">
                 <i class="fa-solid fa-video mr-2"></i>
                 <span class="btn btn-primary">Thêm video bài giảng</span>
             </div>
@@ -134,11 +134,12 @@
                 <h1 class="title">{{$lesson->name}}</h1>
                 <pre class="content">{{$lesson->description}}</p>
             </div>
-            <div class="update"  x-on:click="openDescriptionPanel = !openDescriptionPanel;">
+            <div class="update" x-on:click="openDescriptionPanel = !openDescriptionPanel;">
                 <i class="fa-solid fa-pencil"></i>
             </div>
         </div>
 
+    
         {{-- comment section --}}
         <div class="discussion">
             <div class="add-reply">
@@ -173,6 +174,7 @@
     <div class="panel-container update-description-panel" x-show="openDescriptionPanel">
         <div class="panel" @click.outside="openDescriptionPanel = false">
             <h1>Cập Nhật Thông Tin Bài Giảng</h1>
+
             <form wire:submit.prevent='updateLessonInfo'>
                 <div class="form-group">
                     <label for="name">Tên bài giảng:</label>
@@ -187,6 +189,7 @@
                     <button type="submit" x-on:click="openDescriptionPanel = false">Cập nhật</button>
                 </div>
             </form>
+            
         </div>
     </div>
 
