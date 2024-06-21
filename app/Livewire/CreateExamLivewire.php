@@ -49,18 +49,31 @@ class CreateExamLivewire extends Component
 
     // ====================== CREATE EXAM ======================
     public function createExam() {
-        $this->validate([
-            'exam_title' => 'required',
-            'exam_description' => 'required',
-            'exam_start_time' => 'required',
-            'exam_end_time' => 'required',
-        ]);
+        if ($this->exam_title == '') {
+            $this->dispatch('swal', title: 'Vui lòng nhập tiêu đề bài kiểm tra.', type: 'error');
+            return;
+        }
+
+        if ($this->exam_description == '') {
+            $this->dispatch('swal', title: 'Vui lòng nhập mô tả bài kiểm tra.', type: 'error');
+            return;
+        }
+
+        if ($this->exam_start_time == '') {
+            $this->dispatch('swal', title: 'Vui lòng chọn thời gian bắt đầu.', type: 'error');
+            return;
+        }
+
+        if ($this->exam_end_time == '') {
+            $this->dispatch('swal', title: 'Vui lòng chọn thời gian kết thúc.', type: 'error');
+            return;
+        }
 
         // check start time < end time
         $start = new \DateTime($this->exam_start_time);
         $end = new \DateTime($this->exam_end_time);
         if ($start > $end) {
-            $this->dispatch('swal', title: 'Thời gian bắt đầu phải nhỏ hơn thời gian kết thúc.', type: 'error');
+            $this->dispatch('swal', title: 'Thời gian bắt đầu phải trước thời gian kết thúc.', type: 'error');
             return;
         }
 
