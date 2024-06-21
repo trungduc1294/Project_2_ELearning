@@ -53,6 +53,14 @@ class CourseList extends Component
     // ==================== MAIN FUNCTION ====================
     public function addNewCourse()
     {
+        if (empty($this->course_name)) {
+            $this->dispatch('swal', title: 'Hãy nhập tên khoá học.', type: 'error');
+            return;
+        }
+        if (empty($this->course_description)) {
+            $this->dispatch('swal', title: 'Hãy nhập mô tả khoá học.', type: 'error');
+            return;
+        }
 
         $course = new Course();
         $course->name = $this->course_name;
@@ -66,12 +74,12 @@ class CourseList extends Component
 
         if ($course->category_id == 0) {
             // thong bao loi
-            $this->error = "Please select a category";
+            $this->dispatch('swal', title: 'Thiếu phân loại khoá học', type: 'success');
             return;
         }
 
         if ($course->class == 0) {
-            $this->error = "Please select a class";
+            $this->dispatch('swal', title: 'Thiếu phân loại lớp', type: 'success');
             return;
         }
 
