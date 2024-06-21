@@ -121,8 +121,8 @@ class DatabaseSeeder extends Seeder
 
         DB::table('courses')->insert([
             [
-                'name' => "Basic Math with two variables and two equations",
-                'description' => "This course will teach you how to solve a system of equations with two variables and two equations.",
+                'name' => "Toán học - Đại số Lớp 10",
+                'description' => "Học tập với môn đại số lớp 10 thật đơn giản qua các bài học thú vị.",
                 'category_id' => 1,
                 'class'=>"10",
                 'teacher_id' => 1,

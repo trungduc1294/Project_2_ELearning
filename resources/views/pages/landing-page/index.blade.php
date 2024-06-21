@@ -13,8 +13,8 @@
 @section('content')
     <div class="landing-page__content">
         <div class="title landing-page__title">
-            <h1>Learn on your schedule</h1>
-            <h2>Start Here...</h2>
+            <h1>Truyền tải <br/> tri thức ...</h1>
+            <h2>Mở rộng tương lai</h2>
         </div>
         <div class="navigation_tab">
             @if (session('role') == 'teacher')
