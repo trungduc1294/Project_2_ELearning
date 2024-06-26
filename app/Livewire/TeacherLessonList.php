@@ -42,6 +42,12 @@ class TeacherLessonList extends Component
 
     // ==================== MAIN FUNCTION ====================
     public function addNewLesson() {
+
+        if (empty($this->newLessonName)) {
+            $this->dispatch('swal', title: 'Tên bài giảng không được để trống.', type: 'error');
+            return;
+        }
+
         $lesson = new Lesson;
         $lesson->course_id = $this->courseId;
         $lesson->name = $this->newLessonName;

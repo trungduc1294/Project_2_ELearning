@@ -74,7 +74,7 @@
                                     'lesson_id' => $lesson->id
                                 ])}}'"
                             @else
-                                onclick="alert('You have to join this course first')"
+                                onclick="alert('Bạn phải tham gia khoá học trước')"
                             @endif
                             >
                                 <div class="lesson_group">

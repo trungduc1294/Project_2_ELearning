@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.quiz-layout')
 
 @section('title', 'Student Manage')
 
