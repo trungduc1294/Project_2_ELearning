@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class Login extends Component
 {
@@ -32,7 +33,7 @@ class Login extends Component
 
         // find user in database
         $user = User::where('email', $this->email)->first();
-        if ($user && $user->password == $this->password) {
+        if ($user && Hash::check($this->password, $user->password)) {
             session()->put('userId', $user->id);
             session()->put('username', $user->username);
             session()->put('role', $user->role);

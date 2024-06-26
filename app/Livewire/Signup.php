@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class Signup extends Component
 {
@@ -28,7 +29,7 @@ class Signup extends Component
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
-        $user->password = $this->password;
+        $user->password = Hash::make($this->password);
         $user->role = "student";
         $user->rank_point = 0;
         $user->save();
