@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Quiz Start')
+@section('title', 'LearningCast | Quiz Start')
 
 @section('style-libraries')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">

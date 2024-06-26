@@ -1,6 +1,6 @@
 @extends('layouts.empty-layout')
 
-@section('title', 'Meeting Create')
+@section('title', 'LearningCast | Meeting')
 
 @section('style-libraries')
 @stop

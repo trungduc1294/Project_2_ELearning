@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Landing Page')
+@section('title', 'LearningCast')
 
 @section('style-libraries')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">

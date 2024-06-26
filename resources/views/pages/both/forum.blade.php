@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Diễn Đàn')
+@section('title', 'LearningCast | Forum')
 
 @section('style-libraries')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css">
