@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -77,7 +78,7 @@ class LwAccount extends Component
 
         $this->user->username = $this->username;
         $this->user->email = $this->email;
-        $this->user->password = $this->password;
+        $this->user->password = Hash::make($this->password);
         $this->user->save();
 
         $this->fetchData();
