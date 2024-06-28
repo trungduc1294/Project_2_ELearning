@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .no-scrollbar {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.meeting-lobby {
+    @apply w-screen h-screen;
+    @apply bg-black/70;
+    @apply relative;
+    @apply items-center justify-center;
+    .wrapper {
+        @apply flex flex-col md:flex-row;
+    }
+
+    .form-group {
+        @apply flex flex-row items-center gap-3;
+        input {
+
+        } 
+    }
+}
+
+.meeting-calling {
+    @apply w-screen h-screen;
+    @apply bg-black/70;
+    @apply relative;
+    .bottom-toolbar {
+        @apply fixed bottom-0 left-0 w-full py-5 px-3;
+        @apply flex flex-row items-center justify-between;
+
+        .room-info {
+            @apply flex flex-row items-center gap-3;
+            @apply font-semibold text-white text-base;
+        }
+
+        .meeting-controls {
+            @apply flex flex-row items-center gap-3;
+            .meeting-control {
+                @apply rounded-full;
+                @apply size-[60px];
+                @apply flex items-center justify-center;
+                @apply bg-[#DFEBFF] text-[#0060FF];
+                @apply transition;
+                @apply cursor-pointer;
+                .icon-content {
+                    @apply inline-block;
+                }
+                .icon-disabled {
+                    @apply hidden;
+                }
+                &.active, &:hover {
+                    @apply bg-[#0060FF] text-white;
+                    @apply transition;
+                    @apply drop-shadow;
+                }
+                &.active {
+                    .icon-disabled {
+                        @apply inline-block;
+                    }
+                    .icon-enabled {
+                        @apply hidden;
+                    }
+                }
+            }
+        }
+
+        .right-actions {
+            .btn-end-call {
+                @apply h-[60px] rounded-full;
+                @apply text-white bg-[#EB5757] hover:bg-red-600;
+                @apply font-semibold;
+                @apply transition;
+                @apply flex items-center justify-center;
+                @apply px-10;
+                @apply cursor-pointer;
+            }
+        }
+    }
+
+    .right-sidebar {
+        @apply fixed top-2 right-0;
+        @apply rounded bg-white p-4;
+        @apply w-[350px] h-[calc(100vh-16px)];
+        @apply transition;
+        @apply translate-x-full;
+        .member-list, .chat-list {
+            @apply flex-col;
+            @apply hidden;
+            @apply h-[calc(100vh-100px)];
+            @apply overflow-hidden overflow-y-auto;
+        }
+        &.active {
+            @apply translate-x-0;
+            @apply right-2;
+        }
+
+        &.active {
+            &.show-list-user {
+                .member-list {
+                    @apply flex;
+                }
+            }
+            &.show-list-chat {
+                .chat-list {
+                    @apply flex;
+                }
+            }
+        }
+
+        .list-head {
+            @apply flex flex-row items-center justify-between;
+            @apply h-[60px];
+            span {
+                @apply font-semibold text-lg text-black;
+            }
+
+            .btn-close-sidebar {
+                @apply p-3;
+                @apply cursor-pointer;
+            }
+        }
+
+        .user-items {
+            @apply flex flex-col gap-3;
+            @apply overflow-hidden overflow-y-auto;
+            .user-item {
+                @apply bg-slate-50 rounded;
+                @apply w-full p-3;
+                @apply flex flex-row items-center justify-between;
+
+                &.is-host {
+                    @apply bg-sky-300;
+                }
+
+                .user-avatar {
+                    @apply size-10;
+                    @apply flex-none;
+                    @apply rounded-md overflow-hidden;
+                    @apply bg-center bg-no-repeat;
+                    @apply bg-slate-200 shadow-sm;
+                    @apply font-semibold text-[#0060FF] text-lg uppercase;
+                    @apply flex items-center justify-center;
+                    img {
+                        @apply object-cover object-center;
+                        @apply w-full h-full;
+                    }
+                }
+                .user-detail {
+                    .user-name {
+                        @apply font-medium text-base;
+                    }
+                }
+                .user-info {
+                    @apply flex flex-row gap-2;
+                    @apply items-center;
+                }
+
+                .user-meeting-status {
+                    @apply flex flex-row items-center gap-3;
+                    .meeting-control {
+                        @apply size-6;
+                        @apply text-[#0060FF];
+                        .icon-content {
+                            @apply size-full;
+                            @apply hidden;
+                        }
+                        .icon-enabled {
+                            @apply inline-block;
+                        }
+                        &.disabled {
+                            @apply text-[#EB5757];
+                            .icon-enabled {
+                                @apply hidden;
+                            }
+                            .icon-disabled {
+                                @apply inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

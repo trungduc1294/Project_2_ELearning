@@ -41,6 +41,10 @@ Route::get('/', function () {
     return view('pages.landing-page.index');
 })->name('home');
 
+Route::get('/meeting', function () {
+    return view('pages.meeting');
+});
+
 // ===================== Route for Auth =====================
 
 // Route::get('/login', [App\Http\Controllers\LoginController::class, 'showLoginForm'])->name('login');
