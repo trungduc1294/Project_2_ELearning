@@ -38,7 +38,7 @@ let timerInterval = null;
 let memberInRoom = {};
 $(document).ready(function () {
 
-    const userItemTemplate = `
+  const userItemTemplate = `
         <div class="user-item">
             <div class="user-info">
                 <div class="user-avatar">DU</div>
@@ -90,254 +90,340 @@ $(document).ready(function () {
         </div>
     `;
 
+  const meetingItemTemplate = `
+    <div class="meeting-item">
+      <div class="item-wrapper">
+        <div class="meeting-detail">
+          <div class="meeting-video"></div>
+          <div class="meeting-audio"></div>
+        </div>
+        <div class="meeting-summary">
+            <div class="meeting-name"></div>
+        </div>
+      </div>
+    </div>
+  `;
 
-    const timer = () => {
-        if (!timerInterval) {
-            clearInterval(timerInterval);
-        }
 
-        timerInterval = setInterval(() => {
-            let _date = new Date;
-            roomTimer.html(`${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`)
-        }, 1000)
+  const timer = () => {
+    if (!timerInterval) {
+      clearInterval(timerInterval);
     }
 
-    const createVideoElement = (pId, name) => {
-        let videoFrame = document.createElement("div");
-        videoFrame.setAttribute("id", `f-${pId}`);
+    timerInterval = setInterval(() => {
+      let _date = new Date;
+      roomTimer.html(`${_date.getHours()}:${_date.getMinutes()}:${_date.getSeconds()}`)
+    }, 1000)
+  }
 
-        //create video
-        let videoElement = document.createElement("video");
-        videoElement.classList.add("video-frame");
-        videoElement.setAttribute("id", `v-${pId}`);
-        videoElement.setAttribute("playsinline", true);
-        videoElement.setAttribute("width", "300");
+  const createVideoElement = (pId, name) => {
+    console.log('createVideoElement', pId, name)
+    let meetingItemId = `meeting-item-${pId}`;
+    let videoFrameId = `video-frame-${pId}`;
+    let videoElementId = `v-${pId}`;
 
-        if (pId === meeting.localParticipant.id) {
+    let meetingItem = $('#videoContainer').find('#' + meetingItemId);
+    let isExistItem = meetingItem.length;
+    if (!isExistItem) {
+      meetingItem = $(meetingItemTemplate);
+      meetingItem.attr('id', meetingItemId);
+      $('#videoContainer').append(meetingItem)
+    }
+
+    $(meetingItem).find('.meeting-video').attr('id', videoFrameId);
+    let hasVideoElement = $(meetingItem).find('#' + videoElementId).length;
+    console.log({hasVideoElement});
+    if (hasVideoElement <= 0) {
+      //create video
+      let videoElement = document.createElement("video");
+          videoElement.classList.add("video-frame");
+          videoElement.setAttribute("id", videoElementId);
+          videoElement.setAttribute("playsinline", true);
+
+          if (pId === meeting.localParticipant.id) {
             videoElement.style.transform = "scaleX(-1)";
             videoElement.style.WebkitTransform = "scaleX(-1)";
-        }
-
-        videoFrame.appendChild(videoElement);
-
-        let displayName = document.createElement("div");
-        displayName.innerHTML = `Name : ${name}`;
-
-        videoFrame.appendChild(displayName);
-        return videoFrame;
+          }
+      $(meetingItem).find('.meeting-video').append(videoElement);
     }
+    $(meetingItem).find('.meeting-name').html(name);
+  }
 
-    const createAudioElement = (pId) => {
-        let audioElement = document.createElement("audio");
+  const createAudioElement = (pId) => {
+    console.log('createAudioElement', pId)
+    let meetingItemId = `meeting-item-${pId}`;
+    let videoFrameId = `video-frame-${pId}`;
+    let audioElementId = `a-${pId}`;
+    let meetingItem = $('#videoContainer').find('#' + meetingItemId);
+    let isExistItem = meetingItem.length;
+    if (!isExistItem) {
+      meetingItem = $(meetingItemTemplate);
+      meetingItem.attr('id', meetingItemId);
+      $('#videoContainer').append(meetingItem)
+    }
+    let audioElement = document.createElement("audio");
         audioElement.setAttribute("autoPlay", "false");
         audioElement.setAttribute("playsInline", "true");
         audioElement.setAttribute("controls", "false");
-        audioElement.setAttribute("id", `a-${pId}`);
+        audioElement.setAttribute("id", audioElementId);
         audioElement.style.display = "none";
-        return audioElement;
+
+    $(meetingItem).find('.meeting-audio').append(audioElement)
+  }
+
+  const setTrack = (stream, participant, isLocal) => {
+    if (stream.kind === "video") {
+      isWebCamOn = true;
+      const mediaStream = new MediaStream();
+      mediaStream.addTrack(stream.track);
+      let videoElm = document.getElementById(`v-${participant.id}`);
+      videoElm.srcObject = mediaStream;
+      videoElm
+        .play()
+        .catch((error) =>
+          console.error("videoElem.current.play() failed", error)
+        );
+    }
+    if (stream.kind === "audio") {
+      if (isLocal) {
+        isMicOn = true;
+      } else {
+        const mediaStream = new MediaStream();
+        mediaStream.addTrack(stream.track);
+        let audioElement = document.getElementById(`a-${participant.id}`);
+        audioElement.srcObject = mediaStream;
+        audioElement
+          .play()
+          .catch((error) => console.error("audioElem.play() failed", error));
+      }
+    }
+  }
+
+  const createSidebarMemberItem = function (participant) {
+    let template = $(userItemTemplate);
+    let userList = $('.user-items');
+    template.attr('id', 'sidebar-user-' + participant.id)
+    if (participant?.local) {
+      template.addClass('is-host')
     }
 
-    const setTrack = (stream, audioElement, participant, isLocal) => {
-        if (stream.kind == "video") {
-            isWebCamOn = true;
-            const mediaStream = new MediaStream();
-            mediaStream.addTrack(stream.track);
-            let videoElm = document.getElementById(`v-${participant.id}`);
-            videoElm.srcObject = mediaStream;
-            videoElm
-                .play()
-                .catch((error) =>
-                    console.error("videoElem.current.play() failed", error)
-                );
-        }
-        if (stream.kind == "audio") {
-            if (isLocal) {
-                isMicOn = true;
-            } else {
-                const mediaStream = new MediaStream();
-                mediaStream.addTrack(stream.track);
-                audioElement.srcObject = mediaStream;
-                audioElement
-                    .play()
-                    .catch((error) => console.error("audioElem.play() failed", error));
-            }
-        }
-    }
+    // display user name
+    template.find('.user-name').html(participant.displayName);
+    template.find('.user-avatar').html(participant.displayName.split(" ").map((n) => n[0]).join(""));
 
-    const createSidebarMemberItem = function (participant) {
-        let template = $(userItemTemplate);
-        let userList = $('.user-items');
-        template.attr('id', 'sidebar-user-' + participant.id)
-        if (participant?.local) {
-            template.addClass('is-host')
-        }
-        
-        // display user name
-        template.find('.user-name').html(participant.displayName);
-        template.find('.user-avatar').html(participant.displayName.split(" ").map((n)=>n[0]).join(""));
-        
-        // handle meet status
-        userList.append(template);
-    }
+    // handle meet status
+    userList.append(template);
+  }
 
-    const updateParticipantStatus = function (participant) {
-        let userList = $('.user-items');
-        let item = userList.find('#sidebar-user-' + participant.id);
-        item.find('.audio-control').removeClass('disabled').addClass(participant?.micOn ? '' : 'disabled');
-        item.find('.video-control').removeClass('disabled').addClass(participant?.webcamOn ? '' : 'disabled');
-    }
+  const updateParticipantStatus = function (participant) {
+    let userList = $('.user-items');
+    let item = userList.find('#sidebar-user-' + participant.id);
+    item.find('.audio-control').removeClass('disabled').addClass(participant?.micOn ? '' : 'disabled');
+    item.find('.video-control').removeClass('disabled').addClass(participant?.webcamOn ? '' : 'disabled');
 
-    const handleOnParticipantJoin = function (participant) {
-        if (!memberInRoom[participant.id]) {
-            memberInRoom[participant.id] = participant.id
-        }
-        console.log('handleOnParticipantJoin', participant);
-        // listen event when stream enabled
-        participant.on("stream-enabled", (stream) => {
-            let videoElement = createVideoElement(
-                participant.id,
-                participant.displayName
-            );
-            let audioElement = createAudioElement(participant.id);
-            videoContainer.appendChild(videoElement);
-            videoContainer.appendChild(audioElement);
-            setTrack(stream, audioElement, participant, participant?.local);
-            updateParticipantStatus(participant)
-        });
-
-        // add new member in sidebar section
-        createSidebarMemberItem(participant)
-    }
-
-    const handleOnParticipantLeave = function (participant) {
-        console.log('handleOnParticipantLeave', participant);
-        // remove audio and video
-        $(`#f-${participant.id}`).remove();
-        $(`#a-${participant.id}`).remove();
-
-        // remove user item
-        $('.user-items').find('#sidebar-user-' + participant.id).remove();
-
-        delete memberInRoom[participant.id];
-        if (!Object.keys(memberInRoom)) {
-            meeting?.end();
-        }
-    }
-
-    // Initialize meeting
-    const initializeMeeting = () => {
-        window.VideoSDK.config(TOKEN);
-
-        meeting = window.VideoSDK.initMeeting({
-            meetingId: meetingId, // required
-            name: "Thomas Edison " + (new Date).getTime(), // required
-            micEnabled: true, // optional, default: true
-            webcamEnabled: true, // optional, default: true
-        });
-
-        handleOnParticipantJoin(meeting.localParticipant)
-
-        meeting.join();
-        roomName.html(meetingId);
-
-        // meeting joined event
-        meeting.on("meeting-joined", function (participant) {
-            console.log('meeting-joined', participant, $(lobby))
-            $(lobby).addClass('hidden').removeClass('flex');
-            $(calling).addClass('flex').removeClass('hidden');
-            timer();
-
-            // textDiv.style.display = "none";
-            // document.getElementById("grid-screen").style.display = "block";
-            // document.getElementById(
-            //     "meetingIdHeading"
-            // ).textContent = `Meeting Id: ${meetingId}`;
-        });
-
-        // meeting left event
-        meeting.on("meeting-left", function (evt) {
-            console.log('meeting-left', $(lobby), evt)
-            console.log(meeting)
-            $(lobby).removeClass('hidden').addClass('flex');
-            $(calling).addClass('hidden').removeClass('flex');
-            videoContainer.innerHTML = "";
-        });
-
-        // Remote participants Event
-        // participant joined
-        meeting.on("participant-joined", (participant) => {
-            console.log('participant-joined', participant)
-
-            // stream-enabled
-            handleOnParticipantJoin(participant);
-        });
-
-        // participant left
-        meeting.on("participant-left", (participant) => {
-            console.log('participant-left', participant);
-            handleOnParticipantLeave(participant);
-        });
-    }
-
-    
-
-    btnJoinMeet.on('click', function (evt) {
-        evt.preventDefault();
-        // document.getElementById("join-screen").style.display = "none";
-        // textDiv.textContent = "Joining the meeting...";
-
-        meetingId = meetRoomInput.val();
-
-        initializeMeeting();
+    console.log('participant.local', {
+      participant,
+      micOn: participant.micOn,
+      webcamOn: participant.micOn,
+      isMicOn,
+      isWebCamOn
     })
+    if (participant.local) {
+      let toolbar = $('.bottom-toolbar');
+      toolbar.find('.audio-control').removeClass('active disabled').addClass(isMicOn ? 'active' : 'disabled');
+      toolbar.find('.video-control').removeClass('active disabled').addClass(isWebCamOn ? 'active' : 'disabled');
+    }
+  }
 
-    btnNewMeet.on('click', async function (evt) {
-        evt.preventDefault();
+  const handleOnParticipantJoin = function (participant) {
+    if (!memberInRoom[participant.id]) {
+      memberInRoom[participant.id] = participant.id
+    }
+    console.log('handleOnParticipantJoin', participant);
+    // listen event when stream enabled
 
-        // document.getElementById("join-screen").style.display = "none";
-        // textDiv.textContent = "Please wait, we are joining the meeting";
+    participant.on("stream-enabled", (stream) => {
+      console.log('stream-enabled', stream, participant)
 
-        // API call to create meeting
-        const url = `https://api.videosdk.live/v2/rooms`;
-        const options = {
-            method: "POST",
-            headers: { Authorization: TOKEN, "Content-Type": "application/json" },
-        };
+      if (stream.kind === "audio") {
+        createAudioElement(participant.id);
+        setTrack(stream, participant, participant?.local);
+        updateParticipantStatus(participant)
+      }
 
-        const { roomId } = await fetch(url, options)
-            .then((response) => response.json())
-            .catch((error) => alert("error", error));
-        meetingId = roomId;
-
-        initializeMeeting();
-    })
-
-    $('.users-control, .chat-control').on('click', function (evt) {
-        evt.preventDefault();
-        let isActive = $(this).hasClass('active');
-        let sidebar = $('.right-sidebar');
-        let activeClass = $(this).is('.users-control') ? 'show-list-user' : 'show-list-chat';
-
-        $('.users-control, .chat-control').removeClass('active');
-        if (isActive) {
-            sidebar.removeClass('active');
-            return;
-        }
-        if (!isActive) {
-            $(this).toggleClass('active');
-            sidebar.addClass('active');
-        }
-
-        sidebar.removeClass('show-list-user show-list-chat').addClass(activeClass)
+      if (stream.kind === "video") {
+        createVideoElement(
+          participant.id,
+          participant.displayName
+        );
+        setTrack(stream, participant, participant?.local);
+        updateParticipantStatus(participant)
+      }
     });
 
-    $('.right-sidebar .btn-close-sidebar').on('click', function (evt) {
-        evt.preventDefault();
-        $('.right-sidebar').removeClass('users-control show-list-chat active');
-        $('.users-control, .chat-control').removeClass('active')
-    })
+    // add new member in sidebar section
+    createSidebarMemberItem(participant)
+  }
 
-    $('.btn-end-call').on('click', function () {
-        meeting?.leave();
-    })
+  const handleOnParticipantLeave = function (participant) {
+    console.log('handleOnParticipantLeave', participant);
+    // remove audio and video
+    $(`#v-${participant.id}`).remove();
+    $(`#a-${participant.id}`).remove();
+
+    // remove user item
+    $('.user-items').find('#sidebar-user-' + participant.id).remove();
+
+    delete memberInRoom[participant.id];
+    if (!Object.keys(memberInRoom)) {
+      meeting?.end();
+    }
+  }
+
+  // Initialize meeting
+  const initializeMeeting = () => {
+    window.VideoSDK.config(TOKEN);
+
+    meeting = window.VideoSDK.initMeeting({
+      meetingId: meetingId, // required
+      name: "Thomas Edison " + (new Date).getTime(), // required
+      micEnabled: true, // optional, default: true
+      webcamEnabled: true, // optional, default: true
+    });
+
+    handleOnParticipantJoin(meeting.localParticipant)
+
+    meeting.join();
+    roomName.html(meetingId);
+
+    // meeting joined event
+    meeting.on("meeting-joined", function (participant) {
+      console.log('meeting-joined', participant, $(lobby))
+      $(lobby).addClass('hidden').removeClass('flex');
+      $(calling).addClass('flex').removeClass('hidden');
+      timer();
+
+      // textDiv.style.display = "none";
+      // document.getElementById("grid-screen").style.display = "block";
+      // document.getElementById(
+      //     "meetingIdHeading"
+      // ).textContent = `Meeting Id: ${meetingId}`;
+    });
+
+    // meeting left event
+    meeting.on("meeting-left", function (evt) {
+      console.log('meeting-left', $(lobby), evt)
+      console.log(meeting)
+      $(lobby).removeClass('hidden').addClass('flex');
+      $(calling).addClass('hidden').removeClass('flex');
+      videoContainer.innerHTML = "";
+    });
+
+    // Remote participants Event
+    // participant joined
+    meeting.on("participant-joined", (participant) => {
+      console.log('participant-joined', participant)
+
+      // stream-enabled
+      handleOnParticipantJoin(participant);
+    });
+
+    // participant left
+    meeting.on("participant-left", (participant) => {
+      console.log('participant-left', participant);
+      handleOnParticipantLeave(participant);
+    });
+  }
+
+  btnJoinMeet.on('click', function (evt) {
+    evt.preventDefault();
+    // document.getElementById("join-screen").style.display = "none";
+    // textDiv.textContent = "Joining the meeting...";
+
+    meetingId = meetRoomInput.val();
+
+    initializeMeeting();
+  })
+
+  btnNewMeet.on('click', async function (evt) {
+    evt.preventDefault();
+
+    // document.getElementById("join-screen").style.display = "none";
+    // textDiv.textContent = "Please wait, we are joining the meeting";
+
+    // API call to create meeting
+    const url = `https://api.videosdk.live/v2/rooms`;
+    const options = {
+      method: "POST",
+      headers: {Authorization: TOKEN, "Content-Type": "application/json"},
+    };
+
+    const {roomId} = await fetch(url, options)
+      .then((response) => response.json())
+      .catch((error) => alert("error", error));
+    meetingId = roomId;
+
+    initializeMeeting();
+  })
+
+  $('.users-control, .chat-control').on('click', function (evt) {
+    evt.preventDefault();
+    let isActive = $(this).hasClass('active');
+    let sidebar = $('.right-sidebar');
+    let activeClass = $(this).is('.users-control') ? 'show-list-user' : 'show-list-chat';
+
+    $('.users-control, .chat-control').removeClass('active');
+    if (isActive) {
+      sidebar.removeClass('active');
+      return;
+    }
+    if (!isActive) {
+      $(this).toggleClass('active');
+      sidebar.addClass('active');
+    }
+
+    sidebar.removeClass('show-list-user show-list-chat').addClass(activeClass)
+  });
+
+  $('.right-sidebar .btn-close-sidebar').on('click', function (evt) {
+    evt.preventDefault();
+    $('.right-sidebar').removeClass('users-control show-list-chat active');
+    $('.users-control, .chat-control').removeClass('active')
+  })
+
+  $('.btn-end-call').on('click', function () {
+    meeting?.leave();
+  });
+
+  $('.bottom-toolbar .audio-control').on('click', function (evt) {
+    evt.preventDefault();
+    if (isMicOn) {
+      // Disable Mic in Meeting
+      meeting?.muteMic();
+    } else {
+      // Enable Mic in Meeting
+      meeting?.unmuteMic();
+    }
+    isMicOn = !isMicOn;
+    updateParticipantStatus(meeting.localParticipant)
+  })
+
+  $('.bottom-toolbar .video-control').on('click', function (evt) {
+    evt.preventDefault();
+    if (isWebCamOn) {
+      // Disable Webcam in Meeting
+      meeting?.disableWebcam();
+
+      let vElement = document.getElementById(`v-${meeting.localParticipant.id}`);
+      vElement.style.display = "none";
+    } else {
+      // Enable Webcam in Meeting
+      meeting?.enableWebcam();
+
+      let vElement = document.getElementById(`v-${meeting.localParticipant.id}`);
+      vElement.style.display = "inline";
+    }
+    isWebCamOn = !isWebCamOn;
+    updateParticipantStatus(meeting.localParticipant)
+  })
 });

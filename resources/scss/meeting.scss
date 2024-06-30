@@ -23,7 +23,7 @@
         @apply flex flex-row items-center gap-3;
         input {
 
-        } 
+        }
     }
 }
 
@@ -53,6 +53,9 @@
                     @apply inline-block;
                 }
                 .icon-disabled {
+                    @apply inline-block;
+                }
+                .icon-enabled {
                     @apply hidden;
                 }
                 &.active, &:hover {
@@ -62,10 +65,10 @@
                 }
                 &.active {
                     .icon-disabled {
-                        @apply inline-block;
+                        @apply hidden;
                     }
                     .icon-enabled {
-                        @apply hidden;
+                        @apply inline-block;
                     }
                 }
             }
@@ -188,4 +191,10 @@
             }
         }
     }
+
+  .meeting-item {
+    .video-frame {
+      @apply flex-none aspect-video;
+    }
+  }
 }
