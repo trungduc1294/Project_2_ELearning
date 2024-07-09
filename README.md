@@ -29,6 +29,7 @@ public function index()
 
 
 
+
 ### Cách sử dụng jdoodle API
 1. Đăng ký nhận API Key từ JDoodle1.
 Đăng ký và nhận API key từ JDoodle
@@ -245,3 +246,14 @@ $response = Http::post('https://api.jdoodle.com/v1/execute', [
 - Thêm text editor cho phần thông tin bài giảng
 <!-- - stdin cho code complier -->
 - video va share video call
+
+
+
+
+ngrok http --domain=ethical-composed-tortoise.ngrok-free.app 8000
+
+TODO: 
+- chuyen route meeting sang phan meeting trong giao dien
+- sửa lại giao diện lobby
+- lưu mã phòng vào db
+- sửa lại giao diện phòng

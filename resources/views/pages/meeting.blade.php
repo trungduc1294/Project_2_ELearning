@@ -8,21 +8,35 @@
 </head>
 <body>
 
-<div class="meeting-lobby flex">
-    <div class="wrapper">
-        <div class="left">
-            <button type="button" id="new-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">New Meeting</button>
+{{-- lobby --}}
+<div class="meeting-lobby flex flex-col">
 
-            <div class="form-group">
-                <input type="text" id="meet-room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                <button type="button" id="join-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Join Meet</button>
+        <div class="wrapper w-full flex justify-around items-center">
+
+            <div class="left">
+                <div class="text mb-20">
+                    <h1 class="text-4xl text-yellow-200 font-extrabold">Học tập và phát triển</h1>
+                    <h1 class="text-4xl text-yellow-400 font-extrabold">Môi trường trực tuyến</h1>
+                    <h1 class="text-4xl text-yellow-600 font-extrabold">Năng động & Sáng tạo</h1>
+
+                </div>
+                <div class="join-room">
+                    <button type="button" id="new-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 transform transition duration-300 ease-linear">Tạo phòng học mới</button>
+    
+                    <div class="form-group">
+                        <input type="text" id="meet-room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mã code phòng học" />
+                        <button type="button" id="join-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tham gia</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <img class="w-60 h-60" src="{{asset("/images/meeting/meeting.png")}}" alt="">
             </div>
         </div>
-        <div class="right">
-
-        </div>
-    </div>
 </div>
+
+{{-- room --}}
 <div class="meeting-calling hidden">
     <div class="" id="videoContainer"></div>
     <div class="bottom-toolbar">

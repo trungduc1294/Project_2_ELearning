@@ -82,10 +82,10 @@
 
             {{-- Meeting --}}
             @if ($step == "meeting")
-                <div class="note my-6 flex flex-col gap-1">
+                {{-- <div class="note my-6 flex flex-col gap-1">
                     <span class="text-lg">Vào phần <span class="text-red-400 font-semibold">"Thông báo lớp học"</span> để thông báo cho học sinh về giờ học mà lớp học sẽ bắt đầu.</span>
                     <span class="text-lg">Sử dụng mã CODE trong phần <span class="text-red-400 font-semibold">"Thông tin chung"</span> để làm mã code tham gia lớp học. Nếu chưa có, hãy tạo mã code cho khoá học.</span>
-                </div>
+                </div> --}}
                 <div class="meeting-tab cursor-pointer" wire:click='redirectToMeetingRoom'>
                     <span>Tạo phòng học</span>
                 </div>

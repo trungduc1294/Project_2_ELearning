@@ -43,7 +43,7 @@ Route::get('/', function () {
 
 Route::get('/meeting', function () {
     return view('pages.meeting');
-});
+})->name('meeting');
 
 // ===================== Route for Auth =====================
 
@@ -132,7 +132,7 @@ Route::middleware(['checkRole:headmaster'])->group(function () {
     Route::any('/headmaster/teacher-manage', [HeadmasterController::class, 'index'])->name('headmaster.teacher.manage');
 });
 // ===================== Route for Both =====================
-Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('create.meeting');
+Route::any('/create-meeting', [MeetingController::class, 'getCreateMeetingPage'])->name('meeting2');
 
 Route::any('/join-room', [MeetingController::class, 'getJoinRoomPage'])->name('join.room');
 

@@ -116,6 +116,7 @@ $(document).ready(function () {
     }, 1000)
   }
 
+  // Create Video Element
   const createVideoElement = (pId, name) => {
     console.log('createVideoElement', pId, name)
     let meetingItemId = `meeting-item-${pId}`;
@@ -280,23 +281,27 @@ $(document).ready(function () {
     }
   }
 
+  // ==========================
   // Initialize meeting
   const initializeMeeting = () => {
     window.VideoSDK.config(TOKEN);
 
     meeting = window.VideoSDK.initMeeting({
       meetingId: meetingId, // required
-      name: "Thomas Edison " + (new Date).getTime(), // required
+      name: "User " + (new Date).getTime(), // required
       micEnabled: true, // optional, default: true
       webcamEnabled: true, // optional, default: true
     });
 
-    handleOnParticipantJoin(meeting.localParticipant)
+
+
+    handleOnParticipantJoin(meeting.localParticipant) // init video/audio for local participant
 
     meeting.join();
     roomName.html(meetingId);
 
     // meeting joined event
+    // create meeting
     meeting.on("meeting-joined", function (participant) {
       console.log('meeting-joined', participant, $(lobby))
       $(lobby).addClass('hidden').removeClass('flex');
@@ -363,9 +368,12 @@ $(document).ready(function () {
       .catch((error) => alert("error", error));
     meetingId = roomId;
 
+    // TODO: luu meetingId vao db
+
     initializeMeeting();
   })
 
+  // bat sidebar chat
   $('.users-control, .chat-control').on('click', function (evt) {
     evt.preventDefault();
     let isActive = $(this).hasClass('active');
