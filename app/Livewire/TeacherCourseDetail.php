@@ -100,6 +100,8 @@ class TeacherCourseDetail extends Component
         //     $this->dispatch('swal', title: 'Vui lòng tạo mã tham gia khoá học trước khi tạo phòng học.', type: 'error');
         //     return;
         // }
-        return redirect()->route('meeting');
+        return redirect()->route('meeting', [
+            'course_id' => $this->courseId
+        ]);
     }
 }

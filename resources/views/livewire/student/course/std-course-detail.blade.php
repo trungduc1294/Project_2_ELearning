@@ -109,12 +109,16 @@
                 @if ($tab == "meeting")
                 <div class="meeting my-6">
                     <div class="meeting_code">
-                        <span class="text-lg">Vào phần <span class="text-red-400 font-semibold">"Thông báo lớp học"</span> để xem nếu có thông báo cuộc họp trực tuyến.</span>
+                        <span class="text-lg">Mã tham gia phòng học: 
+                            <span class="text-red-500">{{$course->meeting_code ?? "Chưa có"}}</span> 
+                        </span>
                         <br>
-                        <span class="text-lg">Sử dụng mã CODE trong phần <span class="text-red-400 font-semibold">"Thông tin chung"</span> để tham gia lớp học khi đến giờ.</span>
+                        <span class="text-lg">Sử dụng mã tham gia để vào phòng học trực tuyến của khoá học.</span>
                     </div>
                     <div class="meeting-tab">
-                        <a href="{{route('meeting')}}">Tham gia phòng học</a>
+                        <a href="{{route('meeting', [
+                            'course_id' => $course->id,
+                        ])}}">Tham gia phòng học</a>
                     </div>
                 </div>
                 @endif

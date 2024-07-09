@@ -41,9 +41,11 @@ Route::get('/', function () {
     return view('pages.landing-page.index');
 })->name('home');
 
-Route::get('/meeting', function () {
+Route::get('/{course_id}/meeting', function () {
     return view('pages.meeting');
 })->name('meeting');
+
+Route::post('/{course_id}/save-meeting-id', [MeetingController::class, 'saveMeetingId'])->name('meeting.saveid');
 
 // ===================== Route for Auth =====================
 

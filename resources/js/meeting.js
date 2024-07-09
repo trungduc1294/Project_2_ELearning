@@ -370,7 +370,23 @@ $(document).ready(function () {
     meetingId = roomId;
 
     // TODO: luu meetingId vao db
+    const courseId = window.location.pathname.split('/')[1]; // Extract course ID from URL
+    const saveUrl = `/${courseId}/save-meeting-id`;
+    const saveOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content')
+      },
+      body: JSON.stringify({meetingId: meetingId}),
+    };
 
+    fetch(saveUrl, saveOptions)
+      .then((response) => response.json())
+      .then((data) => console.log(data.message))
+      .catch((error) => alert("error", error));
+
+    // khoi tao meeting
     initializeMeeting();
   })
 
