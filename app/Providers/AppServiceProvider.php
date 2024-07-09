@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // có thể tắt chế độ https bằng cách comment dòng dưới, để dùng ở local
+        // bật lên thì phải dùng ngrok để tạo https
         URL::forceScheme('https');
     }
 }

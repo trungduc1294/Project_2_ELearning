@@ -350,6 +350,7 @@ $(document).ready(function () {
     initializeMeeting();
   })
 
+  // Xu ly su kien click vao nut new meeting
   btnNewMeet.on('click', async function (evt) {
     evt.preventDefault();
 

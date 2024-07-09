@@ -114,7 +114,7 @@
                         <span class="text-lg">Sử dụng mã CODE trong phần <span class="text-red-400 font-semibold">"Thông tin chung"</span> để tham gia lớp học khi đến giờ.</span>
                     </div>
                     <div class="meeting-tab">
-                        <a href="{{route('create.meeting')}}">Tham gia phòng học</a>
+                        <a href="{{route('meeting')}}">Tham gia phòng học</a>
                     </div>
                 </div>
                 @endif

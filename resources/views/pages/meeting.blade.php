@@ -21,7 +21,9 @@
 
                 </div>
                 <div class="join-room">
-                    <button type="button" id="new-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 transform transition duration-300 ease-linear">Tạo phòng học mới</button>
+                    @if (session('role') == 'teacher')
+                        <button type="button" id="new-meet" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 transform transition duration-300 ease-linear">Tạo phòng học mới</button>
+                    @endif
     
                     <div class="form-group">
                         <input type="text" id="meet-room" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Mã code phòng học" />
