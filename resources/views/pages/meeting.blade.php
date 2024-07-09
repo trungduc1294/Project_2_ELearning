@@ -37,12 +37,12 @@
 </div>
 
 {{-- room --}}
-<div class="meeting-calling hidden">
+<div class="meeting-calling hidden bg-[#151f32] h-full">
     <div class="" id="videoContainer"></div>
     <div class="bottom-toolbar">
         <div class="room-info">
             <span class="room-timer"></span>
-            <span class="room-name"></span>
+            <span class="room-name text-red-400"></span>
         </div>
         <div class="meeting-controls">
             <div class="audio-control meeting-control">
